@@ -1,0 +1,2226 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2019 1:38:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{5F3ED4EC-8614-4C0E-96A5-E4728E8F5C07}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="NfqtoOds_FacturasEmitidas_Vw"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{9BB16BD3-EE95-4907-BACB-655B08EC7840}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\facturasemitidas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{9D64AE71-7995-4E6F-A9FA-A2986C216886}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="facturasemitidas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\facturasemitidas\NFQ BBDD"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="NFQ BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from o_lst_facturasemitidas_Vw</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\facturasemitidas\NFQ BBDD.Connections[IDbConnection]"
+                  connectionManagerID="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  connectionManagerRefId="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Abono]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Abono]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Abono]"
+                      name="b_Abono"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_CalculaCont]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_CalculaCont]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_CalculaCont]"
+                      name="b_CalculaCont"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_InternaGest]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_InternaGest]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_InternaGest]"
+                      name="b_InternaGest"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Interno]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Interno]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Interno]"
+                      name="b_Interno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ClienteFacturacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ClienteFacturacion]"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ClienteFacturacion]"
+                      name="ClienteFacturacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Concepto]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Concepto]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Concepto]"
+                      name="Concepto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[CuentaCCCCobro]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[CuentaCCCCobro]"
+                      length="20"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[CuentaCCCCobro]"
+                      name="CuentaCCCCobro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFImp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateBaseFImp]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFImp]"
+                      name="dFxRateBaseFImp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFIni]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateBaseFIni]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFIni]"
+                      name="dFxRateBaseFIni"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFImp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateEurFImp]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFImp]"
+                      name="dFxRateEurFImp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFIni]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateEurFIni]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFIni]"
+                      name="dFxRateEurFIni"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DiasaCobro]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[DiasaCobro]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DiasaCobro]"
+                      name="DiasaCobro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DiasaEmision]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[DiasaEmision]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DiasaEmision]"
+                      name="DiasaEmision"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dPercAjCons]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dPercAjCons]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dPercAjCons]"
+                      name="dPercAjCons"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dt_Emi]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dt_Emi]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dt_Emi]"
+                      name="dt_Emi"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_FxRate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_FxRate]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_FxRate]"
+                      name="d_FxRate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Estado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Estado]"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Estado]"
+                      name="Estado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaEmision]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaEmision]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaEmision]"
+                      name="FechaEmision"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaImp]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaImp]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaImp]"
+                      name="FechaImp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaPrevCobro]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaPrevCobro]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaPrevCobro]"
+                      name="FechaPrevCobro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FecProc]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FecProc]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FecProc]"
+                      name="FecProc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierreVenta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaCierreVenta]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierreVenta]"
+                      name="f_FechaCierreVenta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaEffCobro]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaEffCobro]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaEffCobro]"
+                      name="f_FechaEffCobro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaIniConta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaIniConta]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaIniConta]"
+                      name="f_FechaIniConta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiqIRPF]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaLiqIRPF]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiqIRPF]"
+                      name="f_FechaLiqIRPF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiqIVA]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaLiqIVA]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiqIVA]"
+                      name="f_FechaLiqIVA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Factura]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Factura]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Factura]"
+                      name="Id_Factura"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCC]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC]"
+                      name="id_MvtCCC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCCIRPF]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCCIRPF]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCCIRPF]"
+                      name="id_MvtCCCIRPF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCCIVA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCCIVA]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCCIVA]"
+                      name="id_MvtCCCIVA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteBruto]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ImporteBruto]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteBruto]"
+                      name="ImporteBruto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteBrutotoDiv]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ImporteBrutotoDiv]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteBrutotoDiv]"
+                      name="ImporteBrutotoDiv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteIRPF]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ImporteIRPF]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteIRPF]"
+                      name="ImporteIRPF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteIRPFDiv]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ImporteIRPFDiv]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteIRPFDiv]"
+                      name="ImporteIRPFDiv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteNeto]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ImporteNeto]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteNeto]"
+                      name="ImporteNeto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteNetoDiv]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ImporteNetoDiv]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteNetoDiv]"
+                      name="ImporteNetoDiv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Pond]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Pond]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Pond]"
+                      name="Pond"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sCurrBase]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sCurrBase]"
+                      length="3"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sCurrBase]"
+                      name="sCurrBase"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_AliasCliente]"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCliente]"
+                      name="s_AliasCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCompany]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_AliasCompany]"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCompany]"
+                      name="s_AliasCompany"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCompanyCont]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_AliasCompanyCont]"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCompanyCont]"
+                      name="s_AliasCompanyCont"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasProyecto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_AliasProyecto]"
+                      length="150"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasProyecto]"
+                      name="s_AliasProyecto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Apellidos]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Apellidos]"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Apellidos]"
+                      name="s_Apellidos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Divisa]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Divisa]"
+                      length="3"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Divisa]"
+                      name="s_Divisa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpBalance]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpBalance]"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpBalance]"
+                      name="s_EpBalance"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpIRPF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpIRPF]"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpIRPF]"
+                      name="s_EpIRPF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpIVA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpIVA]"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpIVA]"
+                      name="s_EpIVA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpPyG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpPyG]"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpPyG]"
+                      name="s_EpPyG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_FctrRef]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_FctrRef]"
+                      length="25"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_FctrRef]"
+                      name="s_FctrRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCliente]"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCliente]"
+                      name="s_IdCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdClienteCont]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdClienteCont]"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdClienteCont]"
+                      name="s_IdClienteCont"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompany]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCompany]"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompany]"
+                      name="s_IdCompany"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompanyCont]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCompanyCont]"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompanyCont]"
+                      name="s_IdCompanyCont"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompanyFact]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCompanyFact]"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompanyFact]"
+                      name="s_IdCompanyFact"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompanySSI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCompanySSI]"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompanySSI]"
+                      name="s_IdCompanySSI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdExtFactura]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdExtFactura]"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdExtFactura]"
+                      name="s_IdExtFactura"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdPersonalResponsable]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdPersonalResponsable]"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdPersonalResponsable]"
+                      name="s_IdPersonalResponsable"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdProyecto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdProyecto]"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdProyecto]"
+                      name="s_IdProyecto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Nombre]"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Nombre]"
+                      name="s_Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_OrgIdExt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_OrgIdExt]"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_OrgIdExt]"
+                      name="s_OrgIdExt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_PeriodoIVA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_PeriodoIVA]"
+                      length="6"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_PeriodoIVA]"
+                      name="s_PeriodoIVA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_TipFactura]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_TipFactura]"
+                      length="4"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_TipFactura]"
+                      name="s_TipFactura"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Abono]"
+                      dataType="bool"
+                      name="b_Abono" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_CalculaCont]"
+                      dataType="ui8"
+                      name="b_CalculaCont" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_InternaGest]"
+                      dataType="bool"
+                      name="b_InternaGest" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Interno]"
+                      dataType="bool"
+                      name="b_Interno" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ClienteFacturacion]"
+                      dataType="wstr"
+                      length="255"
+                      name="ClienteFacturacion" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Concepto]"
+                      dataType="nText"
+                      name="Concepto" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[CuentaCCCCobro]"
+                      dataType="wstr"
+                      length="20"
+                      name="CuentaCCCCobro" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateBaseFImp]"
+                      dataType="r8"
+                      name="dFxRateBaseFImp" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateBaseFIni]"
+                      dataType="r8"
+                      name="dFxRateBaseFIni" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateEurFImp]"
+                      dataType="r8"
+                      name="dFxRateEurFImp" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateEurFIni]"
+                      dataType="r8"
+                      name="dFxRateEurFIni" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[DiasaCobro]"
+                      dataType="r8"
+                      name="DiasaCobro" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[DiasaEmision]"
+                      dataType="r8"
+                      name="DiasaEmision" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dPercAjCons]"
+                      dataType="r8"
+                      name="dPercAjCons" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dt_Emi]"
+                      dataType="dbTimeStamp"
+                      name="dt_Emi" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_FxRate]"
+                      dataType="r8"
+                      name="d_FxRate" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="255"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaEmision]"
+                      dataType="dbTimeStamp"
+                      name="FechaEmision" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaImp]"
+                      dataType="dbTimeStamp"
+                      name="FechaImp" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaPrevCobro]"
+                      dataType="dbTimeStamp"
+                      name="FechaPrevCobro" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FecProc]"
+                      dataType="dbTimeStamp"
+                      name="FecProc" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaCierreVenta]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaCierreVenta" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaEffCobro]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaEffCobro" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaIniConta]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaIniConta" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaLiqIRPF]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaLiqIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaLiqIVA]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaLiqIVA" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Factura]"
+                      dataType="i4"
+                      name="Id_Factura" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCC]"
+                      dataType="i4"
+                      name="id_MvtCCC" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCCIRPF]"
+                      dataType="i4"
+                      name="id_MvtCCCIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCCIVA]"
+                      dataType="i4"
+                      name="id_MvtCCCIVA" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ImporteBruto]"
+                      dataType="r8"
+                      name="ImporteBruto" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ImporteBrutotoDiv]"
+                      dataType="r8"
+                      name="ImporteBrutotoDiv" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ImporteIRPF]"
+                      dataType="r8"
+                      name="ImporteIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ImporteIRPFDiv]"
+                      dataType="r8"
+                      name="ImporteIRPFDiv" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ImporteNeto]"
+                      dataType="r8"
+                      name="ImporteNeto" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ImporteNetoDiv]"
+                      dataType="r8"
+                      name="ImporteNetoDiv" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Pond]"
+                      dataType="i4"
+                      name="Pond" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sCurrBase]"
+                      dataType="wstr"
+                      length="3"
+                      name="sCurrBase" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_AliasCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_AliasCliente" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_AliasCompany]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_AliasCompany" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_AliasCompanyCont]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_AliasCompanyCont" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_AliasProyecto]"
+                      dataType="wstr"
+                      length="150"
+                      name="s_AliasProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Apellidos]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Apellidos" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Divisa]"
+                      dataType="wstr"
+                      length="3"
+                      name="s_Divisa" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpBalance]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpBalance" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpIRPF]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpIVA]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpIVA" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpPyG]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpPyG" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_FctrRef]"
+                      dataType="wstr"
+                      length="25"
+                      name="s_FctrRef" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCliente]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdClienteCont]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdClienteCont" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCompany]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompany" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCompanyCont]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompanyCont" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCompanyFact]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompanyFact" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCompanySSI]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompanySSI" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdExtFactura]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_IdExtFactura" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdPersonalResponsable]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdPersonalResponsable" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdProyecto]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_OrgIdExt]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_OrgIdExt" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_PeriodoIVA]"
+                      dataType="wstr"
+                      length="6"
+                      name="s_PeriodoIVA" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_TipFactura]"
+                      dataType="wstr"
+                      length="4"
+                      name="s_TipFactura" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Abono]"
+                      dataType="bool"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Abono]"
+                      name="b_Abono" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_CalculaCont]"
+                      dataType="ui8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_CalculaCont]"
+                      name="b_CalculaCont" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_InternaGest]"
+                      dataType="bool"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_InternaGest]"
+                      name="b_InternaGest" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Interno]"
+                      dataType="bool"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Interno]"
+                      name="b_Interno" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ClienteFacturacion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ClienteFacturacion]"
+                      name="ClienteFacturacion" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Concepto]"
+                      dataType="nText"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Concepto]"
+                      name="Concepto" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[CuentaCCCCobro]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[CuentaCCCCobro]"
+                      name="CuentaCCCCobro" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateBaseFImp]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateBaseFImp]"
+                      name="dFxRateBaseFImp" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateBaseFIni]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateBaseFIni]"
+                      name="dFxRateBaseFIni" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateEurFImp]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateEurFImp]"
+                      name="dFxRateEurFImp" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateEurFIni]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateEurFIni]"
+                      name="dFxRateEurFIni" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[DiasaCobro]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[DiasaCobro]"
+                      name="DiasaCobro" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[DiasaEmision]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[DiasaEmision]"
+                      name="DiasaEmision" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dPercAjCons]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dPercAjCons]"
+                      name="dPercAjCons" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dt_Emi]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dt_Emi]"
+                      name="dt_Emi" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_FxRate]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_FxRate]"
+                      name="d_FxRate" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Estado]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Estado]"
+                      name="Estado" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaEmision]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaEmision]"
+                      name="FechaEmision" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaImp]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaImp]"
+                      name="FechaImp" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaPrevCobro]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaPrevCobro]"
+                      name="FechaPrevCobro" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FecProc]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FecProc]"
+                      name="FecProc" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaCierreVenta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaCierreVenta]"
+                      name="f_FechaCierreVenta" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaEffCobro]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaEffCobro]"
+                      name="f_FechaEffCobro" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaIniConta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaIniConta]"
+                      name="f_FechaIniConta" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaLiqIRPF]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaLiqIRPF]"
+                      name="f_FechaLiqIRPF" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaLiqIVA]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaLiqIVA]"
+                      name="f_FechaLiqIVA" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_Factura]"
+                      dataType="i4"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_Factura]"
+                      name="Id_Factura" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCC]"
+                      dataType="i4"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCC]"
+                      name="id_MvtCCC" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCCIRPF]"
+                      dataType="i4"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCCIRPF]"
+                      name="id_MvtCCCIRPF" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCCIVA]"
+                      dataType="i4"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCCIVA]"
+                      name="id_MvtCCCIVA" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ImporteBruto]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ImporteBruto]"
+                      name="ImporteBruto" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ImporteBrutotoDiv]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ImporteBrutotoDiv]"
+                      name="ImporteBrutotoDiv" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ImporteIRPF]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ImporteIRPF]"
+                      name="ImporteIRPF" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ImporteIRPFDiv]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ImporteIRPFDiv]"
+                      name="ImporteIRPFDiv" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ImporteNeto]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ImporteNeto]"
+                      name="ImporteNeto" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ImporteNetoDiv]"
+                      dataType="r8"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ImporteNetoDiv]"
+                      name="ImporteNetoDiv" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Pond]"
+                      dataType="i4"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Pond]"
+                      name="Pond" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sCurrBase]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sCurrBase]"
+                      name="sCurrBase" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_AliasCliente]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_AliasCliente]"
+                      name="s_AliasCliente" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_AliasCompany]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_AliasCompany]"
+                      name="s_AliasCompany" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_AliasCompanyCont]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_AliasCompanyCont]"
+                      name="s_AliasCompanyCont" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_AliasProyecto]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_AliasProyecto]"
+                      name="s_AliasProyecto" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Apellidos]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Apellidos]"
+                      name="s_Apellidos" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Divisa]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Divisa]"
+                      name="s_Divisa" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpBalance]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpBalance]"
+                      name="s_EpBalance" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpIRPF]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpIRPF]"
+                      name="s_EpIRPF" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpIVA]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpIVA]"
+                      name="s_EpIVA" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpPyG]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpPyG]"
+                      name="s_EpPyG" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_FctrRef]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_FctrRef]"
+                      name="s_FctrRef" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCliente]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCliente]"
+                      name="s_IdCliente" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdClienteCont]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdClienteCont]"
+                      name="s_IdClienteCont" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCompany]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCompany]"
+                      name="s_IdCompany" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCompanyCont]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCompanyCont]"
+                      name="s_IdCompanyCont" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCompanyFact]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCompanyFact]"
+                      name="s_IdCompanyFact" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCompanySSI]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCompanySSI]"
+                      name="s_IdCompanySSI" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdExtFactura]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdExtFactura]"
+                      name="s_IdExtFactura" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdPersonalResponsable]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdPersonalResponsable]"
+                      name="s_IdPersonalResponsable" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdProyecto]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdProyecto]"
+                      name="s_IdProyecto" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Nombre]"
+                      name="s_Nombre" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_OrgIdExt]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_OrgIdExt]"
+                      name="s_OrgIdExt" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_PeriodoIVA]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_PeriodoIVA]"
+                      name="s_PeriodoIVA" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_TipFactura]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_TipFactura]"
+                      name="s_TipFactura" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\facturasemitidas\ODS BBDD"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ODS BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[FacturasEmitidas]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\facturasemitidas\ODS BBDD.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdCliente"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCliente]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCliente]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_AliasCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_AliasCliente"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_AliasCliente]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCliente]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdProyecto]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdProyecto"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdProyecto]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdProyecto]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_AliasProyecto]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="s_AliasProyecto"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_AliasProyecto]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasProyecto]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_TipFactura]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="s_TipFactura"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_TipFactura]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_TipFactura]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Estado"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Estado]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[FechaEmision]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaEmision"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaEmision]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaEmision]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[FechaPrevCobro]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaPrevCobro"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaPrevCobro]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaPrevCobro]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[ImporteNeto]"
+                      cachedDataType="r8"
+                      cachedName="ImporteNeto"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ImporteNeto]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteNeto]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[ClienteFacturacion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ClienteFacturacion"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ClienteFacturacion]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ClienteFacturacion]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Concepto]"
+                      cachedDataType="nText"
+                      cachedName="Concepto"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Concepto]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Concepto]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Id_Factura]"
+                      cachedDataType="i4"
+                      cachedName="Id_Factura"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Factura]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Factura]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[FecProc]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FecProc"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FecProc]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FecProc]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[DiasaEmision]"
+                      cachedDataType="r8"
+                      cachedName="DiasaEmision"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiasaEmision]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DiasaEmision]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[DiasaCobro]"
+                      cachedDataType="r8"
+                      cachedName="DiasaCobro"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiasaCobro]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DiasaCobro]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdCompany]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdCompany"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompany]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompany]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_AliasCompany]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_AliasCompany"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_AliasCompany]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCompany]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdCompanySSI]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdCompanySSI"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompanySSI]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompanySSI]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdCompanyFact]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdCompanyFact"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompanyFact]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompanyFact]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdPersonalResponsable]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdPersonalResponsable"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdPersonalResponsable]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdPersonalResponsable]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Nombre"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Nombre]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Nombre]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_Apellidos]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Apellidos"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Apellidos]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Apellidos]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[ImporteBruto]"
+                      cachedDataType="r8"
+                      cachedName="ImporteBruto"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ImporteBruto]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteBruto]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_FctrRef]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="s_FctrRef"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_FctrRef]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_FctrRef]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[CuentaCCCCobro]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CuentaCCCCobro"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[CuentaCCCCobro]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[CuentaCCCCobro]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_InternaGest]"
+                      cachedDataType="bool"
+                      cachedName="b_InternaGest"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_InternaGest]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_InternaGest]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_Interno]"
+                      cachedDataType="bool"
+                      cachedName="b_Interno"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Interno]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Interno]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Pond]"
+                      cachedDataType="i4"
+                      cachedName="Pond"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Pond]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Pond]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_Divisa]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="s_Divisa"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Divisa]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Divisa]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_FxRate]"
+                      cachedDataType="r8"
+                      cachedName="d_FxRate"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_FxRate]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_FxRate]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[ImporteNetoDiv]"
+                      cachedDataType="r8"
+                      cachedName="ImporteNetoDiv"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ImporteNetoDiv]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteNetoDiv]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[ImporteBrutotoDiv]"
+                      cachedDataType="r8"
+                      cachedName="ImporteBrutotoDiv"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ImporteBrutotoDiv]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteBrutotoDiv]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FechaCierreVenta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaCierreVenta"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaCierreVenta]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierreVenta]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[sCurrBase]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="sCurrBase"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sCurrBase]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sCurrBase]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[FechaImp]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaImp"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaImp]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaImp]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dt_Emi]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dt_Emi"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dt_Emi]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dt_Emi]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dFxRateEurFIni]"
+                      cachedDataType="r8"
+                      cachedName="dFxRateEurFIni"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateEurFIni]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFIni]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dFxRateBaseFIni]"
+                      cachedDataType="r8"
+                      cachedName="dFxRateBaseFIni"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateBaseFIni]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFIni]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dFxRateEurFImp]"
+                      cachedDataType="r8"
+                      cachedName="dFxRateEurFImp"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateEurFImp]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFImp]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dFxRateBaseFImp]"
+                      cachedDataType="r8"
+                      cachedName="dFxRateBaseFImp"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateBaseFImp]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFImp]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_Abono]"
+                      cachedDataType="bool"
+                      cachedName="b_Abono"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Abono]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Abono]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dPercAjCons]"
+                      cachedDataType="r8"
+                      cachedName="dPercAjCons"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dPercAjCons]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dPercAjCons]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdCompanyCont]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdCompanyCont"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompanyCont]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompanyCont]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdClienteCont]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdClienteCont"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdClienteCont]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdClienteCont]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[id_MvtCCC]"
+                      cachedDataType="i4"
+                      cachedName="id_MvtCCC"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[id_MvtCCCIVA]"
+                      cachedDataType="i4"
+                      cachedName="id_MvtCCCIVA"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCCIVA]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCCIVA]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[id_MvtCCCIRPF]"
+                      cachedDataType="i4"
+                      cachedName="id_MvtCCCIRPF"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCCIRPF]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCCIRPF]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FechaEffCobro]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaEffCobro"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaEffCobro]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaEffCobro]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FechaLiqIVA]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaLiqIVA"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaLiqIVA]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiqIVA]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FechaLiqIRPF]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaLiqIRPF"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaLiqIRPF]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiqIRPF]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_PeriodoIVA]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="s_PeriodoIVA"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_PeriodoIVA]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_PeriodoIVA]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_EpBalance]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_EpBalance"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpBalance]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpBalance]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_EpPyG]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_EpPyG"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpPyG]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpPyG]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_EpIVA]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_EpIVA"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpIVA]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpIVA]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_EpIRPF]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_EpIRPF"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpIRPF]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpIRPF]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[ImporteIRPF]"
+                      cachedDataType="r8"
+                      cachedName="ImporteIRPF"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ImporteIRPF]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteIRPF]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[ImporteIRPFDiv]"
+                      cachedDataType="r8"
+                      cachedName="ImporteIRPFDiv"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ImporteIRPFDiv]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ImporteIRPFDiv]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_CalculaCont]"
+                      cachedDataType="ui8"
+                      cachedName="b_CalculaCont"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_CalculaCont]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_CalculaCont]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FechaIniConta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaIniConta"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaIniConta]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaIniConta]" />
+                    <inputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_AliasCompanyCont]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_AliasCompanyCont"
+                      externalMetadataColumnId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_AliasCompanyCont]"
+                      lineageId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCompanyCont]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCliente]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_AliasCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_AliasCliente" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdProyecto]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_AliasProyecto]"
+                      dataType="wstr"
+                      length="150"
+                      name="s_AliasProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_TipFactura]"
+                      dataType="wstr"
+                      length="4"
+                      name="s_TipFactura" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="255"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaEmision]"
+                      dataType="dbTimeStamp"
+                      name="FechaEmision" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaPrevCobro]"
+                      dataType="dbTimeStamp"
+                      name="FechaPrevCobro" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ImporteNeto]"
+                      dataType="r8"
+                      name="ImporteNeto" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ClienteFacturacion]"
+                      dataType="wstr"
+                      length="255"
+                      name="ClienteFacturacion" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Concepto]"
+                      dataType="nText"
+                      name="Concepto" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Factura]"
+                      dataType="i4"
+                      name="Id_Factura" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FecProc]"
+                      dataType="dbTimeStamp"
+                      name="FecProc" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiasaEmision]"
+                      dataType="r8"
+                      name="DiasaEmision" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiasaCobro]"
+                      dataType="r8"
+                      name="DiasaCobro" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompany]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompany" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_AliasCompany]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_AliasCompany" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompanySSI]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompanySSI" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompanyFact]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompanyFact" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdPersonalResponsable]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdPersonalResponsable" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Apellidos]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Apellidos" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ImporteBruto]"
+                      dataType="r8"
+                      name="ImporteBruto" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_FctrRef]"
+                      dataType="wstr"
+                      length="25"
+                      name="s_FctrRef" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[CuentaCCCCobro]"
+                      dataType="wstr"
+                      length="20"
+                      name="CuentaCCCCobro" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_InternaGest]"
+                      dataType="numeric"
+                      name="b_InternaGest"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Interno]"
+                      dataType="numeric"
+                      name="b_Interno"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Pond]"
+                      dataType="i4"
+                      name="Pond" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Divisa]"
+                      dataType="wstr"
+                      length="3"
+                      name="s_Divisa" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_FxRate]"
+                      dataType="r8"
+                      name="d_FxRate" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ImporteNetoDiv]"
+                      dataType="r8"
+                      name="ImporteNetoDiv" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ImporteBrutotoDiv]"
+                      dataType="r8"
+                      name="ImporteBrutotoDiv" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaCierreVenta]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaCierreVenta" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sCurrBase]"
+                      dataType="wstr"
+                      length="3"
+                      name="sCurrBase" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaImp]"
+                      dataType="dbTimeStamp"
+                      name="FechaImp" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dt_Emi]"
+                      dataType="dbTimeStamp"
+                      name="dt_Emi" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateEurFIni]"
+                      dataType="r8"
+                      name="dFxRateEurFIni" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateBaseFIni]"
+                      dataType="r8"
+                      name="dFxRateBaseFIni" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateEurFImp]"
+                      dataType="r8"
+                      name="dFxRateEurFImp" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateBaseFImp]"
+                      dataType="r8"
+                      name="dFxRateBaseFImp" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Abono]"
+                      dataType="numeric"
+                      name="b_Abono"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dPercAjCons]"
+                      dataType="r8"
+                      name="dPercAjCons" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompanyCont]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompanyCont" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdClienteCont]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdClienteCont" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC]"
+                      dataType="i4"
+                      name="id_MvtCCC" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCCIVA]"
+                      dataType="i4"
+                      name="id_MvtCCCIVA" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCCIRPF]"
+                      dataType="i4"
+                      name="id_MvtCCCIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaEffCobro]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaEffCobro" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaLiqIVA]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaLiqIVA" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaLiqIRPF]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaLiqIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_PeriodoIVA]"
+                      dataType="wstr"
+                      length="6"
+                      name="s_PeriodoIVA" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpBalance]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpBalance" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpPyG]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpPyG" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpIVA]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpIVA" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpIRPF]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ImporteIRPF]"
+                      dataType="r8"
+                      name="ImporteIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ImporteIRPFDiv]"
+                      dataType="r8"
+                      name="ImporteIRPFDiv" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_CalculaCont]"
+                      dataType="numeric"
+                      name="b_CalculaCont"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaIniConta]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaIniConta" />
+                    <externalMetadataColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_AliasCompanyCont]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_AliasCompanyCont" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\facturasemitidas\ODS BBDD.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\facturasemitidas\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\facturasemitidas\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\facturasemitidas\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\facturasemitidas.Paths[Salida de origen de ADO NET]"
+              endId="Package\facturasemitidas\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de ADO NET"
+              startId="Package\facturasemitidas\NFQ BBDD.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{8BF0BBAC-C77C-47D0-A4F9-D07432F2A6BB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}"
+          SQLTask:SqlStatementSource="truncate table stg.FacturasEmitidas" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{0F7AA982-EA46-4643-A68F-79A27A25F603}"
+      DTS:From="Package\Truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\facturasemitidas" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\facturasemitidas"
+          TopLeft="90,98" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Truncate"
+          TopLeft="90,56" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="90,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="-7.5,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,38"
+                    Point2="-22.5,42"
+                    Point3="-18.5,42" />
+                  <mssgle:LineSegment
+                    End="-7.5,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\facturasemitidas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\facturasemitidas\ODS BBDD"
+          TopLeft="554,357" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\facturasemitidas\NFQ BBDD"
+          TopLeft="559,168" />
+        <EdgeLayout
+          Id="Package\facturasemitidas.Paths[Salida de origen de ADO NET]"
+          TopLeft="621.5,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,147"
+              Start="0,0"
+              End="0,139.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,139.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\facturasemitidas\NFQ BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\facturasemitidas\ODS BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

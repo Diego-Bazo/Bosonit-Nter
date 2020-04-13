@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Nfq"
+  DTS:DTSID="{16470789-E4D3-4624-99C4-FEE69550D380}"
+  DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="server=5.56.57.18;user id=bosonit;port=3306;database=exchng_bosonit;persistsecurityinfo=True;sqlservermode=True;useoldsyntax=True;connectiontimeout=600000;defaultcommandtimeout=600000;">
+      <DTS:Password
+        DTS:Name="password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAyjs4BJK4Eezc2auH3pE0gAAAAACAAAAAAADZgAAwAAAABAAAAAbmBTzbTBlg5qqpvQtt8mrAAAAAASAAACgAAAAEAAAAG67t+4y3WeEbv6WB7PEHcZ4AAAARrTHgo8dVpnkS4t9by8aBi3afNPahguO0rF17x/D+AGW+2N6Y603PJP1Ay8+xwweuJZyfowHLdmdwb0x1KKE1yijqR4PLbRvknzyBrEUR8qLFwyaib7FgMwx2V/e6ac3GZOU0/xhQ8RuzY+H/uxLtgodsFttlV/pFAAAADpW+uDgM8ht1DNHZNWepezoyclj</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,2180 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "es-ES",
+    "dataSources": [
+      {
+        "name": "192.168.10.208",
+        "connectionString": "Provider=SQLNCLI11;Data Source=192.168.10.208;Initial Catalog=DWH_BOSONIT-NTER;User ID=bosonit;Persist Security Info=false",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Empleados",
+        "columns": [
+          {
+            "name": "Empresa",
+            "dataType": "string",
+            "sourceColumn": "Empresa",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DNI",
+            "dataType": "string",
+            "sourceColumn": "DNI",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "NumeroSS",
+            "dataType": "string",
+            "sourceColumn": "NumeroSS",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "IDPersonal",
+            "dataType": "string",
+            "sourceColumn": "IDPersonal",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Nombre",
+            "dataType": "string",
+            "sourceColumn": "Nombre",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Apellidos",
+            "dataType": "string",
+            "sourceColumn": "Apellidos",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Sexo",
+            "dataType": "string",
+            "sourceColumn": "Sexo",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "FechaNacimiento",
+            "dataType": "dateTime",
+            "sourceColumn": "FechaNacimiento",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "Estudios",
+            "dataType": "string",
+            "sourceColumn": "Estudios",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Correo",
+            "dataType": "string",
+            "sourceColumn": "Correo",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "TelefonoTrabajo",
+            "dataType": "string",
+            "sourceColumn": "TelefonoTrabajo",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "TelefonoMovilExterno",
+            "dataType": "string",
+            "sourceColumn": "TelefonoMovilExterno",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Oficina",
+            "dataType": "string",
+            "sourceColumn": "Oficina",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Direccion",
+            "dataType": "string",
+            "sourceColumn": "Direccion",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Ciudad",
+            "dataType": "string",
+            "sourceColumn": "Ciudad",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Provincia",
+            "dataType": "string",
+            "sourceColumn": "Provincia",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "CodigoPostal",
+            "dataType": "string",
+            "sourceColumn": "CodigoPostal",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Pais",
+            "dataType": "string",
+            "sourceColumn": "Pais",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Situacion",
+            "dataType": "string",
+            "sourceColumn": "Situacion",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "IndicadorActivo",
+            "dataType": "int64",
+            "sourceColumn": "IndicadorActivo",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "FechaIncorporacion",
+            "dataType": "dateTime",
+            "sourceColumn": "FechaIncorporacion",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "FechaBaja",
+            "dataType": "dateTime",
+            "sourceColumn": "FechaBaja",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "Responsable",
+            "dataType": "int64",
+            "sourceColumn": "Responsable",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CoachAsignado",
+            "dataType": "string",
+            "sourceColumn": "CoachAsignado",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Bonificado",
+            "dataType": "int64",
+            "sourceColumn": "Bonificado",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDJornada",
+            "dataType": "string",
+            "sourceColumn": "IDJornada",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "IDCategoria",
+            "dataType": "string",
+            "sourceColumn": "IDCategoria",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "IDProyectoCoste",
+            "dataType": "string",
+            "sourceColumn": "IDProyectoCoste",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ReporteHoras",
+            "dataType": "int64",
+            "sourceColumn": "ReporteHoras",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PerfilMyNFQ",
+            "dataType": "string",
+            "sourceColumn": "PerfilMyNFQ",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Notas",
+            "dataType": "string",
+            "sourceColumn": "Notas",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "GrupoTecnologia",
+            "dataType": "string",
+            "sourceColumn": "GrupoTecnologia",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "AmbitoPrincipal",
+            "dataType": "string",
+            "sourceColumn": "AmbitoPrincipal",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "AmbitoSecundario",
+            "dataType": "string",
+            "sourceColumn": "AmbitoSecundario",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Staff",
+            "dataType": "string",
+            "sourceColumn": "Staff",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ModoFacturacion",
+            "dataType": "string",
+            "sourceColumn": "ModoFacturacion",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Id_Grupotecnologia",
+            "dataType": "string",
+            "sourceColumn": "Id_Grupotecnologia",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Id_AmbitoPrincipal",
+            "dataType": "string",
+            "sourceColumn": "Id_AmbitoPrincipal",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Id_AmbitoSecundario",
+            "dataType": "string",
+            "sourceColumn": "Id_AmbitoSecundario",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Id_Company",
+            "dataType": "string",
+            "sourceColumn": "Id_Company",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Categoria",
+            "dataType": "string",
+            "sourceColumn": "Categoria",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "FechaDesde",
+            "dataType": "dateTime",
+            "sourceColumn": "FechaDesde",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Empleados",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Empleados].* FROM [dbo].[Empleados] ",
+              "dataSource": "192.168.10.208"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Empleados].* FROM [dbo].[Empleados] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Empleados"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Calendario",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "fechaSK",
+            "dataType": "int64",
+            "sourceColumn": "fechaSK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "fecha",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "fecha",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "anio",
+            "dataType": "int64",
+            "sourceColumn": "anio",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "semestre",
+            "dataType": "int64",
+            "sourceColumn": "semestre",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "trimestre",
+            "dataType": "int64",
+            "sourceColumn": "trimestre",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "mes",
+            "dataType": "int64",
+            "sourceColumn": "mes",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "semana",
+            "dataType": "int64",
+            "sourceColumn": "semana",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "dia",
+            "dataType": "int64",
+            "sourceColumn": "dia",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "nSemestre",
+            "dataType": "string",
+            "sourceColumn": "nSemestre",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "nTrimestre",
+            "dataType": "string",
+            "sourceColumn": "nTrimestre",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "nMes",
+            "dataType": "string",
+            "sourceColumn": "nMes",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "nMes3L",
+            "dataType": "string",
+            "sourceColumn": "nMes3L",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "nSemana",
+            "dataType": "string",
+            "sourceColumn": "nSemana",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "nDia",
+            "dataType": "string",
+            "sourceColumn": "nDia",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "diaSemana",
+            "dataType": "int64",
+            "sourceColumn": "diaSemana",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "nDiaSemana",
+            "dataType": "string",
+            "sourceColumn": "nDiaSemana",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "mesAnio",
+            "dataType": "string",
+            "sourceColumn": "mesAnio",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Calendario",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Calendario].* FROM [dbo].[Calendario] ",
+              "dataSource": "192.168.10.208"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Calendario].* FROM [dbo].[Calendario] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Calendario"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Campaigns",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "sourceColumn": "id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "city_id",
+            "dataType": "int64",
+            "sourceColumn": "city_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "city",
+            "dataType": "string",
+            "sourceColumn": "city",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "description",
+            "dataType": "string",
+            "sourceColumn": "description",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "source",
+            "dataType": "string",
+            "sourceColumn": "source",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "guaranteed_places",
+            "dataType": "int64",
+            "sourceColumn": "guaranteed_places",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "unguaranteed_places",
+            "dataType": "int64",
+            "sourceColumn": "unguaranteed_places",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "incorporation_date",
+            "dataType": "dateTime",
+            "sourceColumn": "incorporation_date",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "finish_date",
+            "dataType": "dateTime",
+            "sourceColumn": "finish_date",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "status_id",
+            "dataType": "int64",
+            "sourceColumn": "status_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "status",
+            "dataType": "string",
+            "sourceColumn": "status",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "created_at",
+            "dataType": "dateTime",
+            "sourceColumn": "created_at",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "updated_at",
+            "dataType": "dateTime",
+            "sourceColumn": "updated_at",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "created_by",
+            "dataType": "string",
+            "sourceColumn": "created_by",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "updated_by",
+            "dataType": "string",
+            "sourceColumn": "updated_by",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "logo",
+            "dataType": "string",
+            "sourceColumn": "logo",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "action",
+            "dataType": "string",
+            "sourceColumn": "action",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "assigned_to",
+            "dataType": "string",
+            "sourceColumn": "assigned_to",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "type": "calculated",
+            "name": "fechaSK",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "YEAR(Campaigns[created_at])&FORMAT(MONTH(Campaigns[created_at]),\"00\")&FORMAT(day(Campaigns[created_at]),\"00\")"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Campaigns_History",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Campaigns_History].* FROM [dbo].[Campaigns_History] ",
+              "dataSource": "192.168.10.208"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Campaigns_History].* FROM [dbo].[Campaigns_History] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Campaigns_History"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Incorporations",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "sourceColumn": "id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "name_employee",
+            "dataType": "string",
+            "sourceColumn": "name_employee",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "surname_employee",
+            "dataType": "string",
+            "sourceColumn": "surname_employee",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "email",
+            "dataType": "string",
+            "sourceColumn": "email",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "tlfn",
+            "dataType": "string",
+            "sourceColumn": "tlfn",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "incorporation_date",
+            "dataType": "dateTime",
+            "sourceColumn": "incorporation_date",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "company_id",
+            "dataType": "string",
+            "sourceColumn": "company_id",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "car",
+            "dataType": "string",
+            "sourceColumn": "car",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "fixed_rate",
+            "dataType": "double",
+            "sourceColumn": "fixed_rate",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "variable_rate",
+            "dataType": "double",
+            "sourceColumn": "variable_rate",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "category",
+            "dataType": "string",
+            "sourceColumn": "category",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "computer",
+            "dataType": "string",
+            "sourceColumn": "computer",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "contrato",
+            "dataType": "string",
+            "sourceColumn": "contrato",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "journey",
+            "dataType": "string",
+            "sourceColumn": "journey",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "accomodation",
+            "dataType": "string",
+            "sourceColumn": "accomodation",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "global_rate",
+            "dataType": "int64",
+            "sourceColumn": "global_rate",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "english",
+            "dataType": "string",
+            "sourceColumn": "english",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "geographic_availability",
+            "dataType": "string",
+            "sourceColumn": "geographic_availability",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "technologies",
+            "dataType": "string",
+            "sourceColumn": "technologies",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "profile_id",
+            "dataType": "string",
+            "sourceColumn": "profile_id",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "recommended_itinerary",
+            "dataType": "string",
+            "sourceColumn": "recommended_itinerary",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "document",
+            "dataType": "string",
+            "sourceColumn": "document",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "city_id",
+            "dataType": "int64",
+            "sourceColumn": "city_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "type": "calculated",
+            "name": "fechaSK",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "YEAR(Incorporations[incorporation_date])&FORMAT(MONTH(Incorporations[incorporation_date]),\"00\")&FORMAT(day(Incorporations[incorporation_date]),\"00\")"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Incorporations",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Incorporations].* FROM [dbo].[Incorporations] ",
+              "dataSource": "192.168.10.208"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Incorporaciones",
+            "expression": " COUNTROWS(Incorporations)"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Incorporations].* FROM [dbo].[Incorporations] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Incorporations"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Request",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "sourceColumn": "id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "oportunity_number",
+            "dataType": "int64",
+            "sourceColumn": "oportunity_number",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "num_people",
+            "dataType": "int64",
+            "sourceColumn": "num_people",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "status_id",
+            "dataType": "int64",
+            "sourceColumn": "status_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "status",
+            "dataType": "string",
+            "sourceColumn": "status",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "begin_date",
+            "dataType": "dateTime",
+            "sourceColumn": "begin_date",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "campaign_id",
+            "dataType": "int64",
+            "sourceColumn": "campaign_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "name",
+            "dataType": "string",
+            "sourceColumn": "name",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "description",
+            "dataType": "string",
+            "sourceColumn": "description",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "created_by",
+            "dataType": "string",
+            "sourceColumn": "created_by",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "assigned_to",
+            "dataType": "string",
+            "sourceColumn": "assigned_to",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "updated_by",
+            "dataType": "string",
+            "sourceColumn": "updated_by",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "action",
+            "dataType": "string",
+            "sourceColumn": "action",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "created_at",
+            "dataType": "dateTime",
+            "sourceColumn": "created_at",
+            "formatString": "dd/MM/yy H:mm:ss",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"3082\" Group=\"GeneralLongDateTime\" FormatString=\"dd/MM/yy H:mm:ss\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "updated_at",
+            "dataType": "dateTime",
+            "sourceColumn": "updated_at",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "CAR_Id",
+            "dataType": "string",
+            "sourceColumn": "CAR_Id",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "CAR_Descripcion",
+            "dataType": "string",
+            "sourceColumn": "CAR_Descripcion",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Empresa_Id",
+            "dataType": "string",
+            "sourceColumn": "Empresa_Id",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Empresa",
+            "dataType": "string",
+            "sourceColumn": "Empresa",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Categoria_Id",
+            "dataType": "string",
+            "sourceColumn": "Categoria_Id",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DescriCategoria",
+            "dataType": "string",
+            "sourceColumn": "DescriCategoria",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "update_status",
+            "dataType": "dateTime",
+            "sourceColumn": "update_status",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "requested_places",
+            "dataType": "int64",
+            "sourceColumn": "requested_places",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Motive",
+            "dataType": "string",
+            "sourceColumn": "Motive",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "CoveredPlaces",
+            "dataType": "int64",
+            "sourceColumn": "CoveredPlaces",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "motive_id",
+            "dataType": "string",
+            "sourceColumn": "motive_id",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "type": "calculated",
+            "name": "fechaSK",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "YEAR(Request[created_at])&FORMAT(MONTH(Request[created_at]),\"00\")&FORMAT(day(Request[created_at]),\"00\")"
+          },
+          {
+            "name": "GrupoTecnologia_Id",
+            "dataType": "string",
+            "sourceColumn": "GrupoTecnologia_Id"
+          },
+          {
+            "type": "calculated",
+            "name": "Días desde apertura",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": " datediff(Request[created_at],today(),day)"
+          },
+          {
+            "type": "calculated",
+            "name": "Días desde apertura a cierre",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": " datediff(Request[created_at],Request[update_status],day)"
+          },
+          {
+            "name": "Comments",
+            "dataType": "string",
+            "sourceColumn": "Comments"
+          },
+          {
+            "name": "critic",
+            "dataType": "string",
+            "sourceColumn": "critic"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Request_History",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Request_History].* FROM [dbo].[Request_History] ",
+              "dataSource": "192.168.10.208"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>38</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>oportunity_number</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>122</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>num_people</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>88</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>status_id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>74</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>status</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>60</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>begin_date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>84</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>campaign_id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>56</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>description</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>82</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>created_by</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>85</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>assigned_to</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>88</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>updated_by</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>88</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>action</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>59</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>created_at</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>83</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>updated_at</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>86</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CAR_Id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>67</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CAR_Descripcion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>111</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Empresa_Id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>87</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Empresa</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>71</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Categoria_Id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>93</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DescriCategoria</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>106</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>update_status</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>100</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>requested_places</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>115</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Motive</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>62</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CoveredPlaces</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>101</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>motive_id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>76</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>GrupoTecnologia_Id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>126</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Comments</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>80</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>critic</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>52</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>oportunity_number</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>num_people</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>status_id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>status</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>begin_date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>campaign_id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>description</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>8</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>created_by</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>9</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>assigned_to</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>10</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>updated_by</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>11</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>action</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>12</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>created_at</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>13</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>updated_at</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>14</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CAR_Id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>15</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CAR_Descripcion</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>16</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Empresa_Id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>17</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Empresa</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>18</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Categoria_Id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>19</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DescriCategoria</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>20</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>update_status</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>21</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>requested_places</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>22</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Motive</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>23</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CoveredPlaces</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>24</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>motive_id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>25</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>GrupoTecnologia_Id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>26</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Comments</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>27</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>critic</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>28</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>GrupoTecnologia_Id</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Comments</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>critic</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Medida Días desde apertura",
+            "expression": " AVERAGE([Días desde apertura])"
+          },
+          {
+            "name": "Medida Días desde apertura a cierre",
+            "expression": " AVERAGE(Request[Días desde apertura a cierre])"
+          },
+          {
+            "name": "Número Registros",
+            "expression": " DISTINCTCOUNT(Request[id])"
+          },
+          {
+            "name": "Recursos",
+            "expression": " sum(Request[num_people])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Request_History].* FROM [dbo].[Request_History] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Request_History"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>38</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>oportunity_number</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>122</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>num_people</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>88</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>status_id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>74</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>status</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>60</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>begin_date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>84</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>campaign_id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>56</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>description</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>82</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>created_by</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>85</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>assigned_to</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>88</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>updated_by</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>88</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>action</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>59</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>created_at</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>83</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>updated_at</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>86</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CAR_Id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>67</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CAR_Descripcion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>111</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Empresa_Id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>87</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Empresa</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>71</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Categoria_Id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>93</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DescriCategoria</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>106</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>update_status</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>100</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>requested_places</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>115</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Motive</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>62</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CoveredPlaces</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>101</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>motive_id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>76</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>GrupoTecnologia_Id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>126</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Comments</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>80</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>critic</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>52</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>oportunity_number</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>num_people</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>status_id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>status</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>begin_date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>campaign_id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>6</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>7</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>description</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>8</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>created_by</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>9</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>assigned_to</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>10</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>updated_by</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>11</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>action</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>12</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>created_at</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>13</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>updated_at</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>14</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CAR_Id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>15</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CAR_Descripcion</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>16</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Empresa_Id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>17</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Empresa</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>18</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Categoria_Id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>19</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DescriCategoria</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>20</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>update_status</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>21</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>requested_places</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>22</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Motive</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>23</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CoveredPlaces</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>24</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>motive_id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>25</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>GrupoTecnologia_Id</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>26</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Comments</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>27</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>critic</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>28</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>GrupoTecnologia_Id</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Comments</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>critic</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "m_GrupoTecnologia",
+        "isHidden": true,
+        "columns": [
+          {
+            "name": "s_GrupoTecnologia",
+            "dataType": "string",
+            "sourceColumn": "s_GrupoTecnologia",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "m_GrupoTecnologia",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": "SELECT distinct [dbo].[m_GrupoTecnologia].s_GrupoTecnologia FROM [dbo].[m_GrupoTecnologia]",
+              "dataSource": "192.168.10.208"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT distinct [dbo].[m_GrupoTecnologia].s_GrupoTecnologia FROM [dbo].[m_GrupoTecnologia]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "SELECT distinct [dbo].[m_GrupoTecnologia].s_GrupoTecnologia FROM [dbo].[m_GrupoTecnologia]"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "m_GrupoTecnologia"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT distinct [dbo].[m_GrupoTecnologia].s_GrupoTecnologia FROM [dbo].[m_GrupoTecnologia]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+          }
+        ]
+      },
+      {
+        "name": "Campaigns_ID",
+        "isHidden": true,
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "id",
+            "dataType": "int64",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "Campaigns[id]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CalculatedTable 1",
+            "source": {
+              "type": "calculated",
+              "expression": "DISTINCT(Campaigns[id])"
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "aa4b07f0-0cc7-47ba-a88e-dc8448bcdec4",
+        "fromTable": "Campaigns",
+        "fromColumn": "fechaSK",
+        "toTable": "Calendario",
+        "toColumn": "fechaSK"
+      },
+      {
+        "name": "f1a2bc56-3ab3-49e4-a0e5-100be70e2fd2",
+        "fromTable": "Request",
+        "fromColumn": "fechaSK",
+        "toTable": "Calendario",
+        "toColumn": "fechaSK"
+      },
+      {
+        "name": "c2e01861-79cb-4862-8f9b-0a24bc3294dd",
+        "fromTable": "Request",
+        "fromColumn": "GrupoTecnologia_Id",
+        "toTable": "m_GrupoTecnologia",
+        "toColumn": "s_GrupoTecnologia"
+      },
+      {
+        "name": "e981ba96-0922-4f87-b487-f492f5fb214c",
+        "fromTable": "Empleados",
+        "fromColumn": "Id_Grupotecnologia",
+        "toTable": "m_GrupoTecnologia",
+        "toColumn": "s_GrupoTecnologia"
+      },
+      {
+        "name": "1d5b5ed2-fb8e-4c02-8e54-54cbd0179322",
+        "fromTable": "Campaigns",
+        "fromColumn": "id",
+        "toTable": "Campaigns_ID",
+        "toColumn": "id"
+      },
+      {
+        "name": "592b110e-384b-45f6-83ca-9bb03d9240eb",
+        "fromTable": "Request",
+        "fromColumn": "campaign_id",
+        "toTable": "Campaigns_ID",
+        "toColumn": "id"
+      },
+      {
+        "name": "27158db4-29a1-43d2-a2b1-bd936017be38",
+        "fromTable": "Incorporations",
+        "fromColumn": "fechaSK",
+        "toTable": "Calendario",
+        "toColumn": "fechaSK"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

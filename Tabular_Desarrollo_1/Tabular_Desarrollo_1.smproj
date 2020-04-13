@@ -1,0 +1,44 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Development</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9bf15800-d8ce-4c56-8a4d-7357771335b0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MyRootNamespace</RootNamespace>
+    <AssemblyName>MyAssemblyName</AssemblyName>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <OutputPath>bin\</OutputPath>
+    <Name>Tabular_Desarrollo_1</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Development' ">
+    <OutputPath>bin\</OutputPath>
+    <DeploymentServerName>192.168.10.208</DeploymentServerName>
+    <DeploymentServerEdition>Developer</DeploymentServerEdition>
+    <DeploymentServerVersion>Unknown</DeploymentServerVersion>
+    <DeploymentServerDatabase>Tabular_Desarrollo_1</DeploymentServerDatabase>
+    <DeploymentServerCubeName>Model</DeploymentServerCubeName>
+    <DeploymentOptionProcessing>Default</DeploymentOptionProcessing>
+    <DeploymentOptionTransactionalDeployment>False</DeploymentOptionTransactionalDeployment>
+    <DeploymentOptionADALCache>Default</DeploymentOptionADALCache>
+    <DeploymentOptionDirectQueryMode>InMemory</DeploymentOptionDirectQueryMode>
+    <DeploymentOptionQueryImpersonation>Default</DeploymentOptionQueryImpersonation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == '' ">
+    <DeploymentServerName>192.168.10.208</DeploymentServerName>
+    <DeploymentServerEdition>Developer</DeploymentServerEdition>
+    <DeploymentServerVersion>Unknown</DeploymentServerVersion>
+    <DeploymentServerDatabase>Tabular_Desarrollo_1</DeploymentServerDatabase>
+    <DeploymentServerCubeName>Modelo</DeploymentServerCubeName>
+    <DeploymentOptionProcessing>Default</DeploymentOptionProcessing>
+    <DeploymentOptionTransactionalDeployment>False</DeploymentOptionTransactionalDeployment>
+    <DeploymentOptionADALCache>Default</DeploymentOptionADALCache>
+    <DeploymentOptionDirectQueryMode>InMemory</DeploymentOptionDirectQueryMode>
+    <DeploymentOptionQueryImpersonation>Default</DeploymentOptionQueryImpersonation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Tabular_Desarrollo_1.bim">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Business Intelligence Semantic Model\1.0\Microsoft.AnalysisServices.VSHostBuilder.targets" />
+</Project>

@@ -1,0 +1,1777 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/17/2020 10:32:58 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\administrator"
+  DTS:DTSID="{BF038A75-FBCF-4C07-8B3D-A42C3F6E717B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="OdstoDwh_Nominas"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{DF20A87F-374C-4DB7-ABCF-50A3865AEC76}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ods to dwh nominas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{1B3048F7-69E9-4E49-88B9-D55BC63C3919}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ods to dwh nominas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ods to dwh nominas\DWH nominas"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DWH nominas"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[Nominas]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ods to dwh nominas\DWH nominas.Connections[OleDbConnection]"
+                  connectionManagerID="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  connectionManagerRefId="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[Id_LiqNomina]"
+                      cachedDataType="i4"
+                      cachedName="Id_LiqNomina"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_LiqNomina]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[Id_LiqNomina]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[f_Cierre]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_Cierre"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_Cierre]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[f_Cierre]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[s_Cncpt]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Cncpt"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Cncpt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_Cncpt]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[s_CodEmpExt]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_CodEmpExt"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodEmpExt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_CodEmpExt]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_Brt]"
+                      cachedDataType="r8"
+                      cachedName="d_Brt"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Brt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_Brt]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_Liq]"
+                      cachedDataType="r8"
+                      cachedName="d_Liq"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Liq]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_Liq]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_SS_TC1]"
+                      cachedDataType="r8"
+                      cachedName="d_SS_TC1"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_SS_TC1]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_SS_TC1]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_IRPF]"
+                      cachedDataType="r8"
+                      cachedName="d_IRPF"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_IRPF]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_IRPF]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_CstEmp]"
+                      cachedDataType="r8"
+                      cachedName="d_CstEmp"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CstEmp]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_CstEmp]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_Dif_SSEMPyRetribVar]"
+                      cachedDataType="r8"
+                      cachedName="d_Dif_SSEMPyRetribVar"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Dif_SSEMPyRetribVar]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_Dif_SSEMPyRetribVar]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_RetribFlxbl]"
+                      cachedDataType="r8"
+                      cachedName="d_RetribFlxbl"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_RetribFlxbl]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_RetribFlxbl]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[b_Dpl]"
+                      cachedDataType="numeric"
+                      cachedName="b_Dpl"
+                      cachedPrecision="20"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Dpl]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Dpl]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[TS_Alta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="TS_Alta"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_Alta]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[TS_Alta]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[b_ExclLiq]"
+                      cachedDataType="numeric"
+                      cachedName="b_ExclLiq"
+                      cachedPrecision="20"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_ExclLiq]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_ExclLiq]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[Id_Pago]"
+                      cachedDataType="i4"
+                      cachedName="Id_Pago"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Pago]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[Id_Pago]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[b_Procesar]"
+                      cachedDataType="numeric"
+                      cachedName="b_Procesar"
+                      cachedPrecision="20"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Procesar]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Procesar]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[s_IdCompany]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdCompany"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompany]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_IdCompany]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[h_LinkFichero]"
+                      cachedDataType="nText"
+                      cachedName="h_LinkFichero"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[h_LinkFichero]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[h_LinkFichero]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_BrtAnt]"
+                      cachedDataType="r8"
+                      cachedName="d_BrtAnt"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_BrtAnt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_BrtAnt]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_LiqAnt]"
+                      cachedDataType="r8"
+                      cachedName="d_LiqAnt"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_LiqAnt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_LiqAnt]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_SS_TC1Ant]"
+                      cachedDataType="r8"
+                      cachedName="d_SS_TC1Ant"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_SS_TC1Ant]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_SS_TC1Ant]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_IRPFAnt]"
+                      cachedDataType="r8"
+                      cachedName="d_IRPFAnt"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_IRPFAnt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_IRPFAnt]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_CstEmpAnt]"
+                      cachedDataType="r8"
+                      cachedName="d_CstEmpAnt"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CstEmpAnt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_CstEmpAnt]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_Dif_SSEMPyRetribVarAnt]"
+                      cachedDataType="r8"
+                      cachedName="d_Dif_SSEMPyRetribVarAnt"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Dif_SSEMPyRetribVarAnt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_Dif_SSEMPyRetribVarAnt]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_RetribFlxblAnt]"
+                      cachedDataType="r8"
+                      cachedName="d_RetribFlxblAnt"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_RetribFlxblAnt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_RetribFlxblAnt]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[s_ComBruto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_ComBruto"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ComBruto]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_ComBruto]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[s_ComLiq]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_ComLiq"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ComLiq]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_ComLiq]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[b_Ok]"
+                      cachedDataType="numeric"
+                      cachedName="b_Ok"
+                      cachedPrecision="20"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Ok]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Ok]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[id_MvtCCC]"
+                      cachedDataType="i4"
+                      cachedName="id_MvtCCC"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[id_MvtCCC]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[b_PendTrat]"
+                      cachedDataType="numeric"
+                      cachedName="b_PendTrat"
+                      cachedPrecision="20"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_PendTrat]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_PendTrat]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[b_OnTrat]"
+                      cachedDataType="numeric"
+                      cachedName="b_OnTrat"
+                      cachedPrecision="20"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_OnTrat]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_OnTrat]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[id_MvtCCC_SS]"
+                      cachedDataType="i4"
+                      cachedName="id_MvtCCC_SS"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC_SS]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[id_MvtCCC_SS]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[id_MvtCCC_IRPF]"
+                      cachedDataType="i4"
+                      cachedName="id_MvtCCC_IRPF"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC_IRPF]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[id_MvtCCC_IRPF]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[b_ModifManual]"
+                      cachedDataType="numeric"
+                      cachedName="b_ModifManual"
+                      cachedPrecision="20"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_ModifManual]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_ModifManual]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[TS_UltMdf]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="TS_UltMdf"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_UltMdf]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[TS_UltMdf]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[s_UltUsuMdf]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_UltUsuMdf"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_UltUsuMdf]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_UltUsuMdf]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_OtherImp1]"
+                      cachedDataType="r8"
+                      cachedName="d_OtherImp1"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_OtherImp1]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_OtherImp1]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_OtherMov]"
+                      cachedDataType="i4"
+                      cachedName="d_OtherMov"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_OtherMov]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_OtherMov]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[d_SS_Emp]"
+                      cachedDataType="r8"
+                      cachedName="d_SS_Emp"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_SS_Emp]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_SS_Emp]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[b_Finiquito]"
+                      cachedDataType="numeric"
+                      cachedName="b_Finiquito"
+                      cachedPrecision="20"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Finiquito]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Finiquito]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[b_Indemnizacion]"
+                      cachedDataType="numeric"
+                      cachedName="b_Indemnizacion"
+                      cachedPrecision="20"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Indemnizacion]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Indemnizacion]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[id_Mvt_Rtf]"
+                      cachedDataType="i4"
+                      cachedName="id_Mvt_Rtf"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_Mvt_Rtf]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[id_Mvt_Rtf]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[b_Bono]"
+                      cachedDataType="numeric"
+                      cachedName="b_Bono"
+                      cachedPrecision="20"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Bono]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Bono]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[s_EpPyG]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_EpPyG"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpPyG]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_EpPyG]" />
+                    <inputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].Columns[s_IdPersonal]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_IdPersonal"
+                      externalMetadataColumnId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdPersonal]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_IdPersonal]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_LiqNomina]"
+                      dataType="i4"
+                      name="Id_LiqNomina" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_Cierre]"
+                      dataType="dbTimeStamp"
+                      name="f_Cierre" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Cncpt]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Cncpt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdPersonal]"
+                      dataType="wstr"
+                      length="255"
+                      name="IdPersonal" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodEmpExt]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodEmpExt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Brt]"
+                      dataType="r8"
+                      name="d_Brt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Liq]"
+                      dataType="r8"
+                      name="d_Liq" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_SS_TC1]"
+                      dataType="r8"
+                      name="d_SS_TC1" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_IRPF]"
+                      dataType="r8"
+                      name="d_IRPF" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CstEmp]"
+                      dataType="r8"
+                      name="d_CstEmp" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Dif_SSEMPyRetribVar]"
+                      dataType="r8"
+                      name="d_Dif_SSEMPyRetribVar" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_RetribFlxbl]"
+                      dataType="r8"
+                      name="d_RetribFlxbl" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Dpl]"
+                      dataType="numeric"
+                      name="b_Dpl"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      name="TS_Alta" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_ExclLiq]"
+                      dataType="numeric"
+                      name="b_ExclLiq"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Pago]"
+                      dataType="i4"
+                      name="Id_Pago" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Procesar]"
+                      dataType="numeric"
+                      name="b_Procesar"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompany]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompany" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[h_LinkFichero]"
+                      dataType="nText"
+                      name="h_LinkFichero" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_BrtAnt]"
+                      dataType="r8"
+                      name="d_BrtAnt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_LiqAnt]"
+                      dataType="r8"
+                      name="d_LiqAnt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_SS_TC1Ant]"
+                      dataType="r8"
+                      name="d_SS_TC1Ant" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_IRPFAnt]"
+                      dataType="r8"
+                      name="d_IRPFAnt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CstEmpAnt]"
+                      dataType="r8"
+                      name="d_CstEmpAnt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Dif_SSEMPyRetribVarAnt]"
+                      dataType="r8"
+                      name="d_Dif_SSEMPyRetribVarAnt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_RetribFlxblAnt]"
+                      dataType="r8"
+                      name="d_RetribFlxblAnt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ComBruto]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_ComBruto" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ComLiq]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_ComLiq" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Ok]"
+                      dataType="numeric"
+                      name="b_Ok"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC]"
+                      dataType="i4"
+                      name="id_MvtCCC" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_PendTrat]"
+                      dataType="numeric"
+                      name="b_PendTrat"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_OnTrat]"
+                      dataType="numeric"
+                      name="b_OnTrat"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC_SS]"
+                      dataType="i4"
+                      name="id_MvtCCC_SS" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC_IRPF]"
+                      dataType="i4"
+                      name="id_MvtCCC_IRPF" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_ModifManual]"
+                      dataType="numeric"
+                      name="b_ModifManual"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      name="TS_UltMdf" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_UltUsuMdf" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_OtherImp1]"
+                      dataType="r8"
+                      name="d_OtherImp1" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_OtherMov]"
+                      dataType="i4"
+                      name="d_OtherMov" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_SS_Emp]"
+                      dataType="r8"
+                      name="d_SS_Emp" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Finiquito]"
+                      dataType="numeric"
+                      name="b_Finiquito"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Indemnizacion]"
+                      dataType="numeric"
+                      name="b_Indemnizacion"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_Mvt_Rtf]"
+                      dataType="i4"
+                      name="id_Mvt_Rtf" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Bono]"
+                      dataType="numeric"
+                      name="b_Bono"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpPyG]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpPyG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ods to dwh nominas\DWH nominas.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ods to dwh nominas\DWH nominas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\DWH nominas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ods to dwh nominas\DWH nominas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ods to dwh nominas\ODS nominas"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="ODS nominas"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[Nominas]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ods to dwh nominas\ODS nominas.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[Id_LiqNomina]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[Id_LiqNomina]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[Id_LiqNomina]"
+                      name="Id_LiqNomina"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[Id_EnvNmn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[Id_EnvNmn]"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[Id_EnvNmn]"
+                      name="Id_EnvNmn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[f_Cierre]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[f_Cierre]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[f_Cierre]"
+                      name="f_Cierre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_Cncpt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_Cncpt]"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_Cncpt]"
+                      name="s_Cncpt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_IdPersonal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_IdPersonal]"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_IdPersonal]"
+                      name="s_IdPersonal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_CodEmpExt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_CodEmpExt]"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_CodEmpExt]"
+                      name="s_CodEmpExt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_DscEmp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DscEmp]"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_DscEmp]"
+                      name="s_DscEmp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_Brt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_Brt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_Brt]"
+                      name="d_Brt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_Liq]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_Liq]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_Liq]"
+                      name="d_Liq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_SS_TC1]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_SS_TC1]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_SS_TC1]"
+                      name="d_SS_TC1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_IRPF]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_IRPF]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_IRPF]"
+                      name="d_IRPF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_CstEmp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_CstEmp]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_CstEmp]"
+                      name="d_CstEmp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_Dif_SSEMPyRetribVar]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_Dif_SSEMPyRetribVar]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_Dif_SSEMPyRetribVar]"
+                      name="d_Dif_SSEMPyRetribVar"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_RetribFlxbl]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_RetribFlxbl]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_RetribFlxbl]"
+                      name="d_RetribFlxbl"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Dpl]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Dpl]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Dpl]"
+                      name="b_Dpl"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[TS_Alta]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[TS_Alta]"
+                      name="TS_Alta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_ExclLiq]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_ExclLiq]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_ExclLiq]"
+                      name="b_ExclLiq"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[Id_Pago]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[Id_Pago]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[Id_Pago]"
+                      name="Id_Pago"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Procesar]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Procesar]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Procesar]"
+                      name="b_Procesar"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_IdCompany]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_IdCompany]"
+                      length="12"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_IdCompany]"
+                      name="s_IdCompany"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[h_LinkFichero]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[h_LinkFichero]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[h_LinkFichero]"
+                      name="h_LinkFichero"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_BrtAnt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_BrtAnt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_BrtAnt]"
+                      name="d_BrtAnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_LiqAnt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_LiqAnt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_LiqAnt]"
+                      name="d_LiqAnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_SS_TC1Ant]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_SS_TC1Ant]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_SS_TC1Ant]"
+                      name="d_SS_TC1Ant"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_IRPFAnt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_IRPFAnt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_IRPFAnt]"
+                      name="d_IRPFAnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_CstEmpAnt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_CstEmpAnt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_CstEmpAnt]"
+                      name="d_CstEmpAnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_Dif_SSEMPyRetribVarAnt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_Dif_SSEMPyRetribVarAnt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_Dif_SSEMPyRetribVarAnt]"
+                      name="d_Dif_SSEMPyRetribVarAnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_RetribFlxblAnt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_RetribFlxblAnt]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_RetribFlxblAnt]"
+                      name="d_RetribFlxblAnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_ComBruto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_ComBruto]"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_ComBruto]"
+                      name="s_ComBruto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_ComLiq]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_ComLiq]"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_ComLiq]"
+                      name="s_ComLiq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Ok]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Ok]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Ok]"
+                      name="b_Ok"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[id_MvtCCC]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[id_MvtCCC]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[id_MvtCCC]"
+                      name="id_MvtCCC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_PendTrat]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_PendTrat]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_PendTrat]"
+                      name="b_PendTrat"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_OnTrat]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_OnTrat]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_OnTrat]"
+                      name="b_OnTrat"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[id_MvtCCC_SS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[id_MvtCCC_SS]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[id_MvtCCC_SS]"
+                      name="id_MvtCCC_SS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[id_MvtCCC_IRPF]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[id_MvtCCC_IRPF]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[id_MvtCCC_IRPF]"
+                      name="id_MvtCCC_IRPF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_ModifManual]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_ModifManual]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_ModifManual]"
+                      name="b_ModifManual"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[TS_UltMdf]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[TS_UltMdf]"
+                      name="TS_UltMdf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_UltUsuMdf]"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_UltUsuMdf]"
+                      name="s_UltUsuMdf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_OtherImp1]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_OtherImp1]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_OtherImp1]"
+                      name="d_OtherImp1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_OtherMov]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_OtherMov]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_OtherMov]"
+                      name="d_OtherMov"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_SS_Emp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_SS_Emp]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[d_SS_Emp]"
+                      name="d_SS_Emp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Finiquito]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Finiquito]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Finiquito]"
+                      name="b_Finiquito"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Indemnizacion]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Indemnizacion]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Indemnizacion]"
+                      name="b_Indemnizacion"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[id_Mvt_Rtf]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[id_Mvt_Rtf]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[id_Mvt_Rtf]"
+                      name="id_Mvt_Rtf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Bono]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Bono]"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[b_Bono]"
+                      name="b_Bono"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_EpPyG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_EpPyG]"
+                      length="12"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].Columns[s_EpPyG]"
+                      name="s_EpPyG"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[Id_LiqNomina]"
+                      dataType="i4"
+                      name="Id_LiqNomina" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[Id_EnvNmn]"
+                      dataType="wstr"
+                      length="255"
+                      name="Id_EnvNmn" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[f_Cierre]"
+                      dataType="dbTimeStamp"
+                      name="f_Cierre" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_Cncpt]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Cncpt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_IdPersonal]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_IdPersonal" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_CodEmpExt]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodEmpExt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DscEmp]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DscEmp" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_Brt]"
+                      dataType="r8"
+                      name="d_Brt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_Liq]"
+                      dataType="r8"
+                      name="d_Liq" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_SS_TC1]"
+                      dataType="r8"
+                      name="d_SS_TC1" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_IRPF]"
+                      dataType="r8"
+                      name="d_IRPF" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_CstEmp]"
+                      dataType="r8"
+                      name="d_CstEmp" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_Dif_SSEMPyRetribVar]"
+                      dataType="r8"
+                      name="d_Dif_SSEMPyRetribVar" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_RetribFlxbl]"
+                      dataType="r8"
+                      name="d_RetribFlxbl" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Dpl]"
+                      dataType="numeric"
+                      name="b_Dpl"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      name="TS_Alta" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_ExclLiq]"
+                      dataType="numeric"
+                      name="b_ExclLiq"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[Id_Pago]"
+                      dataType="i4"
+                      name="Id_Pago" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Procesar]"
+                      dataType="numeric"
+                      name="b_Procesar"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_IdCompany]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompany" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[h_LinkFichero]"
+                      dataType="nText"
+                      name="h_LinkFichero" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_BrtAnt]"
+                      dataType="r8"
+                      name="d_BrtAnt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_LiqAnt]"
+                      dataType="r8"
+                      name="d_LiqAnt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_SS_TC1Ant]"
+                      dataType="r8"
+                      name="d_SS_TC1Ant" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_IRPFAnt]"
+                      dataType="r8"
+                      name="d_IRPFAnt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_CstEmpAnt]"
+                      dataType="r8"
+                      name="d_CstEmpAnt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_Dif_SSEMPyRetribVarAnt]"
+                      dataType="r8"
+                      name="d_Dif_SSEMPyRetribVarAnt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_RetribFlxblAnt]"
+                      dataType="r8"
+                      name="d_RetribFlxblAnt" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_ComBruto]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_ComBruto" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_ComLiq]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_ComLiq" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Ok]"
+                      dataType="numeric"
+                      name="b_Ok"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[id_MvtCCC]"
+                      dataType="i4"
+                      name="id_MvtCCC" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_PendTrat]"
+                      dataType="numeric"
+                      name="b_PendTrat"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_OnTrat]"
+                      dataType="numeric"
+                      name="b_OnTrat"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[id_MvtCCC_SS]"
+                      dataType="i4"
+                      name="id_MvtCCC_SS" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[id_MvtCCC_IRPF]"
+                      dataType="i4"
+                      name="id_MvtCCC_IRPF" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_ModifManual]"
+                      dataType="numeric"
+                      name="b_ModifManual"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      name="TS_UltMdf" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_UltUsuMdf" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_OtherImp1]"
+                      dataType="r8"
+                      name="d_OtherImp1" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_OtherMov]"
+                      dataType="i4"
+                      name="d_OtherMov" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[d_SS_Emp]"
+                      dataType="r8"
+                      name="d_SS_Emp" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Finiquito]"
+                      dataType="numeric"
+                      name="b_Finiquito"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Indemnizacion]"
+                      dataType="numeric"
+                      name="b_Indemnizacion"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[id_Mvt_Rtf]"
+                      dataType="i4"
+                      name="id_Mvt_Rtf" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Bono]"
+                      dataType="numeric"
+                      name="b_Bono"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB].ExternalColumns[s_EpPyG]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpPyG" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[Id_LiqNomina]"
+                      dataType="i4"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[Id_LiqNomina]"
+                      name="Id_LiqNomina" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[Id_EnvNmn]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[Id_EnvNmn]"
+                      name="Id_EnvNmn" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[f_Cierre]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[f_Cierre]"
+                      name="f_Cierre" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_Cncpt]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_Cncpt]"
+                      name="s_Cncpt" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_IdPersonal]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_IdPersonal]"
+                      name="s_IdPersonal" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_CodEmpExt]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_CodEmpExt]"
+                      name="s_CodEmpExt" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_DscEmp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_DscEmp]"
+                      name="s_DscEmp" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_Brt]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_Brt]"
+                      name="d_Brt" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_Liq]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_Liq]"
+                      name="d_Liq" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_SS_TC1]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_SS_TC1]"
+                      name="d_SS_TC1" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_IRPF]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_IRPF]"
+                      name="d_IRPF" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_CstEmp]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_CstEmp]"
+                      name="d_CstEmp" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_Dif_SSEMPyRetribVar]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_Dif_SSEMPyRetribVar]"
+                      name="d_Dif_SSEMPyRetribVar" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_RetribFlxbl]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_RetribFlxbl]"
+                      name="d_RetribFlxbl" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_Dpl]"
+                      dataType="numeric"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_Dpl]"
+                      name="b_Dpl"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[TS_Alta]"
+                      name="TS_Alta" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_ExclLiq]"
+                      dataType="numeric"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_ExclLiq]"
+                      name="b_ExclLiq"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[Id_Pago]"
+                      dataType="i4"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[Id_Pago]"
+                      name="Id_Pago" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_Procesar]"
+                      dataType="numeric"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_Procesar]"
+                      name="b_Procesar"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_IdCompany]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_IdCompany]"
+                      name="s_IdCompany" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[h_LinkFichero]"
+                      dataType="nText"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[h_LinkFichero]"
+                      name="h_LinkFichero" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_BrtAnt]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_BrtAnt]"
+                      name="d_BrtAnt" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_LiqAnt]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_LiqAnt]"
+                      name="d_LiqAnt" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_SS_TC1Ant]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_SS_TC1Ant]"
+                      name="d_SS_TC1Ant" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_IRPFAnt]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_IRPFAnt]"
+                      name="d_IRPFAnt" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_CstEmpAnt]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_CstEmpAnt]"
+                      name="d_CstEmpAnt" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_Dif_SSEMPyRetribVarAnt]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_Dif_SSEMPyRetribVarAnt]"
+                      name="d_Dif_SSEMPyRetribVarAnt" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_RetribFlxblAnt]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_RetribFlxblAnt]"
+                      name="d_RetribFlxblAnt" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_ComBruto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_ComBruto]"
+                      name="s_ComBruto" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_ComLiq]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_ComLiq]"
+                      name="s_ComLiq" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_Ok]"
+                      dataType="numeric"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_Ok]"
+                      name="b_Ok"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[id_MvtCCC]"
+                      dataType="i4"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[id_MvtCCC]"
+                      name="id_MvtCCC" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_PendTrat]"
+                      dataType="numeric"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_PendTrat]"
+                      name="b_PendTrat"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_OnTrat]"
+                      dataType="numeric"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_OnTrat]"
+                      name="b_OnTrat"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[id_MvtCCC_SS]"
+                      dataType="i4"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[id_MvtCCC_SS]"
+                      name="id_MvtCCC_SS" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[id_MvtCCC_IRPF]"
+                      dataType="i4"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[id_MvtCCC_IRPF]"
+                      name="id_MvtCCC_IRPF" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_ModifManual]"
+                      dataType="numeric"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_ModifManual]"
+                      name="b_ModifManual"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[TS_UltMdf]"
+                      name="TS_UltMdf" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_UltUsuMdf]"
+                      name="s_UltUsuMdf" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_OtherImp1]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_OtherImp1]"
+                      name="d_OtherImp1" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_OtherMov]"
+                      dataType="i4"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_OtherMov]"
+                      name="d_OtherMov" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_SS_Emp]"
+                      dataType="r8"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[d_SS_Emp]"
+                      name="d_SS_Emp" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_Finiquito]"
+                      dataType="numeric"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_Finiquito]"
+                      name="b_Finiquito"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_Indemnizacion]"
+                      dataType="numeric"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_Indemnizacion]"
+                      name="b_Indemnizacion"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[id_Mvt_Rtf]"
+                      dataType="i4"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[id_Mvt_Rtf]"
+                      name="id_Mvt_Rtf" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_Bono]"
+                      dataType="numeric"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[b_Bono]"
+                      name="b_Bono"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_EpPyG]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[s_EpPyG]"
+                      name="s_EpPyG" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ods to dwh nominas.Paths[Salida de origen de OLE DB]"
+              endId="Package\ods to dwh nominas\DWH nominas.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\ods to dwh nominas\ODS nominas.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Nominas"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{746F30BC-DA1F-475B-A943-FB7768CF136E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Nominas"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F925E963-088A-418E-A103-BCB260635F83}"
+          SQLTask:SqlStatementSource="truncate table dbo.nominas" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{B9001E86-E3AB-4014-B356-EF86031DC0A5}"
+      DTS:From="Package\Truncate Nominas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\ods to dwh nominas" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Truncate Nominas"
+          TopLeft="241.714289830656,102.164707315174" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\ods to dwh nominas"
+          TopLeft="249.142861385735,195.152943913417" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="323.714289830656,143.764707315174">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.2285715550792,51.3882365982426"
+              Start="0,0"
+              End="12.2285715550792,43.8882365982426">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.6941182991213" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.6941182991213"
+                    Point2="0,25.6941182991213"
+                    Point3="4,25.6941182991213" />
+                  <mssgle:LineSegment
+                    End="8.22857155507916,25.6941182991213" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.22857155507916,25.6941182991213"
+                    Point2="12.2285715550792,25.6941182991213"
+                    Point3="12.2285715550792,29.6941182991213" />
+                  <mssgle:LineSegment
+                    End="12.2285715550792,43.8882365982426" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ods to dwh nominas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="141.6,41.6"
+          Id="Package\ods to dwh nominas\ODS nominas"
+          TopLeft="190.857146107421,98.4941190284016" />
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\ods to dwh nominas\DWH nominas"
+          TopLeft="193.142860432061,205.552944059273" />
+        <EdgeLayout
+          Id="Package\ods to dwh nominas.Paths[Salida de origen de OLE DB]"
+          TopLeft="263.800003269741,140.094119028402">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.4588250308714"
+              Start="0,0"
+              End="0,57.9588250308714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.9588250308714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ods to dwh nominas\ODS nominas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ods to dwh nominas\DWH nominas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

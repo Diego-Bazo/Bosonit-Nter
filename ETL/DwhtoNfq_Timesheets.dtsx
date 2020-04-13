@@ -1,0 +1,2861 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2019 2:16:52 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{1E6694D1-EEAE-4207-A74F-A03AB4D478A0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="DwhtoNfq_Timesheets"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{E2D0C7A4-82BE-42D8-BBFE-B060B5E365C3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Timesheets]"
+      DTS:CreationName="ODATA"
+      DTS:DTSID="{6E812D12-9FEB-49D7-AA50-8CEAA39CD913}"
+      DTS:ObjectName="Timesheets">
+      <DTS:ObjectData>
+        <ODataConnectionManager
+          UserName="bosonit@bosonit.com"
+          Url="https://bosonit.sharepoint.com/timesheets/_vti_bin/listdata.svc"
+          ConnectionString="Service Document Url=https://bosonit.sharepoint.com/timesheets/_vti_bin/listdata.svc;Include Atom Elements=Auto;Include Expanded Entities=False;Integrated Security=False;Cookie=&quot;SPOIDCRL=77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48U1A+VjYsMGguZnxtZW1iZXJzaGlwfDEwMDMwMDAwYTkxNmRmOWZAbGl2ZS5jb20sMCMuZnxtZW1iZXJzaGlwfGJvc29uaXRAYm9zb25pdC5jb20sMTMyMTQ5OTM0NTYwMDAwMDAwLDEzMjAyNTUyNzE3MDAwMDAwMCwxMzIxNTA3OTg1NzQ0MzgzNzcsMC4wLjAuMCw0LGI1ZTdhYjhkLWRkNjctNGVjMi1iYWU1LWU2YTRmNjQ3NGE2NCwsLDQwYzcwYjlmLWMwZmMtOTAwMC1hNmU4LTcwZDg5MTY4Y2NmZCw0MGM3MGI5Zi1jMGZjLTkwMDAtYTZlOC03MGQ4OTE2OGNjZmQsLDAsMCwwLCwsLGxuWmV6RTdhUGN6M3BKSDEvZ1pGaXdPNWxtSnkvcElIOVVxaFJBbXhhK29sNmJHdEZkREFVNzFiVUFscWlGakw0bjJsbnE4T2g3MUp6cWJBZVJMYXJ6M2NYY3NaZE1lajZIU2VSQm9xaHdwdUcrTmdKZGNzU0JhWFpuNmprYmJEL3FYSFZRRGpGY0hZM0R2ZXhOUjk5YlMzWjBzQ2NEaHAvdVNyejVEMzBKVVM4Y2RXYlcwVGo1eW9PMnMxWkE2U2tUZGNmVEdsc21rcjdMMEhvYWhuWlowL2Q5MktkNG82SVZ0bnlKQ253bGRFUGtDb2N4TWVCUTVxYUE5UEZabG5aeGZsRk1zalAwZzM2NzQ5Z3V1b3hiWnlvb0NxSHhZZEJ6bVk0OXMrVjNoWFFOSitmeHoyQ1pVNTZFT3gyRnN2QkI2MjJwOUFOR0RjTkFzTElTTGIrUT09PC9TUD4=&quot;;User ID=bosonit@bosonit.com;Persist Security Info=False;Time Out=600;Schema Sample Size=25;Retry Count=5;Retry Sleep=100;Keep Alive=False;Max Received Message Size=4398046511104"
+          MicrosoftOnlineServicesAuth="True"
+          AuthType="MicrosoftOnlineService">
+          <Password
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAyjs4BJK4Eezc2auH3pE0gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAw9mUvgMTgAF7JuYYez+gWAAAAAASAAACgAAAAEAAAAB0qqc000Zo72FKfh3m6Lz4oAAAAgsNlHuXFwByMvaHkFr+1s5qGbb3QhHlkagsg9sCxw5XBa9J3k+8rphQAAACX3pxw8l6D6zJR1Nlil0Yav6dZFQ</Password>
+        </ODataConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Ods_to_Nfq"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{A3E581D4-8165-4963-B401-217DD16BA0D7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ods_to_Nfq"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Ods_to_Nfq\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Ods_to_Nfq\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ods_to_Nfq\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[dni]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="dni"
+                      lineageId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de origen de OLE DB].Columns[dni]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ods_to_Nfq\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Ods_to_Nfq\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ods_to_Nfq\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de dni]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="12"
+                      lineageId="Package\Ods_to_Nfq\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de dni]"
+                      name="Copia de dni"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de origen de OLE DB].Columns[dni]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ods_to_Nfq\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Ods_to_Nfq\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ods_to_Nfq\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ods_to_Nfq\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ods_to_Nfq\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ods_to_Nfq\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ods_to_Nfq\NFQ BBDD"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="NFQ BBDD"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">i_carga_timesheet</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ods_to_Nfq\NFQ BBDD.Connections[IDbConnection]"
+                  connectionManagerID="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  connectionManagerRefId="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET].Columns[Copia de dni]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="Copia de dni"
+                      externalMetadataColumnId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET].ExternalColumns[s_Empleado]"
+                      lineageId="Package\Ods_to_Nfq\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de dni]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET].ExternalColumns[f_FechaPeriodo]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaPeriodo" />
+                    <externalMetadataColumn
+                      refId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET].ExternalColumns[s_Empleado]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET].ExternalColumns[s_Proyecto]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_Proyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET].ExternalColumns[f_FechaImp]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaImp" />
+                    <externalMetadataColumn
+                      refId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET].ExternalColumns[d_Horas]"
+                      dataType="r8"
+                      name="d_Horas" />
+                    <externalMetadataColumn
+                      refId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET].ExternalColumns[TS_Timetamp]"
+                      dataType="dbTimeStamp"
+                      name="TS_Timetamp" />
+                    <externalMetadataColumn
+                      refId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET].ExternalColumns[b_PendTrat]"
+                      dataType="ui8"
+                      name="b_PendTrat" />
+                    <externalMetadataColumn
+                      refId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET].ExternalColumns[b_OnTrat]"
+                      dataType="ui8"
+                      name="b_OnTrat" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ods_to_Nfq\NFQ BBDD.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ods_to_Nfq\NFQ BBDD.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ods_to_Nfq\NFQ BBDD.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ods_to_Nfq\NFQ BBDD.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ods_to_Nfq\NFQ BBDD.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ods_to_Nfq\ODS BBDD"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="ODS BBDD"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[fact_timesheets]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select dni from fact_timesheets</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ods_to_Nfq\ODS BBDD.Connections[OleDbConnection]"
+                  connectionManagerID="{D05E3FE9-0FE5-4713-8809-317276B7CD02}:invalid"
+                  connectionManagerRefId="{D05E3FE9-0FE5-4713-8809-317276B7CD02}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de origen de OLE DB].Columns[dni]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de origen de OLE DB].ExternalColumns[dni]"
+                      length="100"
+                      lineageId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de origen de OLE DB].Columns[dni]"
+                      name="dni"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de origen de OLE DB].ExternalColumns[dni]"
+                      dataType="wstr"
+                      length="100"
+                      name="dni" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de error de origen de OLE DB].Columns[dni]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de error de origen de OLE DB].Columns[dni]"
+                      name="dni" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Ods_to_Nfq.Paths[Salida de conversión de datos]"
+              endId="Package\Ods_to_Nfq\NFQ BBDD.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de conversión de datos"
+              startId="Package\Ods_to_Nfq\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Ods_to_Nfq.Paths[Salida de origen de OLE DB]"
+              endId="Package\Ods_to_Nfq\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Ods_to_Nfq\ODS BBDD.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sharepoint_to_Ods"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{83151A73-0ECF-4DF5-93B9-A8121A7371F3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sharepoint_to_Ods"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Sharepoint_to_Ods\Anulación de dinamización"
+              componentClassID="Microsoft.UnPivot"
+              contactInfo="Anulación de dinamización;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Expande un flujo de datos no normalizado en una versión más normalizada. Los valores de varias columnas de un solo registro se expanden en varios registros de una sola columna. Por ejemplo, se expande una tabla de puntuaciones con una columna para cada juego en varios registros y una sola columna de puntuaciones."
+              name="Anulación de dinamización">
+              <inputs>
+                <input
+                  refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización]"
+                  hasSideEffects="true"
+                  name="Entrada de anulación de dinamización">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Lunes]"
+                      cachedDataType="r8"
+                      cachedName="Lunes"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Lunes]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[horas]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Martes]"
+                      cachedDataType="r8"
+                      cachedName="Martes"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Martes]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[horas]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Miercoles]"
+                      cachedDataType="r8"
+                      cachedName="Miercoles"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Miercoles]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[horas]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Jueves]"
+                      cachedDataType="r8"
+                      cachedName="Jueves"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Jueves]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[horas]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Viernes]"
+                      cachedDataType="r8"
+                      cachedName="Viernes"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Viernes]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[horas]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[IdDeTiposDeContenido]"
+                      cachedDataType="nText"
+                      cachedName="IdDeTiposDeContenido"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[IdDeTiposDeContenido]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[IdDeTiposDeContenido]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Notas]"
+                      cachedDataType="nText"
+                      cachedName="Notas"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Notas]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Notas]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[IdDeActivoDeCumplimientoNormativo]"
+                      cachedDataType="nText"
+                      cachedName="IdDeActivoDeCumplimientoNormativo"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[IdDeActivoDeCumplimientoNormativo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[IdDeActivoDeCumplimientoNormativo]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Proyectos]"
+                      cachedDataType="nText"
+                      cachedName="Proyectos"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Proyectos]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Proyectos]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Total]"
+                      cachedDataType="r8"
+                      cachedName="Total"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Total]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Total]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Anotaciones]"
+                      cachedDataType="nText"
+                      cachedName="Anotaciones"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Anotaciones]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Anotaciones]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Facturable]"
+                      cachedDataType="bool"
+                      cachedName="Facturable"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Facturable]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Facturable]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[FechaDeJornada]"
+                      cachedDataType="nText"
+                      cachedName="FechaDeJornada"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[FechaDeJornada]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[FechaDeJornada]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Empleado]"
+                      cachedDataType="nText"
+                      cachedName="Empleado"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Empleado]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Empleado]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Email]"
+                      cachedDataType="nText"
+                      cachedName="Email"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Email]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Email]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Estados]"
+                      cachedDataType="nText"
+                      cachedName="Estados"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Estados]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Estados]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Localizacion]"
+                      cachedDataType="nText"
+                      cachedName="Localizacion"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Localizacion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Localizacion]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[IND_FECH]"
+                      cachedDataType="r8"
+                      cachedName="IND_FECH"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[IND_FECH]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[IND_FECH]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Creado]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Creado"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Creado]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Creado]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Modificado]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Modificado"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Modificado]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Modificado]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Anio]"
+                      cachedDataType="r8"
+                      cachedName="Anio"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Anio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Anio]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Identificador]"
+                      cachedDataType="i4"
+                      cachedName="Identificador"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Identificador]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Identificador]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[TipoDeContenido]"
+                      cachedDataType="nText"
+                      cachedName="TipoDeContenido"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[TipoDeContenido]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[TipoDeContenido]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[CreadoPorId]"
+                      cachedDataType="i4"
+                      cachedName="CreadoPorId"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[CreadoPorId]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[CreadoPorId]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[ModificadoPorId]"
+                      cachedDataType="i4"
+                      cachedName="ModificadoPorId"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[ModificadoPorId]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[ModificadoPorId]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Owshiddenversion]"
+                      cachedDataType="i4"
+                      cachedName="Owshiddenversion"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Owshiddenversion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Owshiddenversion]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[Versión]"
+                      cachedDataType="nText"
+                      cachedName="Versión"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Versión]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Versión]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[RutaDeAcceso]"
+                      cachedDataType="nText"
+                      cachedName="RutaDeAcceso"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[RutaDeAcceso]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[RutaDeAcceso]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[WSTR_FechaDeJornada]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WSTR_FechaDeJornada"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_FechaDeJornada]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_FechaDeJornada]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[WSTR_Proyectos]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WSTR_Proyectos"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Proyectos]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Proyectos]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[WSTR_Empleado]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WSTR_Empleado"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Empleado]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Empleado]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[WSTR_Email]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WSTR_Email"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Email]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Email]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[WSTR_Estados]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WSTR_Estados"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Estados]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Estados]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización].Columns[WSTR_Localizacion]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WSTR_Localizacion"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Localizacion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="El id. de linaje de la columna de salida que recibirá el valor de esta columna de entrada. O -1 si no se usa el valor de la columna en las filas de salida."
+                          name="DestinationColumn">#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Localizacion]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica el valor escrito en la columna PivotKey de la fila de salida."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización]"
+                  name="Salida de anulación de dinamización">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Valor de clave dinámica]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Valor de clave dinámica]"
+                      name="Valor de clave dinámica">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">true</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[horas]"
+                      dataType="r8"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[horas]"
+                      name="horas">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[IdDeTiposDeContenido]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[IdDeTiposDeContenido]"
+                      name="IdDeTiposDeContenido">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Notas]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Notas]"
+                      name="Notas">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[IdDeActivoDeCumplimientoNormativo]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[IdDeActivoDeCumplimientoNormativo]"
+                      name="IdDeActivoDeCumplimientoNormativo">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Proyectos]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Proyectos]"
+                      name="Proyectos">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Total]"
+                      dataType="r8"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Total]"
+                      name="Total">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Anotaciones]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Anotaciones]"
+                      name="Anotaciones">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Facturable]"
+                      dataType="bool"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Facturable]"
+                      name="Facturable">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[FechaDeJornada]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[FechaDeJornada]"
+                      name="FechaDeJornada">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Empleado]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Empleado]"
+                      name="Empleado">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Email]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Email]"
+                      name="Email">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Estados]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Estados]"
+                      name="Estados">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Localizacion]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Localizacion]"
+                      name="Localizacion">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[IND_FECH]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[IND_FECH]"
+                      name="IND_FECH">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Creado]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Creado]"
+                      name="Creado">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Modificado]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Modificado]"
+                      name="Modificado">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Anio]"
+                      dataType="r8"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Anio]"
+                      name="Anio">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Identificador]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Identificador]"
+                      name="Identificador">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[TipoDeContenido]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[TipoDeContenido]"
+                      name="TipoDeContenido">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[CreadoPorId]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[CreadoPorId]"
+                      name="CreadoPorId">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[ModificadoPorId]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[ModificadoPorId]"
+                      name="ModificadoPorId">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Owshiddenversion]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Owshiddenversion]"
+                      name="Owshiddenversion">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Versión]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[Versión]"
+                      name="Versión">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[RutaDeAcceso]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[RutaDeAcceso]"
+                      name="RutaDeAcceso">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_FechaDeJornada]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_FechaDeJornada]"
+                      name="WSTR_FechaDeJornada">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Proyectos]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Proyectos]"
+                      name="WSTR_Proyectos">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Empleado]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Empleado]"
+                      name="WSTR_Empleado">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Email]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Email]"
+                      name="WSTR_Email">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Estados]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Estados]"
+                      name="WSTR_Estados">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Localizacion]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Localizacion]"
+                      name="WSTR_Localizacion">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si el valor de la propiedad PivotKeyValue se escribe en la columna de la nueva fila."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Sharepoint_to_Ods\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Sharepoint_to_Ods\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Columna derivada.Inputs[Entrada de columna derivada].Columns[WSTR_FechaDeJornada]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WSTR_FechaDeJornada"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_FechaDeJornada]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Sharepoint_to_Ods\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Sharepoint_to_Ods\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Columna derivada.Outputs[Salida de columna derivada].Columns[fechainiciosemana]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Sharepoint_to_Ods\Columna derivada.Outputs[Salida de columna derivada].Columns[fechainiciosemana]"
+                      name="fechainiciosemana"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">([SUBSTRING]((#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_FechaDeJornada]}),7,4) + "-" + [SUBSTRING]((#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_FechaDeJornada]}),4,2) + "-" + [SUBSTRING]((#{Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_FechaDeJornada]}),1,2))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(SUBSTRING((WSTR_FechaDeJornada),7,4) + "-" + SUBSTRING((WSTR_FechaDeJornada),4,2) + "-" + SUBSTRING((WSTR_FechaDeJornada),1,2))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Sharepoint_to_Ods\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Sharepoint_to_Ods\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Sharepoint_to_Ods\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Sharepoint_to_Ods\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[FechaDeJornada]"
+                      cachedDataType="nText"
+                      cachedName="FechaDeJornada"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[FechaDeJornada]" />
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Proyectos]"
+                      cachedDataType="nText"
+                      cachedName="Proyectos"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Proyectos]" />
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Empleado]"
+                      cachedDataType="nText"
+                      cachedName="Empleado"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Empleado]" />
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Email]"
+                      cachedDataType="nText"
+                      cachedName="Email"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Estados]"
+                      cachedDataType="nText"
+                      cachedName="Estados"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Estados]" />
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Localizacion]"
+                      cachedDataType="nText"
+                      cachedName="Localizacion"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Localizacion]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Sharepoint_to_Ods\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_FechaDeJornada]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_FechaDeJornada]"
+                      name="WSTR_FechaDeJornada"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[FechaDeJornada]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Proyectos]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Proyectos]"
+                      name="WSTR_Proyectos"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Proyectos]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Empleado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Empleado]"
+                      name="WSTR_Empleado"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Empleado]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Email]"
+                      name="WSTR_Email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Email]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Estados]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Estados]"
+                      name="WSTR_Estados"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Estados]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Localizacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos].Columns[WSTR_Localizacion]"
+                      name="WSTR_Localizacion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Localizacion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Sharepoint_to_Ods\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Sharepoint_to_Ods\Conversión de datos 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Sharepoint_to_Ods\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[fechainiciosemana]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="fechainiciosemana"
+                      lineageId="Package\Sharepoint_to_Ods\Columna derivada.Outputs[Salida de columna derivada].Columns[fechainiciosemana]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Sharepoint_to_Ods\Conversión de datos 1.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Sharepoint_to_Ods\Conversión de datos 1.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[fechainiciosemana_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[fechainiciosemana_DATE]"
+                      name="fechainiciosemana_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Sharepoint_to_Ods\Columna derivada.Outputs[Salida de columna derivada].Columns[fechainiciosemana]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Sharepoint_to_Ods\Conversión de datos 1.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Sharepoint_to_Ods\Conversión de datos 1.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Sharepoint_to_Ods\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[Carga_timesheets]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[fechainiciosemana_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechainiciosemana_DATE"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaPeriodo]"
+                      lineageId="Package\Sharepoint_to_Ods\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[fechainiciosemana_DATE]" />
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[horas]"
+                      cachedDataType="r8"
+                      cachedName="horas"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Horas]"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[horas]" />
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[WSTR_Empleado]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WSTR_Empleado"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Empleado]"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Empleado]" />
+                    <inputColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[WSTR_Proyectos]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WSTR_Proyectos"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Proyecto]"
+                      lineageId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización].Columns[WSTR_Proyectos]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaPeriodo]"
+                      dataType="dbDate"
+                      name="f_FechaPeriodo" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Empleado]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Proyecto]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_Proyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaImp]"
+                      dataType="dbDate"
+                      name="f_FechaImp" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Horas]"
+                      dataType="r8"
+                      name="d_Horas" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_Timestamp]"
+                      dataType="dbTimeStamp"
+                      name="TS_Timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_PendTrat]"
+                      dataType="bool"
+                      name="b_PendTrat" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_OnTrat]"
+                      dataType="bool"
+                      name="b_OnTrat" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Sharepoint_to_Ods\Origen OData"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Componente de origen OData;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Leer datos de los servicios OData"
+              name="Origen OData"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la colección que se recuperará del servicio."
+                  expressionType="Notify"
+                  name="CollectionName">Timesheet</property>
+                <property
+                  dataType="System.Int32"
+                  description="La longitud máxima predeterminada de una cadena que no tiene maxlength especificada en el esquema."
+                  name="DefaultStringLength">4000</property>
+                <property
+                  dataType="System.String"
+                  description="Consulta en la dirección URL. "
+                  expressionType="Notify"
+                  name="Query"></property>
+                <property
+                  dataType="System.String"
+                  description="Ruta de acceso a recursos de la colección que se recuperará del servicio."
+                  expressionType="Notify"
+                  name="ResourcePath"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Cuando se establece en True, use la ruta de acceso a recursos como la colección solicitada; en caso contrario, use el nombre de la colección."
+                  expressionType="Notify"
+                  name="UseResourcePath">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.OData</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Sharepoint_to_Ods\Origen OData.Connections[Conexión]"
+                  connectionManagerID="Package.ConnectionManagers[Timesheets]"
+                  connectionManagerRefId="Package.ConnectionManagers[Timesheets]"
+                  description="Conexión al servicio OData"
+                  name="Conexión" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[IdDeTiposDeContenido]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[IdDeTiposDeContenido]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[IdDeTiposDeContenido]"
+                      name="IdDeTiposDeContenido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Notas]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Notas]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Notas]"
+                      name="Notas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[IdDeActivoDeCumplimientoNormativo]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[IdDeActivoDeCumplimientoNormativo]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[IdDeActivoDeCumplimientoNormativo]"
+                      name="IdDeActivoDeCumplimientoNormativo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Proyectos]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Proyectos]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Proyectos]"
+                      name="Proyectos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Lunes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Lunes]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Lunes]"
+                      name="Lunes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Martes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Martes]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Martes]"
+                      name="Martes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Miercoles]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Miercoles]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Miercoles]"
+                      name="Miercoles"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Jueves]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Jueves]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Jueves]"
+                      name="Jueves"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Viernes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Viernes]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Viernes]"
+                      name="Viernes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Total]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Total]"
+                      name="Total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Anotaciones]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Anotaciones]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Anotaciones]"
+                      name="Anotaciones"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Facturable]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Facturable]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Facturable]"
+                      name="Facturable"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[FechaDeJornada]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[FechaDeJornada]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[FechaDeJornada]"
+                      name="FechaDeJornada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Empleado]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Empleado]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Empleado]"
+                      name="Empleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Email]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Email]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Estados]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Estados]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Estados]"
+                      name="Estados"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Localizacion]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Localizacion]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Localizacion]"
+                      name="Localizacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[IND_FECH]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[IND_FECH]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[IND_FECH]"
+                      name="IND_FECH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Creado]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Creado]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Creado]"
+                      name="Creado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Modificado]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Modificado]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Modificado]"
+                      name="Modificado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Anio]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Anio]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Anio]"
+                      name="Anio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Identificador]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Identificador]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Identificador]"
+                      name="Identificador"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[TipoDeContenido]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[TipoDeContenido]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[TipoDeContenido]"
+                      name="TipoDeContenido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[CreadoPorId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[CreadoPorId]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[CreadoPorId]"
+                      name="CreadoPorId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[ModificadoPorId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[ModificadoPorId]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[ModificadoPorId]"
+                      name="ModificadoPorId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Owshiddenversion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Owshiddenversion]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Owshiddenversion]"
+                      name="Owshiddenversion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Versión]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Versión]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[Versión]"
+                      name="Versión"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[RutaDeAcceso]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[RutaDeAcceso]"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].Columns[RutaDeAcceso]"
+                      name="RutaDeAcceso"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[IdDeTiposDeContenido]"
+                      dataType="nText"
+                      name="IdDeTiposDeContenido" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Notas]"
+                      dataType="nText"
+                      name="Notas" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[IdDeActivoDeCumplimientoNormativo]"
+                      dataType="nText"
+                      name="IdDeActivoDeCumplimientoNormativo" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Proyectos]"
+                      dataType="nText"
+                      name="Proyectos" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Lunes]"
+                      dataType="r8"
+                      name="Lunes" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Martes]"
+                      dataType="r8"
+                      name="Martes" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Miercoles]"
+                      dataType="r8"
+                      name="Miercoles" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Jueves]"
+                      dataType="r8"
+                      name="Jueves" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Viernes]"
+                      dataType="r8"
+                      name="Viernes" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Total]"
+                      dataType="r8"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Anotaciones]"
+                      dataType="nText"
+                      name="Anotaciones" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Facturable]"
+                      dataType="bool"
+                      name="Facturable" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[FechaDeJornada]"
+                      dataType="nText"
+                      name="FechaDeJornada" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Empleado]"
+                      dataType="nText"
+                      name="Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Email]"
+                      dataType="nText"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Estados]"
+                      dataType="nText"
+                      name="Estados" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Localizacion]"
+                      dataType="nText"
+                      name="Localizacion" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[IND_FECH]"
+                      dataType="r8"
+                      name="IND_FECH" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Creado]"
+                      dataType="dbTimeStamp"
+                      name="Creado" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Modificado]"
+                      dataType="dbTimeStamp"
+                      name="Modificado" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Anio]"
+                      dataType="r8"
+                      name="Anio" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Identificador]"
+                      dataType="i4"
+                      name="Identificador" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[TipoDeContenido]"
+                      dataType="nText"
+                      name="TipoDeContenido" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[CreadoPorId]"
+                      dataType="i4"
+                      name="CreadoPorId" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[ModificadoPorId]"
+                      dataType="i4"
+                      name="ModificadoPorId" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Owshiddenversion]"
+                      dataType="i4"
+                      name="Owshiddenversion" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[Versión]"
+                      dataType="nText"
+                      name="Versión" />
+                    <externalMetadataColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output].ExternalColumns[RutaDeAcceso]"
+                      dataType="nText"
+                      name="RutaDeAcceso" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output]"
+                  isErrorOut="true"
+                  name="Error output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[IdDeTiposDeContenido]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[IdDeTiposDeContenido]"
+                      name="IdDeTiposDeContenido" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Notas]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Notas]"
+                      name="Notas" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[IdDeActivoDeCumplimientoNormativo]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[IdDeActivoDeCumplimientoNormativo]"
+                      name="IdDeActivoDeCumplimientoNormativo" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Proyectos]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Proyectos]"
+                      name="Proyectos" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Lunes]"
+                      dataType="r8"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Lunes]"
+                      name="Lunes" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Martes]"
+                      dataType="r8"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Martes]"
+                      name="Martes" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Miercoles]"
+                      dataType="r8"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Miercoles]"
+                      name="Miercoles" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Jueves]"
+                      dataType="r8"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Jueves]"
+                      name="Jueves" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Viernes]"
+                      dataType="r8"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Viernes]"
+                      name="Viernes" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Total]"
+                      dataType="r8"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Total]"
+                      name="Total" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Anotaciones]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Anotaciones]"
+                      name="Anotaciones" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Facturable]"
+                      dataType="bool"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Facturable]"
+                      name="Facturable" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[FechaDeJornada]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[FechaDeJornada]"
+                      name="FechaDeJornada" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Empleado]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Empleado]"
+                      name="Empleado" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Email]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Estados]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Estados]"
+                      name="Estados" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Localizacion]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Localizacion]"
+                      name="Localizacion" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[IND_FECH]"
+                      dataType="r8"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[IND_FECH]"
+                      name="IND_FECH" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Creado]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Creado]"
+                      name="Creado" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Modificado]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Modificado]"
+                      name="Modificado" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Anio]"
+                      dataType="r8"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Anio]"
+                      name="Anio" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Identificador]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Identificador]"
+                      name="Identificador" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[TipoDeContenido]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[TipoDeContenido]"
+                      name="TipoDeContenido" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[CreadoPorId]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[CreadoPorId]"
+                      name="CreadoPorId" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[ModificadoPorId]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[ModificadoPorId]"
+                      name="ModificadoPorId" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Owshiddenversion]"
+                      dataType="i4"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Owshiddenversion]"
+                      name="Owshiddenversion" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Versión]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[Versión]"
+                      name="Versión" />
+                    <outputColumn
+                      refId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[RutaDeAcceso]"
+                      dataType="nText"
+                      lineageId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Error output].Columns[RutaDeAcceso]"
+                      name="RutaDeAcceso" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Sharepoint_to_Ods.Paths[Output]"
+              endId="Package\Sharepoint_to_Ods\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Output"
+              startId="Package\Sharepoint_to_Ods\Origen OData.Outputs[Output]" />
+            <path
+              refId="Package\Sharepoint_to_Ods.Paths[Salida de anulación de dinamización]"
+              endId="Package\Sharepoint_to_Ods\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de anulación de dinamización"
+              startId="Package\Sharepoint_to_Ods\Anulación de dinamización.Outputs[Salida de anulación de dinamización]" />
+            <path
+              refId="Package\Sharepoint_to_Ods.Paths[Salida de columna derivada]"
+              endId="Package\Sharepoint_to_Ods\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
+              name="Salida de columna derivada"
+              startId="Package\Sharepoint_to_Ods\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Sharepoint_to_Ods.Paths[Salida de conversión de datos]"
+              endId="Package\Sharepoint_to_Ods\Anulación de dinamización.Inputs[Entrada de anulación de dinamización]"
+              name="Salida de conversión de datos"
+              startId="Package\Sharepoint_to_Ods\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Sharepoint_to_Ods.Paths[Salida de conversión de datos1]"
+              endId="Package\Sharepoint_to_Ods\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\Sharepoint_to_Ods\Conversión de datos 1.Outputs[Salida de conversión de datos]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{B8E4319A-A443-4226-BA35-45E5A94C81A1}"
+      DTS:From="Package\Sharepoint_to_Ods"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Ods_to_Nfq" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Ods_to_Nfq"
+          TopLeft="563,234" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Sharepoint_to_Ods"
+          TopLeft="548,90" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="631.5,132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,102"
+              Start="0,0"
+              End="0,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Ods_to_Nfq">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Ods_to_Nfq\ODS BBDD"
+          TopLeft="577,155" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Ods_to_Nfq\NFQ BBDD"
+          TopLeft="582,392" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Ods_to_Nfq\Conversión de datos"
+          TopLeft="552,263" />
+        <EdgeLayout
+          Id="Package\Ods_to_Nfq.Paths[Salida de origen de OLE DB]"
+          TopLeft="640.75,197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Ods_to_Nfq.Paths[Salida de conversión de datos]"
+          TopLeft="643.25,305">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87"
+              Start="0,0"
+              End="0,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ods_to_Nfq\ODS BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ods_to_Nfq\NFQ BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sharepoint_to_Ods">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Sharepoint_to_Ods\Columna derivada"
+          TopLeft="511,300" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Sharepoint_to_Ods\Destino de OLE DB"
+          TopLeft="513,437" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Sharepoint_to_Ods\Origen OData"
+          TopLeft="520,24" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Sharepoint_to_Ods\Conversión de datos"
+          TopLeft="508,95" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Sharepoint_to_Ods\Conversión de datos 1"
+          TopLeft="508,367" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Sharepoint_to_Ods\Anulación de dinamización"
+          TopLeft="489,213" />
+        <EdgeLayout
+          Id="Package\Sharepoint_to_Ods.Paths[Salida de conversión de datos1]"
+          TopLeft="598.5,409">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sharepoint_to_Ods.Paths[Salida de conversión de datos]"
+          TopLeft="593,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76"
+              Start="0,0"
+              End="0,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sharepoint_to_Ods.Paths[Salida de columna derivada]"
+          TopLeft="596.5,342">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sharepoint_to_Ods.Paths[Salida de anulación de dinamización]"
+          TopLeft="591.75,255">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sharepoint_to_Ods.Paths[Output]"
+          TopLeft="593.5,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sharepoint_to_Ods\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

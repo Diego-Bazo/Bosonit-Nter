@@ -1,0 +1,457 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2019 12:44:20 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{1E330A1D-6751-4C4E-B0EA-60217364B522}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="NfqtoOds_responsablesproyectos"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{4DC62DBC-1AD3-4532-9E6C-A9EBC2F8FAE3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\responsablesproyectos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{E3970356-37C7-4A00-A98A-510EC8422C0E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="responsablesproyectos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\responsablesproyectos\NFQ BBDD"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="NFQ BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from o_inf_responsablesproyectos</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\responsablesproyectos\NFQ BBDD.Connections[IDbConnection]"
+                  connectionManagerID="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  connectionManagerRefId="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdProyecto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdProyecto]"
+                      length="12"
+                      lineageId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdProyecto]"
+                      name="s_IdProyecto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Pers]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Pers]"
+                      length="12"
+                      lineageId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Pers]"
+                      name="Id_Pers"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Rol]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Rol]"
+                      length="255"
+                      lineageId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Rol]"
+                      name="s_Rol"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdProyecto]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Pers]"
+                      dataType="wstr"
+                      length="12"
+                      name="Id_Pers" />
+                    <externalMetadataColumn
+                      refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Rol]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Rol" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdProyecto]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdProyecto]"
+                      name="s_IdProyecto" />
+                    <outputColumn
+                      refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_Pers]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_Pers]"
+                      name="Id_Pers" />
+                    <outputColumn
+                      refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Rol]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Rol]"
+                      name="s_Rol" />
+                    <outputColumn
+                      refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\responsablesproyectos\ODS BBDD"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ODS BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[responsablesproyectos]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\responsablesproyectos\ODS BBDD.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\responsablesproyectos\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\responsablesproyectos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdProyecto]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdProyecto"
+                      externalMetadataColumnId="Package\responsablesproyectos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdProyecto]"
+                      lineageId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdProyecto]" />
+                    <inputColumn
+                      refId="Package\responsablesproyectos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Id_Pers]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="Id_Pers"
+                      externalMetadataColumnId="Package\responsablesproyectos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Pers]"
+                      lineageId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Pers]" />
+                    <inputColumn
+                      refId="Package\responsablesproyectos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_Rol]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Rol"
+                      externalMetadataColumnId="Package\responsablesproyectos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Rol]"
+                      lineageId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Rol]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\responsablesproyectos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdProyecto]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\responsablesproyectos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Pers]"
+                      dataType="wstr"
+                      length="12"
+                      name="Id_Pers" />
+                    <externalMetadataColumn
+                      refId="Package\responsablesproyectos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Rol]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Rol" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\responsablesproyectos\ODS BBDD.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\responsablesproyectos\ODS BBDD.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\responsablesproyectos\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\responsablesproyectos\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\responsablesproyectos\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\responsablesproyectos\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\responsablesproyectos.Paths[Salida de origen de ADO NET]"
+              endId="Package\responsablesproyectos\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de ADO NET"
+              startId="Package\responsablesproyectos\NFQ BBDD.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{a222fbfa-ae3e-476c-9dd7-f1ebe6f4f2b0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}"
+          SQLTask:SqlStatementSource="truncate table stg.ResponsablesProyectos" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{B9A7588F-FFE1-4722-8DD9-B3C38E34F77D}"
+      DTS:From="Package\Truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\responsablesproyectos" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="185,42"
+          Id="Package\responsablesproyectos"
+          TopLeft="459,202" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Truncate"
+          TopLeft="492,103" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="552,145">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\responsablesproyectos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\responsablesproyectos\ODS BBDD"
+          TopLeft="525,415" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\responsablesproyectos\NFQ BBDD"
+          TopLeft="523,137" />
+        <EdgeLayout
+          Id="Package\responsablesproyectos.Paths[Salida de origen de ADO NET]"
+          TopLeft="589,179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,236"
+              Start="0,0"
+              End="0,228.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,228.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\responsablesproyectos\NFQ BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\responsablesproyectos\ODS BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1012 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2019 1:33:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{10A4B485-57FC-4ADB-88C3-198737A8875D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{1F5C071B-F072-42F1-93C7-71D3080B33D3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Asignaciones"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{3102518F-B918-4D4E-8821-155F9A7C4886}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Asignaciones"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Asignaciones\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Asignaciones\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Asignaciones\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[b_RecursoBloqueado]"
+                      cachedDataType="i4"
+                      cachedName="b_RecursoBloqueado"
+                      lineageId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de columna derivada].Columns[b_RecursoBloqueado]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Asignaciones\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Asignaciones\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Asignaciones\Conversión de datos.Outputs[Salida de conversión de datos].Columns[b_RecursoBloq]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Asignaciones\Conversión de datos.Outputs[Salida de conversión de datos].Columns[b_RecursoBloq]"
+                      name="b_RecursoBloq"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Asignaciones\EstadoAsignacion.Outputs[Salida de columna derivada].Columns[b_RecursoBloqueado]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Asignaciones\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Asignaciones\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Asignaciones\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Asignaciones\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Asignaciones\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Asignaciones\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Asignaciones\Conversión de datos 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Asignaciones\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Asignaciones\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[b_RecursoBloq]"
+                      cachedDataType="ui4"
+                      cachedName="b_RecursoBloq"
+                      lineageId="Package\Asignaciones\Conversión de datos.Outputs[Salida de conversión de datos].Columns[b_RecursoBloq]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Asignaciones\Conversión de datos 1.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Asignaciones\Conversión de datos 1.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Asignaciones\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[b_RecursoBloque]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Asignaciones\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[b_RecursoBloque]"
+                      name="b_RecursoBloque"
+                      precision="1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Asignaciones\Conversión de datos.Outputs[Salida de conversión de datos].Columns[b_RecursoBloq]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Asignaciones\Conversión de datos 1.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Asignaciones\Conversión de datos 1.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Asignaciones\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Asignaciones\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Asignaciones\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Asignaciones\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Asignaciones\EstadoAsignacion"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="EstadoAsignacion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Asignaciones\EstadoAsignacion.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Asignaciones\EstadoAsignacion.Inputs[Entrada de columna derivada].Columns[f_InicioAsigna]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_InicioAsigna"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_InicioAsigna]" />
+                    <inputColumn
+                      refId="Package\Asignaciones\EstadoAsignacion.Inputs[Entrada de columna derivada].Columns[f_FinAsigna]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FinAsigna"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FinAsigna]" />
+                    <inputColumn
+                      refId="Package\Asignaciones\EstadoAsignacion.Inputs[Entrada de columna derivada].Columns[b_RecBloqueado]"
+                      cachedDataType="bool"
+                      cachedName="b_RecBloqueado"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_RecBloqueado]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Asignaciones\EstadoAsignacion.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de columna derivada].Columns[s_EstadoAsigna]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="6"
+                      lineageId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de columna derivada].Columns[s_EstadoAsigna]"
+                      name="s_EstadoAsigna"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_InicioAsigna]} &lt; #{Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FinAsigna]} &amp;&amp; [GETDATE]() &lt; #{Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FinAsigna]} ? "Open" : "Closed"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">f_InicioAsigna &lt; f_FinAsigna &amp;&amp; GETDATE() &lt; f_FinAsigna ? "Open" : "Closed"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de columna derivada].Columns[b_RecursoBloqueado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de columna derivada].Columns[b_RecursoBloqueado]"
+                      name="b_RecursoBloqueado"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_RecBloqueado]} ==  FALSE  ? 0 : 1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">b_RecBloqueado ==  FALSE  ? 0 : 1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Asignaciones\EstadoAsignacion.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Asignaciones\NFQ BBDD"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="NFQ BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select s_IdPersonal,
+s_IdProyecto,
+f_InicioAsigna,
+f_FinAsigna,
+d_PorcentajeAsignacion,
+b_RegistroCompleto,
+d_PrecioHoraTM,
+Id,
+b_RecBloqueado from o_lst_asignaciones</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Asignaciones\NFQ BBDD.Connections[IDbConnection]"
+                  connectionManagerID="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  connectionManagerRefId="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdPersonal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdPersonal]"
+                      length="12"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdPersonal]"
+                      name="s_IdPersonal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdProyecto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdProyecto]"
+                      length="12"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdProyecto]"
+                      name="s_IdProyecto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_InicioAsigna]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_InicioAsigna]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_InicioAsigna]"
+                      name="f_InicioAsigna"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FinAsigna]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FinAsigna]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FinAsigna]"
+                      name="f_FinAsigna"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_PorcentajeAsignacion]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_PorcentajeAsignacion]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_PorcentajeAsignacion]"
+                      name="d_PorcentajeAsignacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_RegistroCompleto]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_RegistroCompleto]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_RegistroCompleto]"
+                      name="b_RegistroCompleto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_PrecioHoraTM]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_PrecioHoraTM]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_PrecioHoraTM]"
+                      name="d_PrecioHoraTM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_RecBloqueado]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_RecBloqueado]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_RecBloqueado]"
+                      name="b_RecBloqueado"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdPersonal]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdPersonal" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdProyecto]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_InicioAsigna]"
+                      dataType="dbTimeStamp"
+                      name="f_InicioAsigna" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FinAsigna]"
+                      dataType="dbTimeStamp"
+                      name="f_FinAsigna" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_PorcentajeAsignacion]"
+                      dataType="r8"
+                      name="d_PorcentajeAsignacion" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_RegistroCompleto]"
+                      dataType="ui8"
+                      name="b_RegistroCompleto" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_PrecioHoraTM]"
+                      dataType="r8"
+                      name="d_PrecioHoraTM" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_RecBloqueado]"
+                      dataType="bool"
+                      name="b_RecBloqueado" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdPersonal]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdPersonal]"
+                      name="s_IdPersonal" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdProyecto]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdProyecto]"
+                      name="s_IdProyecto" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_InicioAsigna]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_InicioAsigna]"
+                      name="f_InicioAsigna" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FinAsigna]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FinAsigna]"
+                      name="f_FinAsigna" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_PorcentajeAsignacion]"
+                      dataType="r8"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_PorcentajeAsignacion]"
+                      name="d_PorcentajeAsignacion" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_RegistroCompleto]"
+                      dataType="ui8"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_RegistroCompleto]"
+                      name="b_RegistroCompleto" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_PrecioHoraTM]"
+                      dataType="r8"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_PrecioHoraTM]"
+                      name="d_PrecioHoraTM" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id]"
+                      dataType="i4"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_RecBloqueado]"
+                      dataType="bool"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_RecBloqueado]"
+                      name="b_RecBloqueado" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Asignaciones\ODS BBDD"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ODS BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[asignaciones]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Asignaciones\ODS BBDD.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdPersonal]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdPersonal"
+                      externalMetadataColumnId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdPersonal]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdPersonal]" />
+                    <inputColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdProyecto]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdProyecto"
+                      externalMetadataColumnId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdProyecto]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdProyecto]" />
+                    <inputColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_InicioAsigna]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_InicioAsigna"
+                      externalMetadataColumnId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_InicioAsigna]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_InicioAsigna]" />
+                    <inputColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FinAsigna]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FinAsigna"
+                      externalMetadataColumnId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FinAsigna]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FinAsigna]" />
+                    <inputColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_PorcentajeAsignacion]"
+                      cachedDataType="r8"
+                      cachedName="d_PorcentajeAsignacion"
+                      externalMetadataColumnId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_PorcentajeAsignacion]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_PorcentajeAsignacion]" />
+                    <inputColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_RegistroCompleto]"
+                      cachedDataType="ui8"
+                      cachedName="b_RegistroCompleto"
+                      externalMetadataColumnId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_RegistroCompleto]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_RegistroCompleto]" />
+                    <inputColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_PrecioHoraTM]"
+                      cachedDataType="r8"
+                      cachedName="d_PrecioHoraTM"
+                      externalMetadataColumnId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_PrecioHoraTM]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_PrecioHoraTM]" />
+                    <inputColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id]"
+                      lineageId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_EstadoAsigna]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="s_EstadoAsigna"
+                      externalMetadataColumnId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EstadoAsigna]"
+                      lineageId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de columna derivada].Columns[s_EstadoAsigna]" />
+                    <inputColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_RecursoBloque]"
+                      cachedDataType="numeric"
+                      cachedName="b_RecursoBloque"
+                      cachedPrecision="1"
+                      externalMetadataColumnId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_RecBloqueado]"
+                      lineageId="Package\Asignaciones\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[b_RecursoBloque]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdPersonal]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdPersonal" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdProyecto]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_InicioAsigna]"
+                      dataType="dbDate"
+                      name="f_InicioAsigna" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FinAsigna]"
+                      dataType="dbDate"
+                      name="f_FinAsigna" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_PorcentajeAsignacion]"
+                      dataType="r8"
+                      name="d_PorcentajeAsignacion" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_RegistroCompleto]"
+                      dataType="numeric"
+                      name="b_RegistroCompleto"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_PrecioHoraTM]"
+                      dataType="r8"
+                      name="d_PrecioHoraTM" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EstadoAsigna]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EstadoAsigna" />
+                    <externalMetadataColumn
+                      refId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_RecBloqueado]"
+                      dataType="numeric"
+                      name="b_RecBloqueado"
+                      precision="1" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Asignaciones\ODS BBDD.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Asignaciones\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Asignaciones\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Asignaciones\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Asignaciones\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Asignaciones.Paths[Salida de columna derivada]"
+              endId="Package\Asignaciones\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de columna derivada"
+              startId="Package\Asignaciones\EstadoAsignacion.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Asignaciones.Paths[Salida de conversión de datos]"
+              endId="Package\Asignaciones\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
+              name="Salida de conversión de datos"
+              startId="Package\Asignaciones\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Asignaciones.Paths[Salida de conversión de datos1]"
+              endId="Package\Asignaciones\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\Asignaciones\Conversión de datos 1.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Asignaciones.Paths[Salida de origen de ADO NET]"
+              endId="Package\Asignaciones\EstadoAsignacion.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Asignaciones\NFQ BBDD.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{8712237F-04BE-44F9-8C52-113B7E517751}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}"
+          SQLTask:SqlStatementSource="truncate table stg.asignaciones" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{7169D17B-453E-40B3-B736-0DC4D527F68C}"
+      DTS:From="Package\Truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Asignaciones" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Asignaciones"
+          TopLeft="97,108" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Truncate"
+          TopLeft="97,59" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="97,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="-7.5,49">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,45"
+                    Point2="-22.5,49"
+                    Point3="-18.5,49" />
+                  <mssgle:LineSegment
+                    End="-7.5,49" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Asignaciones">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Asignaciones\NFQ BBDD"
+          TopLeft="534,133" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Asignaciones\EstadoAsignacion"
+          TopLeft="514,229" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Asignaciones\ODS BBDD"
+          TopLeft="532,501" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Asignaciones\Conversión de datos"
+          TopLeft="507,319" />
+        <EdgeLayout
+          Id="Package\Asignaciones.Paths[Salida de columna derivada]"
+          TopLeft="594.5,271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Asignaciones.Paths[Salida de origen de ADO NET]"
+          TopLeft="596.75,175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Asignaciones\Conversión de datos 1"
+          TopLeft="507,414" />
+        <EdgeLayout
+          Id="Package\Asignaciones.Paths[Salida de conversión de datos]"
+          TopLeft="596.75,361">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Asignaciones.Paths[Salida de conversión de datos1]"
+          TopLeft="598,456">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Asignaciones\NFQ BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Asignaciones\ODS BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

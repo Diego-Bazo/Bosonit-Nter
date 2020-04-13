@@ -1,0 +1,695 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2019 1:40:49 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{4EBA38FE-C3AC-438D-8A9F-26DCCA9E749F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="NfqtoOds_jornadasxfecha"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{3F66F48C-DC4D-411B-9533-E673A4446F7B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\JornadasxFecha"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{2A9BD797-E049-49D0-BDBB-F6C24FAC2D52}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="JornadasxFecha"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\JornadasxFecha\NFQ BBDD"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="NFQ BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from o_lst_jornadasxfecha</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\JornadasxFecha\NFQ BBDD.Connections[IDbConnection]"
+                  connectionManagerID="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  connectionManagerRefId="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IDJornada]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IDJornada]"
+                      length="3"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IDJornada]"
+                      name="s_IDJornada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_VigenciaIni]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_VigenciaIni]"
+                      length="4"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_VigenciaIni]"
+                      name="s_VigenciaIni"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_VigenciaFin]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_VigenciaFin]"
+                      length="4"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_VigenciaFin]"
+                      name="s_VigenciaFin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DescripciÃ³n]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DescripciÃ³n]"
+                      name="s_DescripciÃ³n"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasLunes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasLunes]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasLunes]"
+                      name="d_HorasLunes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasMartes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasMartes]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasMartes]"
+                      name="d_HorasMartes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasMiercoles]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasMiercoles]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasMiercoles]"
+                      name="d_HorasMiercoles"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasJueves]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasJueves]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasJueves]"
+                      name="d_HorasJueves"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasViernes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasViernes]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasViernes]"
+                      name="d_HorasViernes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasSabado]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasSabado]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasSabado]"
+                      name="d_HorasSabado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasDomingo]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasDomingo]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasDomingo]"
+                      name="d_HorasDomingo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IDJornada]"
+                      dataType="wstr"
+                      length="3"
+                      name="s_IDJornada" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_VigenciaIni]"
+                      dataType="wstr"
+                      length="4"
+                      name="s_VigenciaIni" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_VigenciaFin]"
+                      dataType="wstr"
+                      length="4"
+                      name="s_VigenciaFin" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      name="s_DescripciÃ³n" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasLunes]"
+                      dataType="r8"
+                      name="d_HorasLunes" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasMartes]"
+                      dataType="r8"
+                      name="d_HorasMartes" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasMiercoles]"
+                      dataType="r8"
+                      name="d_HorasMiercoles" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasJueves]"
+                      dataType="r8"
+                      name="d_HorasJueves" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasViernes]"
+                      dataType="r8"
+                      name="d_HorasViernes" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasSabado]"
+                      dataType="r8"
+                      name="d_HorasSabado" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasDomingo]"
+                      dataType="r8"
+                      name="d_HorasDomingo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IDJornada]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IDJornada]"
+                      name="s_IDJornada" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_VigenciaIni]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_VigenciaIni]"
+                      name="s_VigenciaIni" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_VigenciaFin]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_VigenciaFin]"
+                      name="s_VigenciaFin" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DescripciÃ³n]"
+                      name="s_DescripciÃ³n" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasLunes]"
+                      dataType="r8"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasLunes]"
+                      name="d_HorasLunes" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasMartes]"
+                      dataType="r8"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasMartes]"
+                      name="d_HorasMartes" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasMiercoles]"
+                      dataType="r8"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasMiercoles]"
+                      name="d_HorasMiercoles" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasJueves]"
+                      dataType="r8"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasJueves]"
+                      name="d_HorasJueves" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasViernes]"
+                      dataType="r8"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasViernes]"
+                      name="d_HorasViernes" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasSabado]"
+                      dataType="r8"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasSabado]"
+                      name="d_HorasSabado" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasDomingo]"
+                      dataType="r8"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasDomingo]"
+                      name="d_HorasDomingo" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\JornadasxFecha\ODS BBDD"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ODS BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[JornadasxFecha]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\JornadasxFecha\ODS BBDD.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IDJornada]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="s_IDJornada"
+                      externalMetadataColumnId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IDJornada]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IDJornada]" />
+                    <inputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_VigenciaIni]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="s_VigenciaIni"
+                      externalMetadataColumnId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_VigenciaIni]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_VigenciaIni]" />
+                    <inputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_VigenciaFin]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="s_VigenciaFin"
+                      externalMetadataColumnId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_VigenciaFin]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_VigenciaFin]" />
+                    <inputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DescripciÃ³n]"
+                      cachedDataType="nText"
+                      cachedName="s_DescripciÃ³n"
+                      externalMetadataColumnId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DescripciÃ³n]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DescripciÃ³n]" />
+                    <inputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_HorasLunes]"
+                      cachedDataType="r8"
+                      cachedName="d_HorasLunes"
+                      externalMetadataColumnId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasLunes]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasLunes]" />
+                    <inputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_HorasMartes]"
+                      cachedDataType="r8"
+                      cachedName="d_HorasMartes"
+                      externalMetadataColumnId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasMartes]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasMartes]" />
+                    <inputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_HorasMiercoles]"
+                      cachedDataType="r8"
+                      cachedName="d_HorasMiercoles"
+                      externalMetadataColumnId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasMiercoles]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasMiercoles]" />
+                    <inputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_HorasJueves]"
+                      cachedDataType="r8"
+                      cachedName="d_HorasJueves"
+                      externalMetadataColumnId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasJueves]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasJueves]" />
+                    <inputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_HorasViernes]"
+                      cachedDataType="r8"
+                      cachedName="d_HorasViernes"
+                      externalMetadataColumnId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasViernes]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasViernes]" />
+                    <inputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_HorasSabado]"
+                      cachedDataType="r8"
+                      cachedName="d_HorasSabado"
+                      externalMetadataColumnId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasSabado]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasSabado]" />
+                    <inputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_HorasDomingo]"
+                      cachedDataType="r8"
+                      cachedName="d_HorasDomingo"
+                      externalMetadataColumnId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasDomingo]"
+                      lineageId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_HorasDomingo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IDJornada]"
+                      dataType="wstr"
+                      length="3"
+                      name="s_IDJornada" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_VigenciaIni]"
+                      dataType="wstr"
+                      length="4"
+                      name="s_VigenciaIni" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_VigenciaFin]"
+                      dataType="wstr"
+                      length="4"
+                      name="s_VigenciaFin" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      name="s_DescripciÃ³n" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasLunes]"
+                      dataType="r8"
+                      name="d_HorasLunes" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasMartes]"
+                      dataType="r8"
+                      name="d_HorasMartes" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasMiercoles]"
+                      dataType="r8"
+                      name="d_HorasMiercoles" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasJueves]"
+                      dataType="r8"
+                      name="d_HorasJueves" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasViernes]"
+                      dataType="r8"
+                      name="d_HorasViernes" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasSabado]"
+                      dataType="r8"
+                      name="d_HorasSabado" />
+                    <externalMetadataColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasDomingo]"
+                      dataType="r8"
+                      name="d_HorasDomingo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\JornadasxFecha\ODS BBDD.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\JornadasxFecha\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\JornadasxFecha\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\JornadasxFecha\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\JornadasxFecha.Paths[Salida de origen de ADO NET]"
+              endId="Package\JornadasxFecha\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de ADO NET"
+              startId="Package\JornadasxFecha\NFQ BBDD.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{469fe465-eac8-463d-9cdc-1f25711927c0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}"
+          SQLTask:SqlStatementSource="truncate table stg.JornadasxFecha" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{EAE9F1CC-9BC0-4003-88FF-FD7B15E3F5BA}"
+      DTS:From="Package\Truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\JornadasxFecha" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\JornadasxFecha"
+          TopLeft="500,158" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Truncate"
+          TopLeft="500,116" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="500,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="-7.5,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,38"
+                    Point2="-22.5,42"
+                    Point3="-18.5,42" />
+                  <mssgle:LineSegment
+                    End="-7.5,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\JornadasxFecha">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\JornadasxFecha\ODS BBDD"
+          TopLeft="519,400" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\JornadasxFecha\NFQ BBDD"
+          TopLeft="518,171" />
+        <EdgeLayout
+          Id="Package\JornadasxFecha.Paths[Salida de origen de ADO NET]"
+          TopLeft="583.5,213">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,187"
+              Start="0,0"
+              End="0,179.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,179.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\JornadasxFecha\NFQ BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\JornadasxFecha\ODS BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

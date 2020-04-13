@@ -1,0 +1,2965 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/13/2019 11:34:22 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{A63CCFE0-16E1-4577-9A99-504555F06844}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="PstgToDwh_Reservas"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{61382DC6-86B6-4DAD-AEC8-8EC014633D24}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Empleado_campaign"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{54a43a47-5750-420a-84d2-a0724546f6b6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Empleado_campaign"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Empleado_campaign\Campaign"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Campaign"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Campaigns_History]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Empleado_campaign\Campaign.Connections[OleDbConnection]"
+                  connectionManagerID="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  connectionManagerRefId="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB]"
+                  isSorted="true"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[id]"
+                      lineageId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].Columns[id]"
+                      name="id"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].Columns[source]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[source]"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].Columns[source]"
+                      name="source"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[source]"
+                      dataType="wstr"
+                      length="255"
+                      name="source" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[city_id]"
+                      dataType="i4"
+                      name="city_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[guaranteed_places]"
+                      dataType="i4"
+                      name="guaranteed_places" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[unguaranteed_places]"
+                      dataType="i4"
+                      name="unguaranteed_places" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[incorporation_date]"
+                      dataType="dbDate"
+                      name="incorporation_date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[created_at]"
+                      dataType="dbDate"
+                      name="created_at" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[updated_at]"
+                      dataType="dbDate"
+                      name="updated_at" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[created_by]"
+                      dataType="wstr"
+                      length="255"
+                      name="created_by" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[updated_by]"
+                      dataType="wstr"
+                      length="255"
+                      name="updated_by" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[finish_date]"
+                      dataType="dbDate"
+                      name="finish_date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[description]"
+                      dataType="wstr"
+                      length="512"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[logo]"
+                      dataType="wstr"
+                      length="255"
+                      name="logo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[status_id]"
+                      dataType="i4"
+                      name="status_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[assigned_to]"
+                      dataType="wstr"
+                      length="255"
+                      name="assigned_to" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[action]"
+                      dataType="wstr"
+                      length="255"
+                      name="action" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="255"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].ExternalColumns[status]"
+                      dataType="wstr"
+                      length="255"
+                      name="status" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de error de origen de OLE DB].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de error de origen de OLE DB].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de error de origen de OLE DB].Columns[source]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de error de origen de OLE DB].Columns[source]"
+                      name="source" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Empleado_campaign\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[created_by]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="created_by"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[created_by]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[campaign_id]"
+                      cachedDataType="i4"
+                      cachedName="campaign_id"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[campaign_id]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[requested_places]"
+                      cachedDataType="i4"
+                      cachedName="requested_places"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[requested_places]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[requested_date]"
+                      cachedDataType="dbDate"
+                      cachedName="requested_date"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[requested_date]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[CAR_Descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CAR_Descripcion"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[CAR_Descripcion]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Correo]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Correo"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[Correo]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[IDPersonal]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="IDPersonal"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[IDPersonal]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Nombre"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Apellidos]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Apellidos"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[Apellidos]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[AmbitoPrincipal]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AmbitoPrincipal"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[AmbitoPrincipal]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[campaign_id]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[campaign_id]"
+                      name="campaign_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[campaign_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDPersonal]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDPersonal]"
+                      name="IDPersonal">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[IDPersonal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Nombre]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Nombre]"
+                      name="Nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Apellidos]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Apellidos]"
+                      name="Apellidos">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Apellidos]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Correo]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Correo]"
+                      name="Correo"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Correo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[requested_places]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[requested_places]"
+                      name="requested_places">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[requested_places]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[requested_date]"
+                      dataType="dbDate"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[requested_date]"
+                      name="requested_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[requested_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CAR_empleado]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CAR_empleado]"
+                      name="CAR_empleado">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[AmbitoPrincipal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CAR_Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CAR_Descripcion]"
+                      name="CAR_Descripcion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[CAR_Descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[campaign_id]"
+                      cachedDataType="i4"
+                      cachedName="campaign_id"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[campaign_id]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[IDPersonal]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="IDPersonal"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[IDPersonal]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Nombre"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[Apellidos]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Apellidos"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[Apellidos]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[Correo]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Correo"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[Correo]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[requested_places]"
+                      cachedDataType="i4"
+                      cachedName="requested_places"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[requested_places]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[requested_date]"
+                      cachedDataType="dbDate"
+                      cachedName="requested_date"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[requested_date]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[CAR_empleado]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CAR_empleado"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[CAR_empleado]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[CAR_Descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CAR_Descripcion"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[CAR_Descripcion]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 3.Outputs[Salida de ordenación].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[source]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="source"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 3.Outputs[Salida de ordenación].Columns[source]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IDPersonal]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IDPersonal]"
+                      name="IDPersonal">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[IDPersonal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Nombre]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Nombre]"
+                      name="Nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[Nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Apellidos]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Apellidos]"
+                      name="Apellidos">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[Apellidos]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Correo]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Correo]"
+                      name="Correo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[Correo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[campaign_id]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[campaign_id]"
+                      name="campaign_id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[campaign_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[campaign]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[campaign]"
+                      name="campaign">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[source]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[requested_places]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[requested_places]"
+                      name="requested_places">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[requested_places]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[requested_date]"
+                      dataType="dbDate"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[requested_date]"
+                      name="requested_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[requested_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CAR_empleado]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CAR_empleado]"
+                      name="CAR_empleado">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[CAR_empleado]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CAR_Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CAR_Descripcion]"
+                      name="CAR_Descripcion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[CAR_Descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Empleado_campaign\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Empleado_campaign\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\División condicional.Inputs[Entrada de división condicional].Columns[campaign_id]"
+                      cachedDataType="i4"
+                      cachedName="campaign_id"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[campaign_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Empleado_campaign\División condicional.Outputs[Reservas]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Reservas"
+                  synchronousInputId="Package\Tarea Empleado_campaign\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">![ISNULL](#{Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[campaign_id]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(campaign_id)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Empleado_campaign\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Tarea Empleado_campaign\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Empleado_campaign\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Tarea Empleado_campaign\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Empleado_campaign\Empleados"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Empleados"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Empleados]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Empleado_campaign\Empleados.Connections[OleDbConnection]"
+                  connectionManagerID="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  connectionManagerRefId="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB]"
+                  isSorted="true"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[IDPersonal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[IDPersonal]"
+                      length="25"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[IDPersonal]"
+                      name="IDPersonal"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[Nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre]"
+                      length="50"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[Apellidos]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Apellidos]"
+                      length="50"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[Apellidos]"
+                      name="Apellidos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[Correo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Correo]"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[Correo]"
+                      name="Correo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[AmbitoPrincipal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[AmbitoPrincipal]"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[AmbitoPrincipal]"
+                      name="AmbitoPrincipal"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Empresa]"
+                      dataType="wstr"
+                      length="25"
+                      name="Empresa" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[DNI]"
+                      dataType="wstr"
+                      length="25"
+                      name="DNI" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[NumeroSS]"
+                      dataType="wstr"
+                      length="25"
+                      name="NumeroSS" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[IDPersonal]"
+                      dataType="wstr"
+                      length="25"
+                      name="IDPersonal" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="50"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Apellidos]"
+                      dataType="wstr"
+                      length="50"
+                      name="Apellidos" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Sexo]"
+                      dataType="wstr"
+                      length="10"
+                      name="Sexo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaNacimiento]"
+                      dataType="dbTimeStamp"
+                      name="FechaNacimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Estudios]"
+                      dataType="wstr"
+                      length="255"
+                      name="Estudios" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Correo]"
+                      dataType="wstr"
+                      length="255"
+                      name="Correo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[TelefonoTrabajo]"
+                      dataType="wstr"
+                      length="25"
+                      name="TelefonoTrabajo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[TelefonoMovilExterno]"
+                      dataType="wstr"
+                      length="25"
+                      name="TelefonoMovilExterno" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Oficina]"
+                      dataType="wstr"
+                      length="25"
+                      name="Oficina" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Direccion]"
+                      dataType="wstr"
+                      length="255"
+                      name="Direccion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Ciudad]"
+                      dataType="wstr"
+                      length="50"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Provincia]"
+                      dataType="wstr"
+                      length="50"
+                      name="Provincia" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoPostal]"
+                      dataType="wstr"
+                      length="10"
+                      name="CodigoPostal" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Pais]"
+                      dataType="wstr"
+                      length="10"
+                      name="Pais" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Situacion]"
+                      dataType="wstr"
+                      length="25"
+                      name="Situacion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[IndicadorActivo]"
+                      dataType="i4"
+                      name="IndicadorActivo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaIncorporacion]"
+                      dataType="dbTimeStamp"
+                      name="FechaIncorporacion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaBaja]"
+                      dataType="dbTimeStamp"
+                      name="FechaBaja" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Responsable]"
+                      dataType="i4"
+                      name="Responsable" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[CoachAsignado]"
+                      dataType="wstr"
+                      length="255"
+                      name="CoachAsignado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Bonificado]"
+                      dataType="i4"
+                      name="Bonificado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[IDJornada]"
+                      dataType="wstr"
+                      length="10"
+                      name="IDJornada" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[IDCategoria]"
+                      dataType="wstr"
+                      length="10"
+                      name="IDCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[IDProyectoCoste]"
+                      dataType="wstr"
+                      length="25"
+                      name="IDProyectoCoste" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[ReporteHoras]"
+                      dataType="i4"
+                      name="ReporteHoras" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[PerfilMyNFQ]"
+                      dataType="wstr"
+                      length="25"
+                      name="PerfilMyNFQ" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Notas]"
+                      dataType="wstr"
+                      length="255"
+                      name="Notas" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[GrupoTecnologia]"
+                      dataType="wstr"
+                      length="255"
+                      name="GrupoTecnologia" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[AmbitoPrincipal]"
+                      dataType="wstr"
+                      length="255"
+                      name="AmbitoPrincipal" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[AmbitoSecundario]"
+                      dataType="wstr"
+                      length="255"
+                      name="AmbitoSecundario" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Staff]"
+                      dataType="wstr"
+                      length="255"
+                      name="Staff" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[ModoFacturacion]"
+                      dataType="wstr"
+                      length="10"
+                      name="ModoFacturacion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Id_Grupotecnologia]"
+                      dataType="wstr"
+                      length="255"
+                      name="Id_Grupotecnologia" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Id_AmbitoPrincipal]"
+                      dataType="wstr"
+                      length="255"
+                      name="Id_AmbitoPrincipal" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Id_AmbitoSecundario]"
+                      dataType="wstr"
+                      length="255"
+                      name="Id_AmbitoSecundario" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Id_Company]"
+                      dataType="wstr"
+                      length="25"
+                      name="Id_Company" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
+                      dataType="wstr"
+                      length="255"
+                      name="Categoria" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[IDPersonal]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[IDPersonal]"
+                      name="IDPersonal" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[Nombre]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[Apellidos]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[Apellidos]"
+                      name="Apellidos" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[Correo]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[Correo]"
+                      name="Correo" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[AmbitoPrincipal]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de error de origen de OLE DB].Columns[AmbitoPrincipal]"
+                      name="AmbitoPrincipal" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Empleado_campaign\Empleado_campaign"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Empleado_campaign"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Empleado_campaign]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Empleado_campaign\Empleado_campaign.Connections[OleDbConnection]"
+                  connectionManagerID="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  connectionManagerRefId="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Nombre"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre]"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].Columns[Apellidos]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Apellidos"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[Apellidos]"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Apellidos]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].Columns[Correo]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Correo"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[Correo]"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[Correo]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].Columns[campaign_id]"
+                      cachedDataType="i4"
+                      cachedName="campaign_id"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[Campaign_id]"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[campaign_id]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].Columns[requested_places]"
+                      cachedDataType="i4"
+                      cachedName="requested_places"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[requested_places]"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[requested_places]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].Columns[IDPersonal]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="IDPersonal"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[Empleado_id]"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[IDPersonal]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].Columns[campaign]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="campaign"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[Desc_Campaign]"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[campaign]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].Columns[requested_date]"
+                      cachedDataType="dbDate"
+                      cachedName="requested_date"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[request_date]"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[requested_date]" />
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].Columns[CAR_empleado]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CAR_empleado"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[CAR_empleado]"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[CAR_empleado]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[Empleado_id]"
+                      dataType="wstr"
+                      length="25"
+                      name="Empleado_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="50"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[Apellidos]"
+                      dataType="wstr"
+                      length="50"
+                      name="Apellidos" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[Correo]"
+                      dataType="wstr"
+                      length="255"
+                      name="Correo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[CAR_empleado]"
+                      dataType="wstr"
+                      length="255"
+                      name="CAR_empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[Campaign_id]"
+                      dataType="i4"
+                      name="Campaign_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[Desc_Campaign]"
+                      dataType="wstr"
+                      length="255"
+                      name="Desc_Campaign" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[requested_places]"
+                      dataType="i4"
+                      name="requested_places" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB].ExternalColumns[request_date]"
+                      dataType="dbDate"
+                      name="request_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Empleado_campaign.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Empleado_campaign.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Empleado_campaign.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Empleado_campaign.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Empleado_campaign\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              validateExternalMetadata="False"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Empleado_campaign\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar.Inputs[Entrada de ordenación].Columns[campaign_id]"
+                      cachedDataType="i4"
+                      cachedName="campaign_id"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[campaign_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar.Inputs[Entrada de ordenación].Columns[requested_places]"
+                      cachedDataType="i4"
+                      cachedName="requested_places"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[requested_places]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar.Inputs[Entrada de ordenación].Columns[created_by]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="created_by"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[created_by]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar.Inputs[Entrada de ordenación].Columns[requested_date]"
+                      cachedDataType="dbDate"
+                      cachedName="requested_date"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[requested_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar.Inputs[Entrada de ordenación].Columns[CAR_Descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CAR_Descripcion"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[CAR_Descripcion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[campaign_id]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[campaign_id]"
+                      name="campaign_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[campaign_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[requested_places]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[requested_places]"
+                      name="requested_places">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[requested_places]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[created_by]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[created_by]"
+                      name="created_by"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[created_by]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[requested_date]"
+                      dataType="dbDate"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[requested_date]"
+                      name="requested_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[requested_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[CAR_Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación].Columns[CAR_Descripcion]"
+                      name="CAR_Descripcion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[CAR_Descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Empleado_campaign\Ordenar 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 1"
+              validateExternalMetadata="False"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Empleado_campaign\Ordenar 1.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 1.Inputs[Entrada de ordenación].Columns[IDPersonal]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="IDPersonal"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[IDPersonal]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 1.Inputs[Entrada de ordenación].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Nombre"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[Nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 1.Inputs[Entrada de ordenación].Columns[Apellidos]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Apellidos"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[Apellidos]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 1.Inputs[Entrada de ordenación].Columns[Correo]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Correo"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[Correo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 1.Inputs[Entrada de ordenación].Columns[AmbitoPrincipal]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AmbitoPrincipal"
+                      lineageId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[AmbitoPrincipal]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[IDPersonal]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[IDPersonal]"
+                      name="IDPersonal">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[IDPersonal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[Nombre]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[Nombre]"
+                      name="Nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[Nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[Apellidos]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[Apellidos]"
+                      name="Apellidos">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[Apellidos]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[Correo]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[Correo]"
+                      name="Correo"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[Correo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[AmbitoPrincipal]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación].Columns[AmbitoPrincipal]"
+                      name="AmbitoPrincipal">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB].Columns[AmbitoPrincipal]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Empleado_campaign\Ordenar 2"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 2"
+              validateExternalMetadata="False"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Empleado_campaign\Ordenar 2.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Inputs[Entrada de ordenación].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Nombre"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Inputs[Entrada de ordenación].Columns[Apellidos]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Apellidos"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Apellidos]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Inputs[Entrada de ordenación].Columns[Correo]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Correo"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Correo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Inputs[Entrada de ordenación].Columns[campaign_id]"
+                      cachedDataType="i4"
+                      cachedName="campaign_id"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[campaign_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Inputs[Entrada de ordenación].Columns[requested_places]"
+                      cachedDataType="i4"
+                      cachedName="requested_places"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[requested_places]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Inputs[Entrada de ordenación].Columns[IDPersonal]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="IDPersonal"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDPersonal]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Inputs[Entrada de ordenación].Columns[requested_date]"
+                      cachedDataType="dbDate"
+                      cachedName="requested_date"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[requested_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Inputs[Entrada de ordenación].Columns[CAR_empleado]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CAR_empleado"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CAR_empleado]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Inputs[Entrada de ordenación].Columns[CAR_Descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CAR_Descripcion"
+                      lineageId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CAR_Descripcion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[Nombre]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[Nombre]"
+                      name="Nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[Apellidos]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[Apellidos]"
+                      name="Apellidos">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Apellidos]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[Correo]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[Correo]"
+                      name="Correo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Correo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[campaign_id]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[campaign_id]"
+                      name="campaign_id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[campaign_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[requested_places]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[requested_places]"
+                      name="requested_places">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[requested_places]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[IDPersonal]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[IDPersonal]"
+                      name="IDPersonal">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDPersonal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[requested_date]"
+                      dataType="dbDate"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[requested_date]"
+                      name="requested_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[requested_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[CAR_empleado]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[CAR_empleado]"
+                      name="CAR_empleado">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CAR_empleado]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[CAR_Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación].Columns[CAR_Descripcion]"
+                      name="CAR_Descripcion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CAR_Descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Empleado_campaign\Ordenar 3"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 3"
+              validateExternalMetadata="False"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Empleado_campaign\Ordenar 3.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 3.Inputs[Entrada de ordenación].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].Columns[id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 3.Inputs[Entrada de ordenación].Columns[source]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="source"
+                      lineageId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].Columns[source]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Ordenar 3.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 3.Outputs[Salida de ordenación].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 3.Outputs[Salida de ordenación].Columns[id]"
+                      name="id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].Columns[id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Ordenar 3.Outputs[Salida de ordenación].Columns[source]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Ordenar 3.Outputs[Salida de ordenación].Columns[source]"
+                      name="source">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB].Columns[source]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Empleado_campaign\Requ_Hist"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Requ_Hist"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Request_History]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Empleado_campaign\Requ_Hist.Connections[OleDbConnection]"
+                  connectionManagerID="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  connectionManagerRefId="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[created_by]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[created_by]"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[created_by]"
+                      name="created_by"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[campaign_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[campaign_id]"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[campaign_id]"
+                      name="campaign_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[requested_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[update_status]"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[requested_date]"
+                      name="requested_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[requested_places]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[requested_places]"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[requested_places]"
+                      name="requested_places"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[CAR_Descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[CAR_Descripcion]"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].Columns[CAR_Descripcion]"
+                      name="CAR_Descripcion"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[oportunity_number]"
+                      dataType="i4"
+                      name="oportunity_number" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[num_people]"
+                      dataType="i4"
+                      name="num_people" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[status_id]"
+                      dataType="i4"
+                      name="status_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[status]"
+                      dataType="wstr"
+                      length="255"
+                      name="status" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[begin_date]"
+                      dataType="dbDate"
+                      name="begin_date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[campaign_id]"
+                      dataType="i4"
+                      name="campaign_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[description]"
+                      dataType="wstr"
+                      length="512"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[created_by]"
+                      dataType="wstr"
+                      length="255"
+                      name="created_by" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[assigned_to]"
+                      dataType="wstr"
+                      length="255"
+                      name="assigned_to" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[updated_by]"
+                      dataType="wstr"
+                      length="255"
+                      name="updated_by" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[action]"
+                      dataType="wstr"
+                      length="255"
+                      name="action" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[created_at]"
+                      dataType="dbDate"
+                      name="created_at" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[updated_at]"
+                      dataType="dbDate"
+                      name="updated_at" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[CAR_Id]"
+                      dataType="wstr"
+                      length="255"
+                      name="CAR_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[CAR_Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      name="CAR_Descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[Empresa_Id]"
+                      dataType="wstr"
+                      length="255"
+                      name="Empresa_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[Empresa]"
+                      dataType="wstr"
+                      length="255"
+                      name="Empresa" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria_Id]"
+                      dataType="wstr"
+                      length="255"
+                      name="Categoria_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[DescriCategoria]"
+                      dataType="wstr"
+                      length="255"
+                      name="DescriCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[update_status]"
+                      dataType="dbDate"
+                      name="update_status" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB].ExternalColumns[requested_places]"
+                      dataType="i4"
+                      name="requested_places" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[created_by]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[created_by]"
+                      name="created_by" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[campaign_id]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[campaign_id]"
+                      name="campaign_id" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[update_status]"
+                      dataType="dbDate"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[update_status]"
+                      name="update_status" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[requested_places]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[requested_places]"
+                      name="requested_places" />
+                    <outputColumn
+                      refId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[CAR_Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de error de origen de OLE DB].Columns[CAR_Descripcion]"
+                      name="CAR_Descripcion" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Empleado_campaign.Paths[Reservas]"
+              endId="Package\Tarea Empleado_campaign\Ordenar.Inputs[Entrada de ordenación]"
+              name="Reservas"
+              startId="Package\Tarea Empleado_campaign\División condicional.Outputs[Reservas]" />
+            <path
+              refId="Package\Tarea Empleado_campaign.Paths[Salida de combinación de mezcla]"
+              endId="Package\Tarea Empleado_campaign\Ordenar 2.Inputs[Entrada de ordenación]"
+              name="Salida de combinación de mezcla"
+              startId="Package\Tarea Empleado_campaign\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\Tarea Empleado_campaign.Paths[Salida de combinación de mezcla1]"
+              endId="Package\Tarea Empleado_campaign\Empleado_campaign.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de combinación de mezcla"
+              startId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\Tarea Empleado_campaign.Paths[Salida de ordenación]"
+              endId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Tarea Empleado_campaign\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Tarea Empleado_campaign.Paths[Salida de ordenación1]"
+              endId="Package\Tarea Empleado_campaign\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Tarea Empleado_campaign\Ordenar 1.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Tarea Empleado_campaign.Paths[Salida de ordenación2]"
+              endId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Tarea Empleado_campaign\Ordenar 2.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Tarea Empleado_campaign.Paths[Salida de ordenación3]"
+              endId="Package\Tarea Empleado_campaign\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Tarea Empleado_campaign\Ordenar 3.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Tarea Empleado_campaign.Paths[Salida de origen de OLE DB]"
+              endId="Package\Tarea Empleado_campaign\Ordenar 1.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Tarea Empleado_campaign\Empleados.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\Tarea Empleado_campaign.Paths[Salida de origen de OLE DB1]"
+              endId="Package\Tarea Empleado_campaign\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Tarea Empleado_campaign\Requ_Hist.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\Tarea Empleado_campaign.Paths[Salida de origen de OLE DB2]"
+              endId="Package\Tarea Empleado_campaign\Ordenar 3.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Tarea Empleado_campaign\Campaign.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Empleado_campaign"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{b7904ad5-21a9-4be5-a577-d5cdd3c6a7fb}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Empleado_campaign"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F925E963-088A-418E-A103-BCB260635F83}"
+          SQLTask:SqlStatementSource="truncate table [dbo].[Empleado_campaign]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{6c111632-793b-4448-be7f-292042f4d2c6}"
+      DTS:From="Package\Truncate Empleado_campaign"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\Tarea Empleado_campaign" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Tarea Empleado_campaign"
+          TopLeft="210,152" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\Truncate Empleado_campaign"
+          TopLeft="203,60" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="313.25,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Empleado_campaign">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="126,42"
+          Id="Package\Tarea Empleado_campaign\Ordenar 1"
+          TopLeft="399,217" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\Tarea Empleado_campaign\Ordenar 3"
+          TopLeft="582,381" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\Tarea Empleado_campaign\Ordenar 2"
+          TopLeft="273,380" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Tarea Empleado_campaign\Empleados"
+          TopLeft="396,128" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Empleado_campaign\Empleado_campaign"
+          TopLeft="392,554" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\Tarea Empleado_campaign\Ordenar"
+          TopLeft="182,217" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\Tarea Empleado_campaign\Campaign"
+          TopLeft="582,293" />
+        <EdgeLayout
+          Id="Package\Tarea Empleado_campaign.Paths[Salida de origen de OLE DB]"
+          TopLeft="461.5,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Tarea Empleado_campaign\Requ_Hist"
+          TopLeft="175,68" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Tarea Empleado_campaign\División condicional"
+          TopLeft="148,140" />
+        <EdgeLayout
+          Id="Package\Tarea Empleado_campaign.Paths[Salida de origen de OLE DB1]"
+          TopLeft="236,110">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Empleado_campaign.Paths[Reservas]"
+          TopLeft="237,182">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-20.277578125,9.0390625,40.55515625,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Tarea Empleado_campaign\Combinación de mezcla"
+          TopLeft="236,296" />
+        <EdgeLayout
+          Id="Package\Tarea Empleado_campaign.Paths[Salida de ordenación]"
+          TopLeft="240.5,259">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.1666666666667,37"
+              Start="0,0"
+              End="60.1666666666667,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0146137787056" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0146137787056"
+                    Point2="0,22.0146137787056"
+                    Point3="4,22.0146137787056" />
+                  <mssgle:LineSegment
+                    End="56.1666666666667,22.0146137787056" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.1666666666667,22.0146137787056"
+                    Point2="60.1666666666667,22.0146137787056"
+                    Point3="60.1666666666667,26.0146137787056" />
+                  <mssgle:LineSegment
+                    End="60.1666666666667,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Empleado_campaign.Paths[Salida de ordenación1]"
+          TopLeft="462,259">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-100.666666666667,37"
+              Start="0,0"
+              End="-100.666666666667,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0146137787056" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0146137787056"
+                    Point2="0,22.0146137787056"
+                    Point3="-4,22.0146137787056" />
+                  <mssgle:LineSegment
+                    End="-96.6666666666667,22.0146137787056" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-96.6666666666667,22.0146137787056"
+                    Point2="-100.666666666667,22.0146137787056"
+                    Point3="-100.666666666667,26.0146137787056" />
+                  <mssgle:LineSegment
+                    End="-100.666666666667,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Empleado_campaign.Paths[Salida de combinación de mezcla]"
+          TopLeft="333.5,338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Empleado_campaign.Paths[Salida de origen de OLE DB2]"
+          TopLeft="645,335">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Tarea Empleado_campaign\Combinación de mezcla 1"
+          TopLeft="375,464" />
+        <EdgeLayout
+          Id="Package\Tarea Empleado_campaign.Paths[Salida de ordenación2]"
+          TopLeft="336,422">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106.666666666667,42"
+              Start="0,0"
+              End="106.666666666667,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.9990029910269" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.9990029910269"
+                    Point2="0,24.9990029910269"
+                    Point3="4,24.9990029910269" />
+                  <mssgle:LineSegment
+                    End="102.666666666667,24.9990029910269" />
+                  <mssgle:CubicBezierSegment
+                    Point1="102.666666666667,24.9990029910269"
+                    Point2="106.666666666667,24.9990029910269"
+                    Point3="106.666666666667,28.9990029910269" />
+                  <mssgle:LineSegment
+                    End="106.666666666667,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Empleado_campaign.Paths[Salida de ordenación3]"
+          TopLeft="645,423">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-138.666666666667,41"
+              Start="0,0"
+              End="-138.666666666667,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4037886340977" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4037886340977"
+                    Point2="0,24.4037886340977"
+                    Point3="-4,24.4037886340977" />
+                  <mssgle:LineSegment
+                    End="-134.666666666667,24.4037886340977" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-134.666666666667,24.4037886340977"
+                    Point2="-138.666666666667,24.4037886340977"
+                    Point3="-138.666666666667,28.4037886340977" />
+                  <mssgle:LineSegment
+                    End="-138.666666666667,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Empleado_campaign.Paths[Salida de combinación de mezcla1]"
+          TopLeft="477.25,506">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Empleado_campaign\Empleados">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Empleado_campaign\Empleado_campaign">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Empleado_campaign\Campaign">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Empleado_campaign\Requ_Hist">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

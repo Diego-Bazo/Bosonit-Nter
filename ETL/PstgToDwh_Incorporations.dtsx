@@ -1,0 +1,1383 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/13/2019 11:34:22 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{66BCE700-BB09-4C0B-8A89-D0DD614E3C1C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="PstgToDwh_Incorporations"
+  DTS:PackageType="5"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{33CA189C-1419-4373-94BB-97996AA0BCFB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ec2-174-129-205-197.compute-1.amazonaws.com.dd96jgallcqesq.wwbkrhgajkqekf1]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{A338A62B-DE82-4989-BA9D-7A4B11692114}"
+      DTS:ObjectName="ec2-174-129-205-197.compute-1.amazonaws.com.dd96jgallcqesq.wwbkrhgajkqekf1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=ec2-174-129-205-197.compute-1.amazonaws.com;uid=wwbkrhgajkqekf;Dsn=PostgreSQL35W;database=dd96jgallcqesq;port=5432;sslmode=allow;readonly=0;protocol=7.4;fakeoidindex=0;showoidcolumn=0;rowversioning=0;showsystemtables=0;fetch=100;unknownsizes=0;maxvarcharsize=255;maxlongvarcharsize=8190;debug=0;commlog=0;usedeclarefetch=0;textaslongvarchar=1;unknownsaslongvarchar=0;boolsaschar=1;parse=0;lfconversion=1;updatablecursors=1;trueisminus1=0;bi=0;byteaaslongvarbinary=1;useserversideprepare=1;lowercaseidentifier=0;d6=-101;xaopt=1;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAyjs4BJK4Eezc2auH3pE0gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAARaH/TA7bjAAigrAgcaQSbAAAAAASAAACgAAAAEAAAAG0Ug8RAwUy2GDWm4BpO5huIAAAAnM+6dAFsTssUO82m77WyChCuEq9uv37Bpj9AF8DLszGOjH6suDQohlm0ZmBR/j6Mz7hx+ejkfb2rrK+uhApo37z1Pl5CJjk3OcFu0b/Yy7oyjcCn65DHlqxqtD+FEQlWbM3TA7L7y8NtbwvcCzd1TGaQkWuIr/lsoX/ystA4aa3vIoM/S0LatBQAAADdPJN8J0REBmw3Qu8wTLg6dSlFqg</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Incorporations"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{AB053B71-D6E8-45D5-83AF-C62136201CC1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Incorporations"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Incorporations\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Incorporations]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Incorporations\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  connectionManagerRefId="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[name_employee]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name_employee"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[name_employee]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[name_employee]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[surname_employee]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="surname_employee"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[surname_employee]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[surname_employee]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[email]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[tlfn]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="tlfn"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[tlfn]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[tlfn]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[company_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="company_id"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[company_id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[company_id]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[car]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="car"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[car]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[car]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[fixed_rate]"
+                      cachedDataType="r8"
+                      cachedName="fixed_rate"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fixed_rate]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[fixed_rate]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[variable_rate]"
+                      cachedDataType="r8"
+                      cachedName="variable_rate"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[variable_rate]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[variable_rate]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="category"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[category]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[category]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[computer]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="computer"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[computer]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[computer]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[journey]"
+                      cachedDataType="i4"
+                      cachedName="journey"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[journey]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[journey]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[accomodation]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="accomodation"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[accomodation]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[accomodation]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[global_rate]"
+                      cachedDataType="i4"
+                      cachedName="global_rate"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[global_rate]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[global_rate]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[english]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="english"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[english]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[english]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[geographic_availability]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="geographic_availability"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[geographic_availability]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[geographic_availability]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[profile_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="profile_id"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[profile_id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[profile_id]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[city_id]"
+                      cachedDataType="i4"
+                      cachedName="city_id"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[city_id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[city_id]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[source_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="source_id"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[source_id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[source_id]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[request_id]"
+                      cachedDataType="i4"
+                      cachedName="request_id"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[request_id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[request_id]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[campaign_id]"
+                      cachedDataType="i4"
+                      cachedName="campaign_id"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[campaign_id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[campaign_id]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[status_id]"
+                      cachedDataType="i4"
+                      cachedName="status_id"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[status_id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[status_id]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[type_option]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type_option"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[type_option]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[type_option]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[WSTR_document]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="WSTR_document"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[document]"
+                      lineageId="Package\Incorporations\To WSTR.Outputs[Salida de conversión de datos].Columns[WSTR_document]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[WSTR_recommended_itinerary]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="WSTR_recommended_itinerary"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[recommended_itinerary]"
+                      lineageId="Package\Incorporations\To WSTR.Outputs[Salida de conversión de datos].Columns[WSTR_recommended_itinerary]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[WSTR_technologies]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="WSTR_technologies"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[technologies]"
+                      lineageId="Package\Incorporations\To WSTR.Outputs[Salida de conversión de datos].Columns[WSTR_technologies]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[contract]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="contract"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[contrato]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[contract]" />
+                    <inputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[incorporation_date]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="incorporation_date"
+                      externalMetadataColumnId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[incorporation_date]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[incorporation_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[name_employee]"
+                      dataType="wstr"
+                      length="255"
+                      name="name_employee" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[surname_employee]"
+                      dataType="wstr"
+                      length="255"
+                      name="surname_employee" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="255"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[tlfn]"
+                      dataType="wstr"
+                      length="255"
+                      name="tlfn" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[incorporation_date]"
+                      dataType="dbDate"
+                      name="incorporation_date" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[company_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="company_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[car]"
+                      dataType="wstr"
+                      length="255"
+                      name="car" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fixed_rate]"
+                      dataType="numeric"
+                      name="fixed_rate"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[variable_rate]"
+                      dataType="numeric"
+                      name="variable_rate"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[category]"
+                      dataType="wstr"
+                      length="255"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[computer]"
+                      dataType="wstr"
+                      length="255"
+                      name="computer" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[contrato]"
+                      dataType="wstr"
+                      length="255"
+                      name="contrato" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[journey]"
+                      dataType="wstr"
+                      length="255"
+                      name="journey" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[accomodation]"
+                      dataType="wstr"
+                      length="255"
+                      name="accomodation" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[global_rate]"
+                      dataType="i4"
+                      name="global_rate" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[english]"
+                      dataType="wstr"
+                      length="255"
+                      name="english" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[geographic_availability]"
+                      dataType="wstr"
+                      length="255"
+                      name="geographic_availability" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[technologies]"
+                      dataType="wstr"
+                      length="1000"
+                      name="technologies" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[profile_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="profile_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[recommended_itinerary]"
+                      dataType="wstr"
+                      length="1000"
+                      name="recommended_itinerary" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[document]"
+                      dataType="wstr"
+                      length="1000"
+                      name="document" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[city_id]"
+                      dataType="i4"
+                      name="city_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[source_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="source_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[request_id]"
+                      dataType="i4"
+                      name="request_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[campaign_id]"
+                      dataType="i4"
+                      name="campaign_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[status_id]"
+                      dataType="i4"
+                      name="status_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[type_option]"
+                      dataType="wstr"
+                      length="255"
+                      name="type_option" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Incorporations\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Incorporations\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Incorporations\PostgreSQL Incorporations"
+              componentClassID="Attunity.SSISODBCSrc"
+              description="Origen ODBC"
+              name="PostgreSQL Incorporations"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla que debe recuperarse."
+                  name="TableName">"public"."Incorporations"</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas recuperadas por lote."
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determina la asignación del tamaño de los fragmentos de las columnas LOB"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina la manera en la que el componente expone las columnas CHAR. Si es False, las columnas CHAR se exponen como cadenas byte o multibyte (DT_STR); si es True, las columnas CHAR se exponen como cadenas de tipo ancho (DT_WSTR)."
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos que se debe esperar para que una instrucción SQL se ejecute antes de volver a la aplicación."
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Página de códigos que se usará cuando la información de la página de códigos no esté disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Método usado para recuperar datos."
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Tipo de datos ODBC C para el enlace de datos numéricos."
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determina la manera en la que el componente enlazará columnas de tipos de cadena byte o multibyte (es decir, SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). Las opciones son Unicode (SQL_C_WCHAR) y ANSI (SQL_C_CHAR)."
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Modo usado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Incorporations\PostgreSQL Incorporations.Connections[ODBCConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ec2-174-129-205-197.compute-1.amazonaws.com.dd96jgallcqesq.wwbkrhgajkqekf1]"
+                  connectionManagerRefId="Package.ConnectionManagers[ec2-174-129-205-197.compute-1.amazonaws.com.dd96jgallcqesq.wwbkrhgajkqekf1]"
+                  description="Conexión de runtime de ODBC usada para acceder a la base de datos."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC]"
+                  errorRowDisposition="FailComponent"
+                  name="Salida de origen de ODBC"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[id]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[name_employee]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[name_employee]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[name_employee]"
+                      name="name_employee" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[surname_employee]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[surname_employee]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[surname_employee]"
+                      name="surname_employee" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[email]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[email]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[tlfn]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[tlfn]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[tlfn]"
+                      name="tlfn" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[incorporation_date]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[incorporation_date]"
+                      length="50"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[incorporation_date]"
+                      name="incorporation_date" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[company_id]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[company_id]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[company_id]"
+                      name="company_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[car]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[car]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[car]"
+                      name="car" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[fixed_rate]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[fixed_rate]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[fixed_rate]"
+                      name="fixed_rate" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[variable_rate]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[variable_rate]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[variable_rate]"
+                      name="variable_rate" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[category]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[category]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[category]"
+                      name="category" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[computer]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[computer]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[computer]"
+                      name="computer" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[contract]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[contract]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[contract]"
+                      name="contract" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[journey]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[journey]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[journey]"
+                      name="journey" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[accomodation]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[accomodation]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[accomodation]"
+                      name="accomodation" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[global_rate]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[global_rate]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[global_rate]"
+                      name="global_rate" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[english]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[english]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[english]"
+                      name="english" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[geographic_availability]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[geographic_availability]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[geographic_availability]"
+                      name="geographic_availability" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[technologies]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[technologies]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[technologies]"
+                      name="technologies" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[profile_id]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[profile_id]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[profile_id]"
+                      name="profile_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[recommended_itinerary]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[recommended_itinerary]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[recommended_itinerary]"
+                      name="recommended_itinerary" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[document]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[document]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[document]"
+                      name="document" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[city_id]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[city_id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[city_id]"
+                      name="city_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[source_id]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[source_id]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[source_id]"
+                      name="source_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[request_id]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[request_id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[request_id]"
+                      name="request_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[campaign_id]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[campaign_id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[campaign_id]"
+                      name="campaign_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[status_id]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[status_id]"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[status_id]"
+                      name="status_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[type_option]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[type_option]"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[type_option]"
+                      name="type_option" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[name_employee]"
+                      dataType="wstr"
+                      length="255"
+                      name="name_employee" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[surname_employee]"
+                      dataType="wstr"
+                      length="255"
+                      name="surname_employee" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="255"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[tlfn]"
+                      dataType="wstr"
+                      length="255"
+                      name="tlfn" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[incorporation_date]"
+                      dataType="bytes"
+                      length="10"
+                      name="incorporation_date" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[company_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="company_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[car]"
+                      dataType="wstr"
+                      length="255"
+                      name="car" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[fixed_rate]"
+                      dataType="r8"
+                      name="fixed_rate" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[variable_rate]"
+                      dataType="r8"
+                      name="variable_rate" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[category]"
+                      dataType="wstr"
+                      length="255"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[computer]"
+                      dataType="wstr"
+                      length="255"
+                      name="computer" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[contract]"
+                      dataType="wstr"
+                      length="255"
+                      name="contract" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[journey]"
+                      dataType="i4"
+                      name="journey" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[accomodation]"
+                      dataType="wstr"
+                      length="255"
+                      name="accomodation" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[global_rate]"
+                      dataType="i4"
+                      name="global_rate" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[english]"
+                      dataType="wstr"
+                      length="255"
+                      name="english" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[geographic_availability]"
+                      dataType="wstr"
+                      length="255"
+                      name="geographic_availability" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[technologies]"
+                      dataType="nText"
+                      name="technologies" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[profile_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="profile_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[recommended_itinerary]"
+                      dataType="nText"
+                      name="recommended_itinerary" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[document]"
+                      dataType="nText"
+                      name="document" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[city_id]"
+                      dataType="i4"
+                      name="city_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[source_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="source_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[request_id]"
+                      dataType="i4"
+                      name="request_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[campaign_id]"
+                      dataType="i4"
+                      name="campaign_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[status_id]"
+                      dataType="i4"
+                      name="status_id" />
+                    <externalMetadataColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].ExternalColumns[type_option]"
+                      dataType="wstr"
+                      length="255"
+                      name="type_option" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ODBC">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[name_employee]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[name_employee]"
+                      name="name_employee" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[surname_employee]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[surname_employee]"
+                      name="surname_employee" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[tlfn]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[tlfn]"
+                      name="tlfn" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[incorporation_date]"
+                      dataType="bytes"
+                      length="10"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[incorporation_date]"
+                      name="incorporation_date" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[company_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[company_id]"
+                      name="company_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[car]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[car]"
+                      name="car" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[fixed_rate]"
+                      dataType="r8"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[fixed_rate]"
+                      name="fixed_rate" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[variable_rate]"
+                      dataType="r8"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[variable_rate]"
+                      name="variable_rate" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[category]"
+                      name="category" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[computer]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[computer]"
+                      name="computer" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[contract]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[contract]"
+                      name="contract" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[journey]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[journey]"
+                      name="journey" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[accomodation]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[accomodation]"
+                      name="accomodation" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[global_rate]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[global_rate]"
+                      name="global_rate" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[english]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[english]"
+                      name="english" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[geographic_availability]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[geographic_availability]"
+                      name="geographic_availability" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[technologies]"
+                      dataType="nText"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[technologies]"
+                      name="technologies" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[profile_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[profile_id]"
+                      name="profile_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[recommended_itinerary]"
+                      dataType="nText"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[recommended_itinerary]"
+                      name="recommended_itinerary" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[document]"
+                      dataType="nText"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[document]"
+                      name="document" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[city_id]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[city_id]"
+                      name="city_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[source_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[source_id]"
+                      name="source_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[request_id]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[request_id]"
+                      name="request_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[campaign_id]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[campaign_id]"
+                      name="campaign_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[status_id]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[status_id]"
+                      name="status_id" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[type_option]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[type_option]"
+                      name="type_option" />
+                    <outputColumn
+                      refId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de error de origen de ODBC].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Incorporations\To WSTR"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="To WSTR"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Incorporations\To WSTR.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Incorporations\To WSTR.Inputs[Entrada de conversión de datos].Columns[document]"
+                      cachedDataType="nText"
+                      cachedName="document"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[document]" />
+                    <inputColumn
+                      refId="Package\Incorporations\To WSTR.Inputs[Entrada de conversión de datos].Columns[recommended_itinerary]"
+                      cachedDataType="nText"
+                      cachedName="recommended_itinerary"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[recommended_itinerary]" />
+                    <inputColumn
+                      refId="Package\Incorporations\To WSTR.Inputs[Entrada de conversión de datos].Columns[technologies]"
+                      cachedDataType="nText"
+                      cachedName="technologies"
+                      lineageId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[technologies]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Incorporations\To WSTR.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Incorporations\To WSTR.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incorporations\To WSTR.Outputs[Salida de conversión de datos].Columns[WSTR_document]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="1000"
+                      lineageId="Package\Incorporations\To WSTR.Outputs[Salida de conversión de datos].Columns[WSTR_document]"
+                      name="WSTR_document"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[document]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incorporations\To WSTR.Outputs[Salida de conversión de datos].Columns[WSTR_recommended_itinerary]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="1000"
+                      lineageId="Package\Incorporations\To WSTR.Outputs[Salida de conversión de datos].Columns[WSTR_recommended_itinerary]"
+                      name="WSTR_recommended_itinerary"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[recommended_itinerary]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Incorporations\To WSTR.Outputs[Salida de conversión de datos].Columns[WSTR_technologies]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="1000"
+                      lineageId="Package\Incorporations\To WSTR.Outputs[Salida de conversión de datos].Columns[WSTR_technologies]"
+                      name="WSTR_technologies"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC].Columns[technologies]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Incorporations\To WSTR.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Incorporations\To WSTR.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Incorporations\To WSTR.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\To WSTR.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Incorporations\To WSTR.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Incorporations\To WSTR.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Incorporations.Paths[Salida de conversión de datos]"
+              endId="Package\Incorporations\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\Incorporations\To WSTR.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Incorporations.Paths[Salida de origen de ODBC]"
+              endId="Package\Incorporations\To WSTR.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de ODBC"
+              startId="Package\Incorporations\PostgreSQL Incorporations.Outputs[Salida de origen de ODBC]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Incorporations Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{0B6902FD-76FC-4810-992D-B53774EFD24F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Incorporations Table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F925E963-088A-418E-A103-BCB260635F83}"
+          SQLTask:SqlStatementSource="truncate table [dbo].[Incorporations]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{75B5A517-F20B-40B9-9777-08EC8E1F534D}"
+      DTS:From="Package\Truncate Incorporations Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\Incorporations" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\Incorporations"
+          TopLeft="228.285714597118,153.223529428924" />
+        <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\Truncate Incorporations Table"
+          TopLeft="203,60" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="313.4,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11.9142854028818,51.6235294289243"
+              Start="0,0"
+              End="-11.9142854028818,44.1235294289243">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.8117647144621" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.8117647144621"
+                    Point2="0,25.8117647144621"
+                    Point3="-4,25.8117647144621" />
+                  <mssgle:LineSegment
+                    End="-7.91428540288183,25.8117647144621" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.91428540288183,25.8117647144621"
+                    Point2="-11.9142854028818,25.8117647144621"
+                    Point3="-11.9142854028818,29.8117647144621" />
+                  <mssgle:LineSegment
+                    End="-11.9142854028818,44.1235294289243" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Incorporations">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Incorporations\PostgreSQL Incorporations"
+          TopLeft="151.428574007385,39.1529417255758" />
+        <NodeLayout
+          Size="122.4,41.6"
+          Id="Package\Incorporations\To WSTR"
+          TopLeft="202.857146311779,129.082354751508" />
+        <EdgeLayout
+          Id="Package\Incorporations.Paths[Salida de origen de ODBC]"
+          TopLeft="253.428574007385,80.7529417255758">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.6285723043947,48.3294130259319"
+              Start="0,0"
+              End="10.6285723043947,40.8294130259319">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.164706512966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.164706512966"
+                    Point2="0,24.164706512966"
+                    Point3="4,24.164706512966" />
+                  <mssgle:LineSegment
+                    End="6.62857230439474,24.164706512966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.62857230439474,24.164706512966"
+                    Point2="10.6285723043947,24.164706512966"
+                    Point3="10.6285723043947,28.164706512966" />
+                  <mssgle:LineSegment
+                    End="10.6285723043947,40.8294130259319" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\Incorporations\Destino de OLE DB"
+          TopLeft="168.000002861023,317.505886805841" />
+        <EdgeLayout
+          Id="Package\Incorporations.Paths[Salida de conversión de datos]"
+          TopLeft="264.057146311779,170.682354751508">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.0571434507565,146.823532054334"
+              Start="0,0"
+              End="-12.0571434507565,139.323532054334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.4117660271668" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,69.4117660271668"
+                    Point2="0,73.4117660271668"
+                    Point3="-4,73.4117660271668" />
+                  <mssgle:LineSegment
+                    End="-8.05714345075648,73.4117660271668" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.05714345075648,73.4117660271668"
+                    Point2="-12.0571434507565,73.4117660271668"
+                    Point3="-12.0571434507565,77.4117660271668" />
+                  <mssgle:LineSegment
+                    End="-12.0571434507565,139.323532054334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Incorporations\PostgreSQL Incorporations">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Incorporations\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2906 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/13/2019 3:03:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{D45B42F8-B3D0-40FE-9AAA-F6C9E34A5673}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Jornadas_Empleados"
+  DTS:PackageType="5"
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{7D3E5A41-52B2-4E09-B387-E2E6A1595103}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\aux_Jornada_Empleados"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{DCBD8D6B-7613-4922-ADAB-4349699B8FAD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="aux_Jornada_Empleados"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="aux_Jornada_Empleados"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[aux_Jornada_Empleados]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Connections[OleDbConnection]"
+                  connectionManagerID="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  connectionManagerRefId="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].Columns[IDPersonal]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="IDPersonal"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDPersonal]"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDPersonal]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].Columns[IDJornada]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="IDJornada"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDJornada]"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDJornada]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].Columns[AnioMes]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AnioMes"
+                      cachedSortKeyPosition="4"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[AnioMes]"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[AnioMes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].Columns[Oficina]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="Oficina"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[Oficina]"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Oficina]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].Columns[HorasFest]"
+                      cachedDataType="r8"
+                      cachedName="HorasFest"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[HorasFest]"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[HorasFest]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].Columns[FechaMes]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaMes"
+                      cachedSortKeyPosition="5"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaMes]"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FechaMes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].Columns[Descripción]"
+                      cachedDataType="nText"
+                      cachedName="Descripción"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descripción]"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripción]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].Columns[HorasDia]"
+                      cachedDataType="r8"
+                      cachedName="HorasDia"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[HorasDia]"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[HorasDia]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDPersonal]"
+                      dataType="wstr"
+                      length="255"
+                      name="IDPersonal" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDJornada]"
+                      dataType="wstr"
+                      length="255"
+                      name="IDJornada" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[AnioMes]"
+                      dataType="wstr"
+                      length="255"
+                      name="AnioMes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[Oficina]"
+                      dataType="wstr"
+                      length="255"
+                      name="Oficina" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[HorasFest]"
+                      dataType="r8"
+                      name="HorasFest" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaMes]"
+                      dataType="dbDate"
+                      name="FechaMes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descripción]"
+                      dataType="nText"
+                      name="Descripción" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB].ExternalColumns[HorasDia]"
+                      dataType="r8"
+                      name="HorasDia" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\aux_Jornada_Empleados\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\aux_Jornada_Empleados\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Columna derivada.Inputs[Entrada de columna derivada].Columns[HorasFest]"
+                      cachedDataType="r8"
+                      cachedName="HorasFest"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[HorasFest]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[ISNULL](#{Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[HorasFest]}) ? 0 : #{Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[HorasFest]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(HorasFest) ? 0 : HorasFest</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\aux_Jornada_Empleados\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\aux_Jornada_Empleados\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\aux_Jornada_Empleados\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\aux_Jornada_Empleados\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Empleados\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Empleados\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\aux_Jornada_Empleados\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">5</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[AnioMes]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AnioMes"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[AnioMes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdPersonal]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="IdPersonal"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[IdPersonal]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Oficina]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="Oficina"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[Oficina]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdJornada]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="IdJornada"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[IdJornada]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[FechaMes]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaMes"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[FechaMes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Descripción]"
+                      cachedDataType="nText"
+                      cachedName="Descripción"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[Descripción]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[HorasDia]"
+                      cachedDataType="r8"
+                      cachedName="HorasDia"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[HorasDia]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Idpersonal]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="Idpersonal"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[Idpersonal]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Oficina]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="Oficina"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[Oficina]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[IdJornada]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="IdJornada"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[IdJornada]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[AnioMes]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AnioMes"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[AnioMes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[FechaMes]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaMes"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[FechaMes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[HorasFest]"
+                      cachedDataType="r8"
+                      cachedName="HorasFest"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[HorasFest]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDPersonal]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDPersonal]"
+                      name="IDPersonal"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdPersonal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDJornada]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDJornada]"
+                      name="IDJornada"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdJornada]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Oficina]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Oficina]"
+                      name="Oficina"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Oficina]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[AnioMes]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[AnioMes]"
+                      name="AnioMes"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[AnioMes]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FechaMes]"
+                      dataType="dbDate"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FechaMes]"
+                      name="FechaMes"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[FechaMes]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripción]"
+                      dataType="nText"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Descripción]"
+                      name="Descripción">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Descripción]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[HorasDia]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[HorasDia]"
+                      name="HorasDia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[HorasDia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[HorasFest]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[HorasFest]"
+                      name="HorasFest">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[HorasFest]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\aux_Jornada_Empleados\Festivos"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Festivos"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Select 
+	rtrim(ltrim(Idpersonal)) Idpersonal, 
+	rtrim(ltrim(Oficina)) Oficina, 
+	rtrim(ltrim(jf.s_Idjornada)) as IdJornada,
+	rtrim(ltrim(jf.AnioMes)) AnioMes,
+	jf.FechaMes,
+	case
+		when FechaMes = fest.f_FechaFestivo then Horas
+	end as HorasFest
+from [dbo].[aux_Jornada_Fechas] jf
+join(
+	select 
+		rtrim(ltrim(e.Idpersonal)) IdPersonal, 
+		rtrim(ltrim(e.oficina)) Oficina, 
+		rtrim(ltrim(e.Idjornada))IdJornada,
+		cf.f_FechaFestivo 
+	from Empleados e
+	Join ODS_BOSONITBI.stg.CalendarioFestivos cf on rtrim(ltrim(e.oficina)) = rtrim(ltrim(cf.s_Oficina))
+) fest on rtrim(ltrim(jf.s_Idjornada))= rtrim(ltrim(fest.IdJornada)) and FechaMes = fest.f_FechaFestivo
+order by IdPersonal,IdJornada,Oficina,AnioMes,FechaMes</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\aux_Jornada_Empleados\Festivos.Connections[OleDbConnection]"
+                  connectionManagerID="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  connectionManagerRefId="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB]"
+                  isSorted="true"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[Idpersonal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].ExternalColumns[Idpersonal]"
+                      length="25"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[Idpersonal]"
+                      name="Idpersonal"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[Oficina]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].ExternalColumns[Oficina]"
+                      length="25"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[Oficina]"
+                      name="Oficina"
+                      sortKeyPosition="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[IdJornada]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].ExternalColumns[IdJornada]"
+                      length="3"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[IdJornada]"
+                      name="IdJornada"
+                      sortKeyPosition="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[AnioMes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].ExternalColumns[AnioMes]"
+                      length="255"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[AnioMes]"
+                      name="AnioMes"
+                      sortKeyPosition="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[FechaMes]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaMes]"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[FechaMes]"
+                      name="FechaMes"
+                      sortKeyPosition="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[HorasFest]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].ExternalColumns[HorasFest]"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].Columns[HorasFest]"
+                      name="HorasFest"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].ExternalColumns[Idpersonal]"
+                      dataType="wstr"
+                      length="25"
+                      name="Idpersonal" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].ExternalColumns[Oficina]"
+                      dataType="wstr"
+                      length="25"
+                      name="Oficina" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].ExternalColumns[IdJornada]"
+                      dataType="wstr"
+                      length="3"
+                      name="IdJornada" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].ExternalColumns[AnioMes]"
+                      dataType="wstr"
+                      length="255"
+                      name="AnioMes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaMes]"
+                      dataType="dbDate"
+                      name="FechaMes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB].ExternalColumns[HorasFest]"
+                      dataType="r8"
+                      name="HorasFest" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[Idpersonal]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[Idpersonal]"
+                      name="Idpersonal" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[Oficina]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[Oficina]"
+                      name="Oficina" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[IdJornada]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[IdJornada]"
+                      name="IdJornada" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[AnioMes]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[AnioMes]"
+                      name="AnioMes" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[FechaMes]"
+                      dataType="dbDate"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[FechaMes]"
+                      name="FechaMes" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[HorasFest]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[HorasFest]"
+                      name="HorasFest" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Jornadas_Empleados_Dias"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Select 
+	rtrim(ltrim(e.IDPersonal)) IdPersonal,
+	rtrim(ltrim(e.Oficina)) Oficina,
+	rtrim(ltrim(e.IDJornada)) IdJornada,
+	ch.s_Descripcion as Descripción, 
+	rtrim(ltrim(ch.AnioMes)) AnioMes,
+	ch.FechaMes, 
+	ch.Horas as HorasDia 
+from Empleados e 
+join (
+	Select 
+	rtrim(ltrim([s_Idjornada])) Idjornada,
+	[s_DescripciÃ³n] as [s_Descripcion],
+	Horas,
+	FechaMes,
+	rtrim(ltrim([AnioMes])) AnioMes
+	from [dbo].[aux_Jornada_Fechas]
+) ch on rtrim(ltrim(e.IDJornada)) = rtrim(ltrim(ch.Idjornada))
+order by e.IDPersonal,e.IDJornada,e.Oficina,ch.AnioMes,ch.FechaMes</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Connections[OleDbConnection]"
+                  connectionManagerID="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  connectionManagerRefId="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB]"
+                  isSorted="true"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[AnioMes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[AnioMes]"
+                      length="255"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[AnioMes]"
+                      name="AnioMes"
+                      sortKeyPosition="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[Oficina]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[Oficina]"
+                      length="25"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[Oficina]"
+                      name="Oficina"
+                      sortKeyPosition="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[Descripción]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[Descripción]"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[Descripción]"
+                      name="Descripción"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[FechaMes]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaMes]"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[FechaMes]"
+                      name="FechaMes"
+                      sortKeyPosition="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[HorasDia]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[HorasDia]"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[HorasDia]"
+                      name="HorasDia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[IdPersonal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[IdPersonal]"
+                      length="25"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[IdPersonal]"
+                      name="IdPersonal"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[IdJornada]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[IdJornada]"
+                      length="10"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].Columns[IdJornada]"
+                      name="IdJornada"
+                      sortKeyPosition="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[AnioMes]"
+                      dataType="wstr"
+                      length="255"
+                      name="AnioMes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[Oficina]"
+                      dataType="wstr"
+                      length="25"
+                      name="Oficina" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[Descripción]"
+                      dataType="nText"
+                      name="Descripción" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaMes]"
+                      dataType="dbDate"
+                      name="FechaMes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[HorasDia]"
+                      dataType="r8"
+                      name="HorasDia" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[IdPersonal]"
+                      dataType="wstr"
+                      length="25"
+                      name="IdPersonal" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB].ExternalColumns[IdJornada]"
+                      dataType="wstr"
+                      length="10"
+                      name="IdJornada" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[IdPersonal]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[IdPersonal]"
+                      name="IdPersonal" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[Oficina]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[Oficina]"
+                      name="Oficina" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[IdJornada]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[IdJornada]"
+                      name="IdJornada" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[Descripción]"
+                      dataType="nText"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[Descripción]"
+                      name="Descripción" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[AnioMes]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[AnioMes]"
+                      name="AnioMes" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[FechaMes]"
+                      dataType="dbDate"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[FechaMes]"
+                      name="FechaMes" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[HorasDia]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[HorasDia]"
+                      name="HorasDia" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\aux_Jornada_Empleados.Paths[Salida de columna derivada]"
+              endId="Package\aux_Jornada_Empleados\aux_Jornada_Empleados.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\aux_Jornada_Empleados\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\aux_Jornada_Empleados.Paths[Salida de combinación de mezcla]"
+              endId="Package\aux_Jornada_Empleados\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de combinación de mezcla"
+              startId="Package\aux_Jornada_Empleados\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\aux_Jornada_Empleados.Paths[Salida de origen de OLE DB]"
+              endId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de origen de OLE DB"
+              startId="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\aux_Jornada_Empleados.Paths[Salida de origen de OLE DB1]"
+              endId="Package\aux_Jornada_Empleados\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de origen de OLE DB"
+              startId="Package\aux_Jornada_Empleados\Festivos.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\aux_Jornada_Fechas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:Disabled="True"
+      DTS:DTSID="{22A396E2-A015-4DBB-BC47-D23B309CD7AC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="aux_Jornada_Fechas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="aux_Jornada_Fechas"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[aux_Jornada_Fechas]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Connections[OleDbConnection]"
+                  connectionManagerID="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  connectionManagerRefId="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[s_Idjornada]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="s_Idjornada"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Idjornada]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[s_Idjornada]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[s_DescripciÃ³n]"
+                      cachedDataType="nText"
+                      cachedName="s_DescripciÃ³n"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DescripciÃ³n]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[s_DescripciÃ³n]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[VigenciaIni]"
+                      cachedDataType="dbDate"
+                      cachedName="VigenciaIni"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[VigenciaIni]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[VigenciaIni]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[VigenciaFin]"
+                      cachedDataType="dbDate"
+                      cachedName="VigenciaFin"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[VigenciaFin]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[VigenciaFin]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[Lunes]"
+                      cachedDataType="r8"
+                      cachedName="Lunes"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lunes]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Lunes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[Martes]"
+                      cachedDataType="r8"
+                      cachedName="Martes"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Martes]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Martes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[Miercoles]"
+                      cachedDataType="r8"
+                      cachedName="Miercoles"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Miercoles]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Miercoles]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[Jueves]"
+                      cachedDataType="r8"
+                      cachedName="Jueves"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Jueves]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Jueves]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[Viernes]"
+                      cachedDataType="r8"
+                      cachedName="Viernes"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Viernes]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Viernes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[Sabado]"
+                      cachedDataType="r8"
+                      cachedName="Sabado"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sabado]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Sabado]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[Domingo]"
+                      cachedDataType="r8"
+                      cachedName="Domingo"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Domingo]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Domingo]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[FechaMes]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaMes"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaMes]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FechaMes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[numdia]"
+                      cachedDataType="i4"
+                      cachedName="numdia"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[numdia]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[numdia]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[AnioMes]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="AnioMes"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[AnioMes]"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[AnioMes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].Columns[Horas]"
+                      cachedDataType="r8"
+                      cachedName="Horas"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Horas]"
+                      lineageId="Package\aux_Jornada_Fechas\Columna derivada.Outputs[Salida de columna derivada].Columns[Horas]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Idjornada]"
+                      dataType="wstr"
+                      length="3"
+                      name="s_Idjornada" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      name="s_DescripciÃ³n" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[VigenciaIni]"
+                      dataType="dbDate"
+                      name="VigenciaIni" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[VigenciaFin]"
+                      dataType="dbDate"
+                      name="VigenciaFin" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lunes]"
+                      dataType="r8"
+                      name="Lunes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Martes]"
+                      dataType="r8"
+                      name="Martes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Miercoles]"
+                      dataType="r8"
+                      name="Miercoles" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Jueves]"
+                      dataType="r8"
+                      name="Jueves" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Viernes]"
+                      dataType="r8"
+                      name="Viernes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sabado]"
+                      dataType="r8"
+                      name="Sabado" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Domingo]"
+                      dataType="r8"
+                      name="Domingo" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaMes]"
+                      dataType="dbDate"
+                      name="FechaMes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[numdia]"
+                      dataType="i4"
+                      name="numdia" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[AnioMes]"
+                      dataType="wstr"
+                      length="255"
+                      name="AnioMes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Horas]"
+                      dataType="r8"
+                      name="Horas" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\aux_Jornada_Fechas\Calendario 19-39"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Calendario 19-39"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">DECLARE 
+@StartDate DATE = '20190101' , 
+@EndDate DATE = '20391231' 
+SELECT DATEADD(DAY, nbr - 1, @StartDate) FechaMes , Datepart(dw,DATEADD(DAY, nbr - 1, @StartDate)) numdia,
+1 as ID,
+concat(YEAR(DATEADD(DAY, nbr - 1, @StartDate)),Format(MONTH(DATEADD(DAY, nbr - 1, @StartDate)),'00')) AnioMes
+FROM ( SELECT ROW_NUMBER() OVER ( ORDER BY c.object_id ) AS Nbr FROM sys.columns c ) nbrs 
+WHERE nbr - 1 &lt;= DATEDIFF(DAY, @StartDate, @EndDate)
+order by ID</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\aux_Jornada_Fechas\Calendario 19-39.Connections[OleDbConnection]"
+                  connectionManagerID="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  connectionManagerRefId="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB]"
+                  isSorted="true"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].Columns[FechaMes]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaMes]"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].Columns[FechaMes]"
+                      name="FechaMes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].Columns[numdia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].ExternalColumns[numdia]"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].Columns[numdia]"
+                      name="numdia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].ExternalColumns[ID]"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].Columns[ID]"
+                      name="ID"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].Columns[AnioMes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].ExternalColumns[AnioMes]"
+                      length="4000"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].Columns[AnioMes]"
+                      name="AnioMes"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaMes]"
+                      dataType="dbDate"
+                      name="FechaMes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].ExternalColumns[numdia]"
+                      dataType="i4"
+                      name="numdia" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].ExternalColumns[AnioMes]"
+                      dataType="wstr"
+                      length="4000"
+                      name="AnioMes" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB].Columns[FechaMes]"
+                      dataType="dbDate"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB].Columns[FechaMes]"
+                      name="FechaMes" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB].Columns[numdia]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB].Columns[numdia]"
+                      name="numdia" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB].Columns[AnioMes]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB].Columns[AnioMes]"
+                      name="AnioMes" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\aux_Jornada_Fechas\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\aux_Jornada_Fechas\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Columna derivada.Inputs[Entrada de columna derivada].Columns[Lunes]"
+                      cachedDataType="r8"
+                      cachedName="Lunes"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Lunes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Columna derivada.Inputs[Entrada de columna derivada].Columns[Martes]"
+                      cachedDataType="r8"
+                      cachedName="Martes"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Martes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Columna derivada.Inputs[Entrada de columna derivada].Columns[Miercoles]"
+                      cachedDataType="r8"
+                      cachedName="Miercoles"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Miercoles]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Columna derivada.Inputs[Entrada de columna derivada].Columns[Jueves]"
+                      cachedDataType="r8"
+                      cachedName="Jueves"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Jueves]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Columna derivada.Inputs[Entrada de columna derivada].Columns[Viernes]"
+                      cachedDataType="r8"
+                      cachedName="Viernes"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Viernes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Columna derivada.Inputs[Entrada de columna derivada].Columns[Sabado]"
+                      cachedDataType="r8"
+                      cachedName="Sabado"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Sabado]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Columna derivada.Inputs[Entrada de columna derivada].Columns[Domingo]"
+                      cachedDataType="r8"
+                      cachedName="Domingo"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Domingo]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Columna derivada.Inputs[Entrada de columna derivada].Columns[numdia]"
+                      cachedDataType="i4"
+                      cachedName="numdia"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[numdia]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\aux_Jornada_Fechas\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\aux_Jornada_Fechas\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Columna derivada.Outputs[Salida de columna derivada].Columns[Horas]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\aux_Jornada_Fechas\Columna derivada.Outputs[Salida de columna derivada].Columns[Horas]"
+                      name="Horas"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[numdia]} == 1 ? #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Domingo]} : #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[numdia]} == 2 ? #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Lunes]} : #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[numdia]} == 3 ? #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Martes]} : #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[numdia]} == 4 ? #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Miercoles]} : #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[numdia]} == 5 ? #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Jueves]} : #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[numdia]} == 6 ? #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Viernes]} : #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[numdia]} == 7 ? #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Sabado]} : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">numdia == 1 ? Domingo : numdia == 2 ? Lunes : numdia == 3 ? Martes : numdia == 4 ? Miercoles : numdia == 5 ? Jueves : numdia == 6 ? Viernes : numdia == 7 ? Sabado : 0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\aux_Jornada_Fechas\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\aux_Jornada_Fechas\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\aux_Jornada_Fechas\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[s_Idjornada]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="s_Idjornada"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[s_Idjornada]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[s_DescripciÃ³n]"
+                      cachedDataType="nText"
+                      cachedName="s_DescripciÃ³n"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[s_DescripciÃ³n]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[VigenciaIni]"
+                      cachedDataType="dbDate"
+                      cachedName="VigenciaIni"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[VigenciaIni]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[VigenciaFin]"
+                      cachedDataType="dbDate"
+                      cachedName="VigenciaFin"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[VigenciaFin]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Lunes]"
+                      cachedDataType="r8"
+                      cachedName="Lunes"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Lunes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Martes]"
+                      cachedDataType="r8"
+                      cachedName="Martes"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Martes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Miercoles]"
+                      cachedDataType="r8"
+                      cachedName="Miercoles"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Miercoles]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Jueves]"
+                      cachedDataType="r8"
+                      cachedName="Jueves"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Jueves]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Viernes]"
+                      cachedDataType="r8"
+                      cachedName="Viernes"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Viernes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Sabado]"
+                      cachedDataType="r8"
+                      cachedName="Sabado"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Sabado]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Domingo]"
+                      cachedDataType="r8"
+                      cachedName="Domingo"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Domingo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[FechaMes]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaMes"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].Columns[FechaMes]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[numdia]"
+                      cachedDataType="i4"
+                      cachedName="numdia"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].Columns[numdia]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[AnioMes]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="AnioMes"
+                      lineageId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB].Columns[AnioMes]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[s_Idjornada]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[s_Idjornada]"
+                      name="s_Idjornada">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[s_Idjornada]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[s_DescripciÃ³n]"
+                      name="s_DescripciÃ³n">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[s_DescripciÃ³n]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[VigenciaIni]"
+                      dataType="dbDate"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[VigenciaIni]"
+                      name="VigenciaIni">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[VigenciaIni]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[VigenciaFin]"
+                      dataType="dbDate"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[VigenciaFin]"
+                      name="VigenciaFin">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[VigenciaFin]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Lunes]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Lunes]"
+                      name="Lunes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Lunes]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Martes]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Martes]"
+                      name="Martes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Martes]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Miercoles]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Miercoles]"
+                      name="Miercoles">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Miercoles]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Jueves]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Jueves]"
+                      name="Jueves">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Jueves]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Viernes]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Viernes]"
+                      name="Viernes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Viernes]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Sabado]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Sabado]"
+                      name="Sabado">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Sabado]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Domingo]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Domingo]"
+                      name="Domingo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Domingo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ID]"
+                      name="ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FechaMes]"
+                      dataType="dbDate"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FechaMes]"
+                      name="FechaMes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[FechaMes]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[numdia]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[numdia]"
+                      name="numdia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[numdia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[AnioMes]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[AnioMes]"
+                      name="AnioMes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[AnioMes]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\aux_Jornada_Fechas\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\aux_Jornada_Fechas\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\División condicional.Inputs[Entrada de división condicional].Columns[VigenciaIni]"
+                      cachedDataType="dbDate"
+                      cachedName="VigenciaIni"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[VigenciaIni]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\División condicional.Inputs[Entrada de división condicional].Columns[VigenciaFin]"
+                      cachedDataType="dbDate"
+                      cachedName="VigenciaFin"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[VigenciaFin]" />
+                    <inputColumn
+                      refId="Package\aux_Jornada_Fechas\División condicional.Inputs[Entrada de división condicional].Columns[FechaMes]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaMes"
+                      lineageId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FechaMes]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\aux_Jornada_Fechas\División condicional.Outputs[Fechas contenidas]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Fechas contenidas"
+                  synchronousInputId="Package\aux_Jornada_Fechas\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FechaMes]} &gt;= #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[VigenciaIni]} &amp;&amp; #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FechaMes]} &lt;= #{Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[VigenciaFin]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">FechaMes &gt;= VigenciaIni &amp;&amp; FechaMes &lt;= VigenciaFin</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\aux_Jornada_Fechas\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\aux_Jornada_Fechas\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\aux_Jornada_Fechas\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\aux_Jornada_Fechas\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\aux_Jornada_Fechas\Jornadas por fecha"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Jornadas por fecha"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Select s_Idjornada, [s_DescripciÃ³n], 
+Try_cast(concat(2020,s_VigenciaIni)as date) as VigenciaIni, 
+Try_cast(concat(2020,s_VigenciaFin)as date) as VigenciaFin,
+d_HorasLunes as Lunes,
+d_HorasMartes as Martes,
+d_HorasMiercoles as Miercoles,
+d_HorasJueves as Jueves,
+d_HorasViernes as Viernes,
+d_HorasSabado as Sabado,
+d_HorasDomingo as Domingo,
+1 as ID
+from ODS_BOSONITBI.stg.JornadasxFecha j
+where Try_cast(concat(2020,s_VigenciaFin)as date) is not null   ---- Estoy quitando la jornada que esta mal
+order by ID</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB]"
+                  isSorted="true"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[s_Idjornada]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[s_Idjornada]"
+                      length="3"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[s_Idjornada]"
+                      name="s_Idjornada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DescripciÃ³n]"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[s_DescripciÃ³n]"
+                      name="s_DescripciÃ³n"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[VigenciaIni]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[VigenciaIni]"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[VigenciaIni]"
+                      name="VigenciaIni"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[VigenciaFin]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[VigenciaFin]"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[VigenciaFin]"
+                      name="VigenciaFin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Lunes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Lunes]"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Lunes]"
+                      name="Lunes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Martes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Martes]"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Martes]"
+                      name="Martes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Miercoles]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Miercoles]"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Miercoles]"
+                      name="Miercoles"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Jueves]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Jueves]"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Jueves]"
+                      name="Jueves"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Viernes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Viernes]"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Viernes]"
+                      name="Viernes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Sabado]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Sabado]"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Sabado]"
+                      name="Sabado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Domingo]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Domingo]"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[Domingo]"
+                      name="Domingo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[ID]"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].Columns[ID]"
+                      name="ID"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[s_Idjornada]"
+                      dataType="wstr"
+                      length="3"
+                      name="s_Idjornada" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      name="s_DescripciÃ³n" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[VigenciaIni]"
+                      dataType="dbDate"
+                      name="VigenciaIni" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[VigenciaFin]"
+                      dataType="dbDate"
+                      name="VigenciaFin" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Lunes]"
+                      dataType="r8"
+                      name="Lunes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Martes]"
+                      dataType="r8"
+                      name="Martes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Miercoles]"
+                      dataType="r8"
+                      name="Miercoles" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Jueves]"
+                      dataType="r8"
+                      name="Jueves" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Viernes]"
+                      dataType="r8"
+                      name="Viernes" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Sabado]"
+                      dataType="r8"
+                      name="Sabado" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[Domingo]"
+                      dataType="r8"
+                      name="Domingo" />
+                    <externalMetadataColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[s_Idjornada]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[s_Idjornada]"
+                      name="s_Idjornada" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[s_DescripciÃ³n]"
+                      name="s_DescripciÃ³n" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[VigenciaIni]"
+                      dataType="dbDate"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[VigenciaIni]"
+                      name="VigenciaIni" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[VigenciaFin]"
+                      dataType="dbDate"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[VigenciaFin]"
+                      name="VigenciaFin" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Lunes]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Lunes]"
+                      name="Lunes" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Martes]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Martes]"
+                      name="Martes" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Miercoles]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Miercoles]"
+                      name="Miercoles" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Jueves]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Jueves]"
+                      name="Jueves" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Viernes]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Viernes]"
+                      name="Viernes" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Sabado]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Sabado]"
+                      name="Sabado" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Domingo]"
+                      dataType="r8"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[Domingo]"
+                      name="Domingo" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\aux_Jornada_Fechas.Paths[Fechas contenidas]"
+              endId="Package\aux_Jornada_Fechas\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Fechas contenidas"
+              startId="Package\aux_Jornada_Fechas\División condicional.Outputs[Fechas contenidas]" />
+            <path
+              refId="Package\aux_Jornada_Fechas.Paths[Salida de columna derivada]"
+              endId="Package\aux_Jornada_Fechas\aux_Jornada_Fechas.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\aux_Jornada_Fechas\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\aux_Jornada_Fechas.Paths[Salida de combinación de mezcla]"
+              endId="Package\aux_Jornada_Fechas\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de combinación de mezcla"
+              startId="Package\aux_Jornada_Fechas\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\aux_Jornada_Fechas.Paths[Salida de origen de OLE DB]"
+              endId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de origen de OLE DB"
+              startId="Package\aux_Jornada_Fechas\Jornadas por fecha.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\aux_Jornada_Fechas.Paths[Salida de origen de OLE DB1]"
+              endId="Package\aux_Jornada_Fechas\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de origen de OLE DB"
+              startId="Package\aux_Jornada_Fechas\Calendario 19-39.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate aux_Jornada_Empleados"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{539AA80C-1E8A-421D-B5B3-CE3CDF3CD9C8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate aux_Jornada_Empleados"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F925E963-088A-418E-A103-BCB260635F83}"
+          SQLTask:SqlStatementSource="truncate table dbo.aux_Jornada_Empleados" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{CB1562D3-311F-4314-A8F4-739869127208}"
+      DTS:From="Package\aux_Jornada_Fechas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\aux_Jornada_Empleados" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{585F605C-BF3F-4D06-BACD-C8B422811DA5}"
+      DTS:From="Package\Truncate aux_Jornada_Empleados"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\aux_Jornada_Fechas" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\aux_Jornada_Empleados"
+          TopLeft="334,272" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\aux_Jornada_Fechas"
+          TopLeft="346,143" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="433.25,185">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87"
+              Start="0,0"
+              End="0,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Este primer flujo nos crea una tabla que recoge todos los días del año para cada jornada y las horas a trabajar ese día&#xD;&#xA;Este lo hacemos para varios años, asi que solo lo ejecutaremos cuando necesitemos añadir más."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="649,60"
+          Id="c2c66e5e-78d9-4ab0-bb8c-e5ca2c466f67"
+          TopLeft="538,127" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\Truncate aux_Jornada_Empleados"
+          TopLeft="313,18" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="434,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,83"
+              Start="0,0"
+              End="0,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\aux_Jornada_Empleados">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\aux_Jornada_Empleados\aux_Jornada_Empleados"
+          TopLeft="526,420" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias"
+          TopLeft="407,155" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\aux_Jornada_Empleados\Festivos"
+          TopLeft="706,153" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\aux_Jornada_Empleados\Combinación de mezcla"
+          TopLeft="526,249" />
+        <EdgeLayout
+          Id="Package\aux_Jornada_Empleados.Paths[Salida de origen de OLE DB]"
+          TopLeft="508.5,197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112.5,52"
+              Start="0,0"
+              End="112.5,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="4,26" />
+                  <mssgle:LineSegment
+                    End="108.5,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="108.5,26"
+                    Point2="112.5,26"
+                    Point3="112.5,30" />
+                  <mssgle:LineSegment
+                    End="112.5,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\aux_Jornada_Empleados.Paths[Salida de origen de OLE DB1]"
+          TopLeft="764.5,195">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-113.166666666667,54"
+              Start="0,0"
+              End="-113.166666666667,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.1294363256785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.1294363256785"
+                    Point2="0,32.1294363256785"
+                    Point3="-4,32.1294363256785" />
+                  <mssgle:LineSegment
+                    End="-109.166666666667,32.1294363256785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-109.166666666667,32.1294363256785"
+                    Point2="-113.166666666667,32.1294363256785"
+                    Point3="-113.166666666667,36.1294363256785" />
+                  <mssgle:LineSegment
+                    End="-113.166666666667,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42"
+          Id="Package\aux_Jornada_Empleados\Columna derivada"
+          TopLeft="538,316" />
+        <EdgeLayout
+          Id="Package\aux_Jornada_Empleados.Paths[Salida de combinación de mezcla]"
+          TopLeft="620.5,291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\aux_Jornada_Empleados.Paths[Salida de columna derivada]"
+          TopLeft="622,358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\aux_Jornada_Empleados\Jornadas_Empleados_Dias">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\aux_Jornada_Empleados\aux_Jornada_Empleados">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\aux_Jornada_Fechas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\aux_Jornada_Fechas\División condicional"
+          TopLeft="391,274" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\aux_Jornada_Fechas\Columna derivada"
+          TopLeft="398,355" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\aux_Jornada_Fechas\Jornadas por fecha"
+          TopLeft="290,56" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\aux_Jornada_Fechas\Combinación de mezcla"
+          TopLeft="387,185" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\aux_Jornada_Fechas\aux_Jornada_Fechas"
+          TopLeft="393,443" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\aux_Jornada_Fechas\Calendario 19-39"
+          TopLeft="545,48" />
+        <EdgeLayout
+          Id="Package\aux_Jornada_Fechas.Paths[Salida de origen de OLE DB1]"
+          TopLeft="624.5,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-112.166666666667,95"
+              Start="0,0"
+              End="-112.166666666667,87.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5240083507307" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.5240083507307"
+                    Point2="0,56.5240083507307"
+                    Point3="-4,56.5240083507307" />
+                  <mssgle:LineSegment
+                    End="-108.166666666667,56.5240083507307" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-108.166666666667,56.5240083507307"
+                    Point2="-112.166666666667,56.5240083507307"
+                    Point3="-112.166666666667,60.5240083507307" />
+                  <mssgle:LineSegment
+                    End="-112.166666666667,87.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\aux_Jornada_Fechas.Paths[Salida de origen de OLE DB]"
+          TopLeft="374.5,98">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77.1666666666667,87"
+              Start="0,0"
+              End="77.1666666666667,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.7640918580376" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.7640918580376"
+                    Point2="0,51.7640918580376"
+                    Point3="4,51.7640918580376" />
+                  <mssgle:LineSegment
+                    End="73.1666666666667,51.7640918580376" />
+                  <mssgle:CubicBezierSegment
+                    Point1="73.1666666666667,51.7640918580376"
+                    Point2="77.1666666666667,51.7640918580376"
+                    Point3="77.1666666666667,55.7640918580376" />
+                  <mssgle:LineSegment
+                    End="77.1666666666667,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\aux_Jornada_Fechas.Paths[Salida de combinación de mezcla]"
+          TopLeft="479.25,227">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\aux_Jornada_Fechas.Paths[Salida de columna derivada]"
+          TopLeft="480.75,397">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\aux_Jornada_Fechas.Paths[Fechas contenidas]"
+          TopLeft="478.25,316">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-40.952578125,10.87548828125,81.90515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\aux_Jornada_Fechas\Jornadas por fecha">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\aux_Jornada_Fechas\aux_Jornada_Fechas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\aux_Jornada_Fechas\Calendario 19-39">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\aux_Jornada_Empleados\Festivos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

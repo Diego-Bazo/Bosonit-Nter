@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="PostgrestBackup"
+  DTS:DTSID="{7839C07E-1171-4DAB-9D17-301ACC7F7410}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=ec2-174-129-205-197.compute-1.amazonaws.com;User ID=wwbkrhgajkqekf;Initial Catalog=dd96jgallcqesq;Provider=PGNP.1;Persist Security Info=True;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAyjs4BJK4Eezc2auH3pE0gAAAAACAAAAAAADZgAAwAAAABAAAADWdwMPBiNfeL2WUpYroSJAAAAAAASAAACgAAAAEAAAAMMzg+HCCEnQfQBe3tKW1LywAAAAd00lX5iZAJiDDiAOpw5aTISBsXgTq6xPH7jRsfpt6+cKc+v2990imRAD9Yrztn/0TjfowHt3dlun8pPk6P2EoL34/yPN/v/IpPNHIJVzNtG/yYuVe39JreEvFOwAvTFzVYhw69BwMQ5SyW939qxmrN8ZI+TqsP0pLB7IskfV+mrHHXGV7zuT/xTO4XDO97dMWzuuHD5NtnKnLxGvgualGvxOBw7IQzt6hwMEMZoZN2kUAAAAEY20ddoSlpA2ynLZZ2Sr7/01+hg=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

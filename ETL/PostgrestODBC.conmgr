@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="PostgrestODBC"
+  DTS:DTSID="{483F3166-691A-42D5-821D-026992406124}"
+  DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="server=ec2-174-129-205-197.compute-1.amazonaws.com;uid=wwbkrhgajkqekf;Dsn=PostgreSQL35W;database=dd96jgallcqesq;port=5432;sslmode=allow;readonly=0;protocol=7.4;fakeoidindex=0;showoidcolumn=0;rowversioning=0;showsystemtables=0;fetch=100;unknownsizes=0;maxvarcharsize=255;maxlongvarcharsize=8190;debug=0;commlog=0;usedeclarefetch=0;textaslongvarchar=1;unknownsaslongvarchar=0;boolsaschar=1;parse=0;lfconversion=1;updatablecursors=1;trueisminus1=0;bi=0;byteaaslongvarbinary=1;useserversideprepare=1;lowercaseidentifier=0;d6=-101;xaopt=1;">
+      <DTS:Password
+        DTS:Name="pwd"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAyjs4BJK4Eezc2auH3pE0gAAAAACAAAAAAADZgAAwAAAABAAAAAFxt8BYLzx4bgmb+CMq+JuAAAAAASAAACgAAAAEAAAAEk0PU7pstU7tqw17NjPd4yoAAAA/Xara5aV7AYBPLhCCMc/Pb+Qw7CclamiKBovXsVXGGTi4MNW0zNkJ64vudV0n15CLNtlrHDOs4TNWV3xpMfcaplsqnGPJnCrrXHrHUvFkWlT/HjhXZURC9iz+hSXV6fwyHRsr6jVX11PtoK7AnngOjd7U5BRf8MGj8y6UITwvHQl8y2ljUwJXmxlUsTUhbg7eFhFGXBgtkbMWlg5naqXwcdhFn8XLRhaFAAAAD9+u4+Lpv5MvI4PQN1zXlIj5Hzq</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

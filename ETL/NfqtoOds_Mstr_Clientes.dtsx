@@ -1,0 +1,1921 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2019 2:16:43 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{A9F22852-E13B-44CB-8934-E0FE4593A3B4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="NfqtoOds_Mstr_Clientes"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{5C11105D-A160-4909-A5EF-48D5BE572098}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clientes"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{AC49A0E0-8762-4C51-B5D8-F7BC90035863}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clientes"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Clientes\NFQ BBDD"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="NFQ BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from o_mstr_clientes</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clientes\NFQ BBDD.Connections[IDbConnection]"
+                  connectionManagerID="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  connectionManagerRefId="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCliente]"
+                      length="12"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCliente]"
+                      name="s_IdCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_AliasCliente]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCliente]"
+                      name="s_AliasCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CIF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CIF]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CIF]"
+                      name="s_CIF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_ClOperativo]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_ClOperativo]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_ClOperativo]"
+                      name="b_ClOperativo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DenominacionSocial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DenominacionSocial]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DenominacionSocial]"
+                      name="s_DenominacionSocial"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EmpResp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EmpResp]"
+                      length="12"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EmpResp]"
+                      name="s_EmpResp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialDir]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DomicilioSocialDir]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialDir]"
+                      name="s_DomicilioSocialDir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialPais]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DomicilioSocialPais]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialPais]"
+                      name="s_DomicilioSocialPais"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialProv]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DomicilioSocialProv]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialProv]"
+                      name="s_DomicilioSocialProv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialMun]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DomicilioSocialMun]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialMun]"
+                      name="s_DomicilioSocialMun"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialCp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DomicilioSocialCp]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialCp]"
+                      name="s_DomicilioSocialCp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalDir]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionPostalDir]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalDir]"
+                      name="s_DireccionPostalDir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalPais]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionPostalPais]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalPais]"
+                      name="s_DireccionPostalPais"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalProv]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionPostalProv]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalProv]"
+                      name="s_DireccionPostalProv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalMun]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionPostalMun]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalMun]"
+                      name="s_DireccionPostalMun"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalCp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionPostalCp]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalCp]"
+                      name="s_DireccionPostalCp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionDir]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionFacturacionDir]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionDir]"
+                      name="s_DireccionFacturacionDir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionPais]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionFacturacionPais]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionPais]"
+                      name="s_DireccionFacturacionPais"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionProv]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionFacturacionProv]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionProv]"
+                      name="s_DireccionFacturacionProv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionMun]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionFacturacionMun]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionMun]"
+                      name="s_DireccionFacturacionMun"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionCp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionFacturacionCp]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionCp]"
+                      name="s_DireccionFacturacionCp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_RegistroCompleto]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_RegistroCompleto]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_RegistroCompleto]"
+                      name="b_RegistroCompleto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Interno]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Interno]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Interno]"
+                      name="b_Interno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Telefono]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Telefono]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Telefono]"
+                      name="s_Telefono"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_FAX]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_FAX]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_FAX]"
+                      name="s_FAX"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Mail]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Mail]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Mail]"
+                      name="s_Mail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Contacto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Contacto]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Contacto]"
+                      name="s_Contacto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Movilcontacto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Movilcontacto]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Movilcontacto]"
+                      name="s_Movilcontacto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[TS_Alta]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[TS_Alta]"
+                      name="TS_Alta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_IsSales]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_IsSales]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_IsSales]"
+                      name="b_IsSales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sNivel1]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel1]"
+                      name="sNivel1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sNivel2]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel2]"
+                      name="sNivel2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sNivel3]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel3]"
+                      name="sNivel3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel4]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sNivel4]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel4]"
+                      name="sNivel4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel5]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sNivel5]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel5]"
+                      name="sNivel5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_AprobacionFacturas]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_AprobacionFacturas]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_AprobacionFacturas]"
+                      name="b_AprobacionFacturas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_PendTrat]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_PendTrat]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_PendTrat]"
+                      name="b_PendTrat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_OnTrat]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_OnTrat]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_OnTrat]"
+                      name="b_OnTrat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_PendRev]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_PendRev]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_PendRev]"
+                      name="b_PendRev"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[TS_UltMdf]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[TS_UltMdf]"
+                      name="TS_UltMdf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_UltUsuMdf]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_UltUsuMdf]"
+                      name="s_UltUsuMdf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_GrpCliID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_GrpCliID]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_GrpCliID]"
+                      name="s_GrpCliID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_IsOport]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_IsOport]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_IsOport]"
+                      name="b_IsOport"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_IsFact]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_IsFact]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_IsFact]"
+                      name="b_IsFact"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CodAssgnFact]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CodAssgnFact]"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CodAssgnFact]"
+                      name="s_CodAssgnFact"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_GeografiaJrq]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_GeografiaJrq]"
+                      length="50"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_GeografiaJrq]"
+                      name="s_GeografiaJrq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_ClienteJrq]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_ClienteJrq]"
+                      length="50"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_ClienteJrq]"
+                      name="s_ClienteJrq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Intracomunitario]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Intracomunitario]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Intracomunitario]"
+                      name="b_Intracomunitario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_TipoIdentificacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_TipoIdentificacion]"
+                      length="2"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_TipoIdentificacion]"
+                      name="s_TipoIdentificacion"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCliente]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_AliasCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_AliasCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CIF]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CIF" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_ClOperativo]"
+                      dataType="ui8"
+                      name="b_ClOperativo" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DenominacionSocial]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DenominacionSocial" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EmpResp]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EmpResp" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DomicilioSocialDir]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialDir" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DomicilioSocialPais]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialPais" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DomicilioSocialProv]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialProv" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DomicilioSocialMun]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialMun" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DomicilioSocialCp]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialCp" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionPostalDir]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalDir" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionPostalPais]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalPais" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionPostalProv]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalProv" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionPostalMun]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalMun" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionPostalCp]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalCp" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionFacturacionDir]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionDir" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionFacturacionPais]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionPais" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionFacturacionProv]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionProv" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionFacturacionMun]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionMun" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DireccionFacturacionCp]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionCp" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_RegistroCompleto]"
+                      dataType="ui8"
+                      name="b_RegistroCompleto" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Interno]"
+                      dataType="ui8"
+                      name="b_Interno" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Telefono]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_FAX]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_FAX" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Mail]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Mail" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Contacto]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Contacto" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Movilcontacto]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Movilcontacto" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      name="TS_Alta" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_IsSales]"
+                      dataType="ui8"
+                      name="b_IsSales" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sNivel1]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel1" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sNivel2]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel2" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sNivel3]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel3" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sNivel4]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel4" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sNivel5]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel5" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_AprobacionFacturas]"
+                      dataType="ui8"
+                      name="b_AprobacionFacturas" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_PendTrat]"
+                      dataType="ui8"
+                      name="b_PendTrat" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_OnTrat]"
+                      dataType="ui8"
+                      name="b_OnTrat" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_PendRev]"
+                      dataType="ui8"
+                      name="b_PendRev" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      name="TS_UltMdf" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_UltUsuMdf" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_GrpCliID]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_GrpCliID" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_IsOport]"
+                      dataType="ui8"
+                      name="b_IsOport" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_IsFact]"
+                      dataType="ui8"
+                      name="b_IsFact" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CodAssgnFact]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodAssgnFact" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_GeografiaJrq]"
+                      dataType="wstr"
+                      length="50"
+                      name="s_GeografiaJrq" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_ClienteJrq]"
+                      dataType="wstr"
+                      length="50"
+                      name="s_ClienteJrq" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Intracomunitario]"
+                      dataType="ui8"
+                      name="b_Intracomunitario" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_TipoIdentificacion]"
+                      dataType="wstr"
+                      length="2"
+                      name="s_TipoIdentificacion" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCliente]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCliente]"
+                      name="s_IdCliente" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_AliasCliente]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_AliasCliente]"
+                      name="s_AliasCliente" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_CIF]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_CIF]"
+                      name="s_CIF" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_ClOperativo]"
+                      dataType="ui8"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_ClOperativo]"
+                      name="b_ClOperativo" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DenominacionSocial]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DenominacionSocial]"
+                      name="s_DenominacionSocial" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EmpResp]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EmpResp]"
+                      name="s_EmpResp" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DomicilioSocialDir]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DomicilioSocialDir]"
+                      name="s_DomicilioSocialDir" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DomicilioSocialPais]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DomicilioSocialPais]"
+                      name="s_DomicilioSocialPais" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DomicilioSocialProv]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DomicilioSocialProv]"
+                      name="s_DomicilioSocialProv" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DomicilioSocialMun]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DomicilioSocialMun]"
+                      name="s_DomicilioSocialMun" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DomicilioSocialCp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DomicilioSocialCp]"
+                      name="s_DomicilioSocialCp" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionPostalDir]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionPostalDir]"
+                      name="s_DireccionPostalDir" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionPostalPais]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionPostalPais]"
+                      name="s_DireccionPostalPais" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionPostalProv]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionPostalProv]"
+                      name="s_DireccionPostalProv" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionPostalMun]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionPostalMun]"
+                      name="s_DireccionPostalMun" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionPostalCp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionPostalCp]"
+                      name="s_DireccionPostalCp" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionFacturacionDir]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionFacturacionDir]"
+                      name="s_DireccionFacturacionDir" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionFacturacionPais]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionFacturacionPais]"
+                      name="s_DireccionFacturacionPais" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionFacturacionProv]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionFacturacionProv]"
+                      name="s_DireccionFacturacionProv" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionFacturacionMun]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionFacturacionMun]"
+                      name="s_DireccionFacturacionMun" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionFacturacionCp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DireccionFacturacionCp]"
+                      name="s_DireccionFacturacionCp" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_RegistroCompleto]"
+                      dataType="ui8"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_RegistroCompleto]"
+                      name="b_RegistroCompleto" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Interno]"
+                      dataType="ui8"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Interno]"
+                      name="b_Interno" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Telefono]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Telefono]"
+                      name="s_Telefono" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_FAX]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_FAX]"
+                      name="s_FAX" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Mail]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Mail]"
+                      name="s_Mail" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Contacto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Contacto]"
+                      name="s_Contacto" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Movilcontacto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Movilcontacto]"
+                      name="s_Movilcontacto" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[TS_Alta]"
+                      name="TS_Alta" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_IsSales]"
+                      dataType="ui8"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_IsSales]"
+                      name="b_IsSales" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sNivel1]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sNivel1]"
+                      name="sNivel1" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sNivel2]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sNivel2]"
+                      name="sNivel2" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sNivel3]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sNivel3]"
+                      name="sNivel3" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sNivel4]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sNivel4]"
+                      name="sNivel4" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sNivel5]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sNivel5]"
+                      name="sNivel5" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_AprobacionFacturas]"
+                      dataType="ui8"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_AprobacionFacturas]"
+                      name="b_AprobacionFacturas" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_PendTrat]"
+                      dataType="ui8"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_PendTrat]"
+                      name="b_PendTrat" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_OnTrat]"
+                      dataType="ui8"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_OnTrat]"
+                      name="b_OnTrat" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_PendRev]"
+                      dataType="ui8"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_PendRev]"
+                      name="b_PendRev" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[TS_UltMdf]"
+                      name="TS_UltMdf" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_UltUsuMdf]"
+                      name="s_UltUsuMdf" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_GrpCliID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_GrpCliID]"
+                      name="s_GrpCliID" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_IsOport]"
+                      dataType="ui8"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_IsOport]"
+                      name="b_IsOport" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_IsFact]"
+                      dataType="ui8"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_IsFact]"
+                      name="b_IsFact" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_CodAssgnFact]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_CodAssgnFact]"
+                      name="s_CodAssgnFact" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_GeografiaJrq]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_GeografiaJrq]"
+                      name="s_GeografiaJrq" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_ClienteJrq]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_ClienteJrq]"
+                      name="s_ClienteJrq" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Intracomunitario]"
+                      dataType="ui8"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Intracomunitario]"
+                      name="b_Intracomunitario" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_TipoIdentificacion]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_TipoIdentificacion]"
+                      name="s_TipoIdentificacion" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clientes\ODS BBDD"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ODS BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[Mstr_Clientes]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clientes\ODS BBDD.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdCliente"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCliente]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCliente]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_AliasCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_AliasCliente"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_AliasCliente]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCliente]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_CIF]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_CIF"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CIF]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CIF]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_ClOperativo]"
+                      cachedDataType="ui8"
+                      cachedName="b_ClOperativo"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_ClOperativo]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_ClOperativo]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DenominacionSocial]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DenominacionSocial"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DenominacionSocial]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DenominacionSocial]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_EmpResp]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_EmpResp"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EmpResp]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EmpResp]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DomicilioSocialDir]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DomicilioSocialDir"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DomicilioSocialDir]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialDir]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DomicilioSocialPais]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DomicilioSocialPais"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DomicilioSocialPais]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialPais]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DomicilioSocialProv]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DomicilioSocialProv"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DomicilioSocialProv]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialProv]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DomicilioSocialMun]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DomicilioSocialMun"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DomicilioSocialMun]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialMun]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DomicilioSocialCp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DomicilioSocialCp"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DomicilioSocialCp]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DomicilioSocialCp]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DireccionPostalDir]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionPostalDir"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionPostalDir]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalDir]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DireccionPostalPais]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionPostalPais"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionPostalPais]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalPais]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DireccionPostalProv]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionPostalProv"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionPostalProv]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalProv]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DireccionPostalMun]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionPostalMun"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionPostalMun]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalMun]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DireccionPostalCp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionPostalCp"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionPostalCp]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionPostalCp]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DireccionFacturacionDir]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionFacturacionDir"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionFacturacionDir]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionDir]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DireccionFacturacionPais]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionFacturacionPais"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionFacturacionPais]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionPais]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DireccionFacturacionProv]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionFacturacionProv"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionFacturacionProv]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionProv]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DireccionFacturacionMun]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionFacturacionMun"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionFacturacionMun]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionMun]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DireccionFacturacionCp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionFacturacionCp"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionFacturacionCp]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DireccionFacturacionCp]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_RegistroCompleto]"
+                      cachedDataType="ui8"
+                      cachedName="b_RegistroCompleto"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_RegistroCompleto]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_RegistroCompleto]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_Interno]"
+                      cachedDataType="ui8"
+                      cachedName="b_Interno"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Interno]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Interno]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_Telefono]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Telefono"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Telefono]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Telefono]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_FAX]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_FAX"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_FAX]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_FAX]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_Mail]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Mail"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Mail]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Mail]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_Contacto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Contacto"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Contacto]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Contacto]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_Movilcontacto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Movilcontacto"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Movilcontacto]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Movilcontacto]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[TS_Alta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="TS_Alta"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_Alta]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[TS_Alta]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_IsSales]"
+                      cachedDataType="ui8"
+                      cachedName="b_IsSales"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_IsSales]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_IsSales]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[sNivel1]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sNivel1"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sNivel1]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel1]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[sNivel2]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sNivel2"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sNivel2]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel2]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[sNivel3]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sNivel3"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sNivel3]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel3]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[sNivel4]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sNivel4"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sNivel4]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel4]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[sNivel5]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sNivel5"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sNivel5]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sNivel5]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_AprobacionFacturas]"
+                      cachedDataType="ui8"
+                      cachedName="b_AprobacionFacturas"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_AprobacionFacturas]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_AprobacionFacturas]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_PendTrat]"
+                      cachedDataType="ui8"
+                      cachedName="b_PendTrat"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_PendTrat]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_PendTrat]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_OnTrat]"
+                      cachedDataType="ui8"
+                      cachedName="b_OnTrat"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_OnTrat]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_OnTrat]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_PendRev]"
+                      cachedDataType="ui8"
+                      cachedName="b_PendRev"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_PendRev]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_PendRev]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[TS_UltMdf]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="TS_UltMdf"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_UltMdf]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[TS_UltMdf]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_UltUsuMdf]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_UltUsuMdf"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_UltUsuMdf]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_UltUsuMdf]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_GrpCliID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_GrpCliID"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_GrpCliID]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_GrpCliID]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_IsOport]"
+                      cachedDataType="ui8"
+                      cachedName="b_IsOport"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_IsOport]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_IsOport]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_IsFact]"
+                      cachedDataType="ui8"
+                      cachedName="b_IsFact"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_IsFact]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_IsFact]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_CodAssgnFact]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_CodAssgnFact"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodAssgnFact]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CodAssgnFact]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_GeografiaJrq]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="s_GeografiaJrq"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_GeografiaJrq]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_GeografiaJrq]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_ClienteJrq]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="s_ClienteJrq"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ClienteJrq]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_ClienteJrq]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_Intracomunitario]"
+                      cachedDataType="ui8"
+                      cachedName="b_Intracomunitario"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Intracomunitario]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Intracomunitario]" />
+                    <inputColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_TipoIdentificacion]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="s_TipoIdentificacion"
+                      externalMetadataColumnId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_TipoIdentificacion]"
+                      lineageId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_TipoIdentificacion]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCliente]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_AliasCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_AliasCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CIF]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CIF" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_ClOperativo]"
+                      dataType="numeric"
+                      name="b_ClOperativo"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DenominacionSocial]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DenominacionSocial" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EmpResp]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EmpResp" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DomicilioSocialDir]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialDir" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DomicilioSocialPais]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialPais" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DomicilioSocialProv]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialProv" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DomicilioSocialMun]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialMun" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DomicilioSocialCp]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialCp" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionPostalDir]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalDir" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionPostalPais]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalPais" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionPostalProv]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalProv" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionPostalMun]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalMun" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionPostalCp]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalCp" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionFacturacionDir]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionDir" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionFacturacionPais]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionPais" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionFacturacionProv]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionProv" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionFacturacionMun]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionMun" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DireccionFacturacionCp]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionCp" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_RegistroCompleto]"
+                      dataType="numeric"
+                      name="b_RegistroCompleto"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Interno]"
+                      dataType="numeric"
+                      name="b_Interno"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Telefono]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_FAX]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_FAX" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Mail]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Mail" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Contacto]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Contacto" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Movilcontacto]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Movilcontacto" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      name="TS_Alta" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_IsSales]"
+                      dataType="numeric"
+                      name="b_IsSales"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sNivel1]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel1" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sNivel2]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel2" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sNivel3]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel3" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sNivel4]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel4" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sNivel5]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel5" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_AprobacionFacturas]"
+                      dataType="numeric"
+                      name="b_AprobacionFacturas"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_PendTrat]"
+                      dataType="numeric"
+                      name="b_PendTrat"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_OnTrat]"
+                      dataType="numeric"
+                      name="b_OnTrat"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_PendRev]"
+                      dataType="numeric"
+                      name="b_PendRev"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      name="TS_UltMdf" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_UltUsuMdf" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_GrpCliID]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_GrpCliID" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_IsOport]"
+                      dataType="numeric"
+                      name="b_IsOport"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_IsFact]"
+                      dataType="numeric"
+                      name="b_IsFact"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodAssgnFact]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodAssgnFact" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_GeografiaJrq]"
+                      dataType="wstr"
+                      length="50"
+                      name="s_GeografiaJrq" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ClienteJrq]"
+                      dataType="wstr"
+                      length="50"
+                      name="s_ClienteJrq" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Intracomunitario]"
+                      dataType="numeric"
+                      name="b_Intracomunitario"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_TipoIdentificacion]"
+                      dataType="wstr"
+                      length="2"
+                      name="s_TipoIdentificacion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clientes\ODS BBDD.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clientes\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clientes\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clientes\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clientes\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Clientes.Paths[Salida de origen de ADO NET]"
+              endId="Package\Clientes\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Clientes\NFQ BBDD.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{be9a93e9-c665-45fc-a5c7-0500d0556a9c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}"
+          SQLTask:SqlStatementSource="truncate table stg.mstr_clientes" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{BED9FF0E-3677-4977-AFDD-84A847075446}"
+      DTS:From="Package\Truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Clientes" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="116,42"
+          Id="Package\Clientes"
+          TopLeft="554,246" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Truncate"
+          TopLeft="545,138" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="608.75,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Clientes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Clientes\NFQ BBDD"
+          TopLeft="540,98" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Clientes\ODS BBDD"
+          TopLeft="546,322" />
+        <EdgeLayout
+          Id="Package\Clientes.Paths[Salida de origen de ADO NET]"
+          TopLeft="608,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,182"
+              Start="0,0"
+              End="0,174.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,174.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Clientes\NFQ BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Clientes\ODS BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

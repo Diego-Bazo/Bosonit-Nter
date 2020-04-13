@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DWH_BOSONITBI"
+  DTS:DTSID="{9A8CA43B-44A9-4495-8971-5BD7EBD4E775}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=192.168.10.208;User ID=bosonit;Initial Catalog=DWH_BOSONITBI;Provider=SQLNCLI11.1;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAyjs4BJK4Eezc2auH3pE0gAAAAACAAAAAAADZgAAwAAAABAAAAACr+277HvvqFgy3ZyqP5axAAAAAASAAACgAAAAEAAAAGiXzKfUwmqmfkDpJWtjS8N4AAAAZVHakn2Jltj4SoUVUBovWgQ2GVPSdwq+PUhx8Qs65bE9v/m8eY+wm3wga3hEUnLZiLOiVl0I9hdI3+6UUqz4/ay7phpW+/dcdNxhexY2S2SJy0FDXPZnZU7Z6EX0/d4jYEu77obeGdl+S3jYply/MRquvSCCOHUSFAAAAEaFLdUxJFW8zuAjbTBqS/N8a1BA</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

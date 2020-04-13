@@ -1,0 +1,1928 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/9/2020 11:21:00 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\administrator"
+  DTS:DTSID="{9F3C9323-80FB-47B7-A061-FEEC79EE21F4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="NfqtoOds_Timesheets"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{4CA856DE-CE8F-48E3-85C8-2A7598F1F301}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\NFQ -&gt; ODS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{D467B7A2-2270-479D-8B35-869E4028A07C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="NFQ -&gt; ODS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\NFQ -&gt; ODS\BDD NFQ"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="BDD NFQ"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT b_EmitirFacturarCliente
+,b_IsClon
+,b_IsOvertime
+,DescCliente 
+,DescProyecto 
+,dFxRateBaseFImp 
+,dFxRateBaseFIni 
+,dFxRateEurFImp 
+,dFxRateEurFIni 
+,d_CosteHoraAjCargable 
+,d_CosteHoraEstructura 
+,d_CosteHoraSalario 
+,d_HorasFacturables 
+,d_HorasJornada 
+,d_HorasJornadaFacturar 
+,d_PrecioHora 
+,d_TotalHorasImpDia 
+,Ejercicio
+,FechaImp 
+,FechaInforme 
+,FechaProceso 
+,FechaRecepcion 
+,f_FechaCierrePrev 
+,f_FechaCierreVenta 
+,f_FechaInicio 
+,Horas 
+,IdCliente 
+,IdProyecto 
+,Id_Empleado 
+,Id_FacturaCliente 
+,IndAno 
+,IndAnoProc
+,IndMes
+,IndMesProc 
+,IndProyFestivo
+,IndProyVacaciones 
+,IndSem 
+,IndSemProc 
+,i_Orden 
+,NombreEmpleado 
+,NumDia 
+,PeriodoImp 
+,RemitidoDesde 
+,sCurrBase
+,sCurrOrig 
+,s_CodPedidoExtCL 
+,s_CodProyExtCL 
+,s_IdCategoria 
+,s_IdGrpCategoria 
+,s_ModoFacturacion 
+,s_TipoProyecto 
+FROM exchng_bosonit.o_inf_tiempo</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\NFQ -&gt; ODS\BDD NFQ.Connections[IDbConnection]"
+                  connectionManagerID="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  connectionManagerRefId="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[b_EmitirFacturarCliente]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[b_EmitirFacturarCliente]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[b_EmitirFacturarCliente]"
+                      name="b_EmitirFacturarCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[b_IsClon]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[b_IsClon]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[b_IsClon]"
+                      name="b_IsClon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[b_IsOvertime]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[b_IsOvertime]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[b_IsOvertime]"
+                      name="b_IsOvertime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[DescCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[DescCliente]"
+                      length="255"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[DescCliente]"
+                      name="DescCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[DescProyecto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[DescProyecto]"
+                      length="150"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[DescProyecto]"
+                      name="DescProyecto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFImp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateBaseFImp]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFImp]"
+                      name="dFxRateBaseFImp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFIni]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateBaseFIni]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFIni]"
+                      name="dFxRateBaseFIni"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFImp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateEurFImp]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFImp]"
+                      name="dFxRateEurFImp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFIni]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateEurFIni]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFIni]"
+                      name="dFxRateEurFIni"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_CosteHoraAjCargable]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteHoraAjCargable]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_CosteHoraAjCargable]"
+                      name="d_CosteHoraAjCargable"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_CosteHoraEstructura]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteHoraEstructura]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_CosteHoraEstructura]"
+                      name="d_CosteHoraEstructura"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_CosteHoraSalario]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteHoraSalario]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_CosteHoraSalario]"
+                      name="d_CosteHoraSalario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_HorasFacturables]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasFacturables]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_HorasFacturables]"
+                      name="d_HorasFacturables"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_HorasJornada]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasJornada]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_HorasJornada]"
+                      name="d_HorasJornada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_HorasJornadaFacturar]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasJornadaFacturar]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_HorasJornadaFacturar]"
+                      name="d_HorasJornadaFacturar"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_PrecioHora]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_PrecioHora]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_PrecioHora]"
+                      name="d_PrecioHora"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_TotalHorasImpDia]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_TotalHorasImpDia]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_TotalHorasImpDia]"
+                      name="d_TotalHorasImpDia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[Ejercicio]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[Ejercicio]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[Ejercicio]"
+                      name="Ejercicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[FechaImp]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaImp]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[FechaImp]"
+                      name="FechaImp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[FechaInforme]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaInforme]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[FechaInforme]"
+                      name="FechaInforme"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[FechaProceso]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaProceso]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[FechaProceso]"
+                      name="FechaProceso"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[FechaRecepcion]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaRecepcion]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[FechaRecepcion]"
+                      name="FechaRecepcion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierrePrev]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaCierrePrev]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierrePrev]"
+                      name="f_FechaCierrePrev"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierreVenta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaCierreVenta]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierreVenta]"
+                      name="f_FechaCierreVenta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[f_FechaInicio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaInicio]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[f_FechaInicio]"
+                      name="f_FechaInicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[Horas]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[Horas]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[Horas]"
+                      name="Horas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IdCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IdCliente]"
+                      length="12"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IdCliente]"
+                      name="IdCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IdProyecto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IdProyecto]"
+                      length="12"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IdProyecto]"
+                      name="IdProyecto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[Id_Empleado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Empleado]"
+                      length="12"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[Id_Empleado]"
+                      name="Id_Empleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[Id_FacturaCliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_FacturaCliente]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[Id_FacturaCliente]"
+                      name="Id_FacturaCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndAno]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndAno]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndAno]"
+                      name="IndAno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndAnoProc]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndAnoProc]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndAnoProc]"
+                      name="IndAnoProc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndMes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndMes]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndMes]"
+                      name="IndMes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndMesProc]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndMesProc]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndMesProc]"
+                      name="IndMesProc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndProyFestivo]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndProyFestivo]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndProyFestivo]"
+                      name="IndProyFestivo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndProyVacaciones]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndProyVacaciones]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndProyVacaciones]"
+                      name="IndProyVacaciones"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndSem]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndSem]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndSem]"
+                      name="IndSem"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndSemProc]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndSemProc]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndSemProc]"
+                      name="IndSemProc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[i_Orden]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[i_Orden]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[i_Orden]"
+                      name="i_Orden"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[NombreEmpleado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreEmpleado]"
+                      length="255"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[NombreEmpleado]"
+                      name="NombreEmpleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[NumDia]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[NumDia]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[NumDia]"
+                      name="NumDia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[PeriodoImp]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[PeriodoImp]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[PeriodoImp]"
+                      name="PeriodoImp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[RemitidoDesde]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[RemitidoDesde]"
+                      length="255"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[RemitidoDesde]"
+                      name="RemitidoDesde"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[sCurrBase]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[sCurrBase]"
+                      length="3"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[sCurrBase]"
+                      name="sCurrBase"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[sCurrOrig]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[sCurrOrig]"
+                      length="3"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[sCurrOrig]"
+                      name="sCurrOrig"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_CodPedidoExtCL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CodPedidoExtCL]"
+                      length="255"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_CodPedidoExtCL]"
+                      name="s_CodPedidoExtCL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_CodProyExtCL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CodProyExtCL]"
+                      length="255"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_CodProyExtCL]"
+                      name="s_CodProyExtCL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_IdCategoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCategoria]"
+                      length="6"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_IdCategoria]"
+                      name="s_IdCategoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_IdGrpCategoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdGrpCategoria]"
+                      length="6"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_IdGrpCategoria]"
+                      name="s_IdGrpCategoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_ModoFacturacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[s_ModoFacturacion]"
+                      length="2"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_ModoFacturacion]"
+                      name="s_ModoFacturacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_TipoProyecto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[s_TipoProyecto]"
+                      length="2"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_TipoProyecto]"
+                      name="s_TipoProyecto"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[b_EmitirFacturarCliente]"
+                      dataType="i2"
+                      name="b_EmitirFacturarCliente" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[b_IsClon]"
+                      dataType="ui8"
+                      name="b_IsClon" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[b_IsOvertime]"
+                      dataType="ui8"
+                      name="b_IsOvertime" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[DescCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="DescCliente" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[DescProyecto]"
+                      dataType="wstr"
+                      length="150"
+                      name="DescProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateBaseFImp]"
+                      dataType="r8"
+                      name="dFxRateBaseFImp" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateBaseFIni]"
+                      dataType="r8"
+                      name="dFxRateBaseFIni" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateEurFImp]"
+                      dataType="r8"
+                      name="dFxRateEurFImp" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateEurFIni]"
+                      dataType="r8"
+                      name="dFxRateEurFIni" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteHoraAjCargable]"
+                      dataType="r8"
+                      name="d_CosteHoraAjCargable" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteHoraEstructura]"
+                      dataType="r8"
+                      name="d_CosteHoraEstructura" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteHoraSalario]"
+                      dataType="r8"
+                      name="d_CosteHoraSalario" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasFacturables]"
+                      dataType="r8"
+                      name="d_HorasFacturables" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasJornada]"
+                      dataType="r8"
+                      name="d_HorasJornada" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_HorasJornadaFacturar]"
+                      dataType="r8"
+                      name="d_HorasJornadaFacturar" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_PrecioHora]"
+                      dataType="r8"
+                      name="d_PrecioHora" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[d_TotalHorasImpDia]"
+                      dataType="r8"
+                      name="d_TotalHorasImpDia" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[Ejercicio]"
+                      dataType="i2"
+                      name="Ejercicio" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaImp]"
+                      dataType="dbTimeStamp"
+                      name="FechaImp" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaInforme]"
+                      dataType="dbTimeStamp"
+                      name="FechaInforme" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaProceso]"
+                      dataType="dbTimeStamp"
+                      name="FechaProceso" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaRecepcion]"
+                      dataType="dbTimeStamp"
+                      name="FechaRecepcion" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaCierrePrev]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaCierrePrev" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaCierreVenta]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaCierreVenta" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaInicio]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[Horas]"
+                      dataType="r8"
+                      name="Horas" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IdCliente]"
+                      dataType="wstr"
+                      length="12"
+                      name="IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IdProyecto]"
+                      dataType="wstr"
+                      length="12"
+                      name="IdProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Empleado]"
+                      dataType="wstr"
+                      length="12"
+                      name="Id_Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_FacturaCliente]"
+                      dataType="i4"
+                      name="Id_FacturaCliente" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndAno]"
+                      dataType="i4"
+                      name="IndAno" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndAnoProc]"
+                      dataType="i4"
+                      name="IndAnoProc" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndMes]"
+                      dataType="i4"
+                      name="IndMes" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndMesProc]"
+                      dataType="i4"
+                      name="IndMesProc" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndProyFestivo]"
+                      dataType="ui8"
+                      name="IndProyFestivo" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndProyVacaciones]"
+                      dataType="ui8"
+                      name="IndProyVacaciones" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndSem]"
+                      dataType="i4"
+                      name="IndSem" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[IndSemProc]"
+                      dataType="i4"
+                      name="IndSemProc" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[i_Orden]"
+                      dataType="i4"
+                      name="i_Orden" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreEmpleado]"
+                      dataType="wstr"
+                      length="255"
+                      name="NombreEmpleado" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[NumDia]"
+                      dataType="r8"
+                      name="NumDia" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[PeriodoImp]"
+                      dataType="dbTimeStamp"
+                      name="PeriodoImp" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[RemitidoDesde]"
+                      dataType="wstr"
+                      length="255"
+                      name="RemitidoDesde" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[sCurrBase]"
+                      dataType="wstr"
+                      length="3"
+                      name="sCurrBase" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[sCurrOrig]"
+                      dataType="wstr"
+                      length="3"
+                      name="sCurrOrig" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CodPedidoExtCL]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodPedidoExtCL" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CodProyExtCL]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodProyExtCL" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCategoria]"
+                      dataType="wstr"
+                      length="6"
+                      name="s_IdCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdGrpCategoria]"
+                      dataType="wstr"
+                      length="6"
+                      name="s_IdGrpCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[s_ModoFacturacion]"
+                      dataType="wstr"
+                      length="2"
+                      name="s_ModoFacturacion" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].ExternalColumns[s_TipoProyecto]"
+                      dataType="wstr"
+                      length="2"
+                      name="s_TipoProyecto" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[b_EmitirFacturarCliente]"
+                      dataType="i2"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[b_EmitirFacturarCliente]"
+                      name="b_EmitirFacturarCliente" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[b_IsClon]"
+                      dataType="ui8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[b_IsClon]"
+                      name="b_IsClon" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[b_IsOvertime]"
+                      dataType="ui8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[b_IsOvertime]"
+                      name="b_IsOvertime" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[DescCliente]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[DescCliente]"
+                      name="DescCliente" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[DescProyecto]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[DescProyecto]"
+                      name="DescProyecto" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateBaseFImp]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateBaseFImp]"
+                      name="dFxRateBaseFImp" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateBaseFIni]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateBaseFIni]"
+                      name="dFxRateBaseFIni" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateEurFImp]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateEurFImp]"
+                      name="dFxRateEurFImp" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateEurFIni]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateEurFIni]"
+                      name="dFxRateEurFIni" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteHoraAjCargable]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteHoraAjCargable]"
+                      name="d_CosteHoraAjCargable" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteHoraEstructura]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteHoraEstructura]"
+                      name="d_CosteHoraEstructura" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteHoraSalario]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteHoraSalario]"
+                      name="d_CosteHoraSalario" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasFacturables]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasFacturables]"
+                      name="d_HorasFacturables" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasJornada]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasJornada]"
+                      name="d_HorasJornada" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasJornadaFacturar]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_HorasJornadaFacturar]"
+                      name="d_HorasJornadaFacturar" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_PrecioHora]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_PrecioHora]"
+                      name="d_PrecioHora" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_TotalHorasImpDia]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[d_TotalHorasImpDia]"
+                      name="d_TotalHorasImpDia" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[Ejercicio]"
+                      dataType="i2"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[Ejercicio]"
+                      name="Ejercicio" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[FechaImp]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[FechaImp]"
+                      name="FechaImp" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[FechaInforme]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[FechaInforme]"
+                      name="FechaInforme" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[FechaProceso]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[FechaProceso]"
+                      name="FechaProceso" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[FechaRecepcion]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[FechaRecepcion]"
+                      name="FechaRecepcion" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaCierrePrev]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaCierrePrev]"
+                      name="f_FechaCierrePrev" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaCierreVenta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaCierreVenta]"
+                      name="f_FechaCierreVenta" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaInicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaInicio]"
+                      name="f_FechaInicio" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[Horas]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[Horas]"
+                      name="Horas" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IdCliente]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IdCliente]"
+                      name="IdCliente" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IdProyecto]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IdProyecto]"
+                      name="IdProyecto" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[Id_Empleado]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[Id_Empleado]"
+                      name="Id_Empleado" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[Id_FacturaCliente]"
+                      dataType="i4"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[Id_FacturaCliente]"
+                      name="Id_FacturaCliente" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndAno]"
+                      dataType="i4"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndAno]"
+                      name="IndAno" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndAnoProc]"
+                      dataType="i4"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndAnoProc]"
+                      name="IndAnoProc" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndMes]"
+                      dataType="i4"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndMes]"
+                      name="IndMes" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndMesProc]"
+                      dataType="i4"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndMesProc]"
+                      name="IndMesProc" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndProyFestivo]"
+                      dataType="ui8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndProyFestivo]"
+                      name="IndProyFestivo" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndProyVacaciones]"
+                      dataType="ui8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndProyVacaciones]"
+                      name="IndProyVacaciones" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndSem]"
+                      dataType="i4"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndSem]"
+                      name="IndSem" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndSemProc]"
+                      dataType="i4"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[IndSemProc]"
+                      name="IndSemProc" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[i_Orden]"
+                      dataType="i4"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[i_Orden]"
+                      name="i_Orden" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[NombreEmpleado]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[NombreEmpleado]"
+                      name="NombreEmpleado" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[NumDia]"
+                      dataType="r8"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[NumDia]"
+                      name="NumDia" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[PeriodoImp]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[PeriodoImp]"
+                      name="PeriodoImp" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[RemitidoDesde]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[RemitidoDesde]"
+                      name="RemitidoDesde" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[sCurrBase]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[sCurrBase]"
+                      name="sCurrBase" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[sCurrOrig]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[sCurrOrig]"
+                      name="sCurrOrig" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[s_CodPedidoExtCL]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[s_CodPedidoExtCL]"
+                      name="s_CodPedidoExtCL" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[s_CodProyExtCL]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[s_CodProyExtCL]"
+                      name="s_CodProyExtCL" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCategoria]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCategoria]"
+                      name="s_IdCategoria" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[s_IdGrpCategoria]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[s_IdGrpCategoria]"
+                      name="s_IdGrpCategoria" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[s_ModoFacturacion]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[s_ModoFacturacion]"
+                      name="s_ModoFacturacion" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[s_TipoProyecto]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[s_TipoProyecto]"
+                      name="s_TipoProyecto" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\NFQ -&gt; ODS\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[nfq_timesheets]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[b_EmitirFacturarCliente]"
+                      cachedDataType="i2"
+                      cachedName="b_EmitirFacturarCliente"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_EmitirFacturarCliente]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[b_EmitirFacturarCliente]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[b_IsClon]"
+                      cachedDataType="ui8"
+                      cachedName="b_IsClon"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_IsClon]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[b_IsClon]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[b_IsOvertime]"
+                      cachedDataType="ui8"
+                      cachedName="b_IsOvertime"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_IsOvertime]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[b_IsOvertime]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DescCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DescCliente"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DescCliente]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[DescCliente]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DescProyecto]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="DescProyecto"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DescProyecto]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[DescProyecto]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[dFxRateBaseFImp]"
+                      cachedDataType="r8"
+                      cachedName="dFxRateBaseFImp"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateBaseFImp]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFImp]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[dFxRateBaseFIni]"
+                      cachedDataType="r8"
+                      cachedName="dFxRateBaseFIni"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateBaseFIni]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFIni]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[dFxRateEurFImp]"
+                      cachedDataType="r8"
+                      cachedName="dFxRateEurFImp"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateEurFImp]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFImp]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[dFxRateEurFIni]"
+                      cachedDataType="r8"
+                      cachedName="dFxRateEurFIni"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateEurFIni]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFIni]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[d_CosteHoraAjCargable]"
+                      cachedDataType="r8"
+                      cachedName="d_CosteHoraAjCargable"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteHoraAjCargable]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_CosteHoraAjCargable]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[d_CosteHoraEstructura]"
+                      cachedDataType="r8"
+                      cachedName="d_CosteHoraEstructura"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteHoraEstructura]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_CosteHoraEstructura]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[d_CosteHoraSalario]"
+                      cachedDataType="r8"
+                      cachedName="d_CosteHoraSalario"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteHoraSalario]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_CosteHoraSalario]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[d_HorasFacturables]"
+                      cachedDataType="r8"
+                      cachedName="d_HorasFacturables"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasFacturables]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_HorasFacturables]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[d_HorasJornada]"
+                      cachedDataType="r8"
+                      cachedName="d_HorasJornada"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasJornada]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_HorasJornada]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[d_HorasJornadaFacturar]"
+                      cachedDataType="r8"
+                      cachedName="d_HorasJornadaFacturar"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasJornadaFacturar]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_HorasJornadaFacturar]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[d_PrecioHora]"
+                      cachedDataType="r8"
+                      cachedName="d_PrecioHora"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_PrecioHora]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_PrecioHora]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[d_TotalHorasImpDia]"
+                      cachedDataType="r8"
+                      cachedName="d_TotalHorasImpDia"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_TotalHorasImpDia]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[d_TotalHorasImpDia]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Ejercicio]"
+                      cachedDataType="i2"
+                      cachedName="Ejercicio"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Ejercicio]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[Ejercicio]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FechaImp]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaImp"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaImp]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[FechaImp]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FechaInforme]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaInforme"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaInforme]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[FechaInforme]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FechaProceso]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaProceso"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaProceso]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[FechaProceso]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FechaRecepcion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaRecepcion"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaRecepcion]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[FechaRecepcion]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[f_FechaCierrePrev]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaCierrePrev"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaCierrePrev]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierrePrev]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[f_FechaCierreVenta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaCierreVenta"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaCierreVenta]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierreVenta]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[f_FechaInicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaInicio"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaInicio]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[f_FechaInicio]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Horas]"
+                      cachedDataType="r8"
+                      cachedName="Horas"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Horas]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[Horas]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="IdCliente"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCliente]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IdCliente]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IdProyecto]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="IdProyecto"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProyecto]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IdProyecto]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Id_Empleado]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="Id_Empleado"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Empleado]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[Id_Empleado]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Id_FacturaCliente]"
+                      cachedDataType="i4"
+                      cachedName="Id_FacturaCliente"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_FacturaCliente]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[Id_FacturaCliente]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IndAno]"
+                      cachedDataType="i4"
+                      cachedName="IndAno"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndAno]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndAno]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IndAnoProc]"
+                      cachedDataType="i4"
+                      cachedName="IndAnoProc"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndAnoProc]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndAnoProc]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IndMes]"
+                      cachedDataType="i4"
+                      cachedName="IndMes"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndMes]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndMes]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IndMesProc]"
+                      cachedDataType="i4"
+                      cachedName="IndMesProc"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndMesProc]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndMesProc]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IndProyFestivo]"
+                      cachedDataType="ui8"
+                      cachedName="IndProyFestivo"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndProyFestivo]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndProyFestivo]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IndProyVacaciones]"
+                      cachedDataType="ui8"
+                      cachedName="IndProyVacaciones"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndProyVacaciones]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndProyVacaciones]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IndSem]"
+                      cachedDataType="i4"
+                      cachedName="IndSem"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndSem]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndSem]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IndSemProc]"
+                      cachedDataType="i4"
+                      cachedName="IndSemProc"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndSemProc]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[IndSemProc]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[i_Orden]"
+                      cachedDataType="i4"
+                      cachedName="i_Orden"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[i_Orden]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[i_Orden]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NombreEmpleado]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NombreEmpleado"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreEmpleado]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[NombreEmpleado]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NumDia]"
+                      cachedDataType="r8"
+                      cachedName="NumDia"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumDia]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[NumDia]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[PeriodoImp]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PeriodoImp"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PeriodoImp]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[PeriodoImp]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[RemitidoDesde]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RemitidoDesde"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[RemitidoDesde]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[RemitidoDesde]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[sCurrBase]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="sCurrBase"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[sCurrBase]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[sCurrBase]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[sCurrOrig]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="sCurrOrig"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[sCurrOrig]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[sCurrOrig]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[s_CodPedidoExtCL]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_CodPedidoExtCL"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodPedidoExtCL]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_CodPedidoExtCL]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[s_CodProyExtCL]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_CodProyExtCL"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodProyExtCL]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_CodProyExtCL]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[s_IdCategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="s_IdCategoria"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCategoria]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_IdCategoria]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[s_IdGrpCategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="s_IdGrpCategoria"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdGrpCategoria]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_IdGrpCategoria]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[s_ModoFacturacion]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="s_ModoFacturacion"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ModoFacturacion]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_ModoFacturacion]" />
+                    <inputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[s_TipoProyecto]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="s_TipoProyecto"
+                      externalMetadataColumnId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_TipoProyecto]"
+                      lineageId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET].Columns[s_TipoProyecto]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Empleado]"
+                      dataType="wstr"
+                      length="12"
+                      name="Id_Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreEmpleado]"
+                      dataType="wstr"
+                      length="255"
+                      name="NombreEmpleado" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProyecto]"
+                      dataType="wstr"
+                      length="12"
+                      name="IdProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DescProyecto]"
+                      dataType="wstr"
+                      length="150"
+                      name="DescProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PeriodoImp]"
+                      dataType="dbTimeStamp"
+                      name="PeriodoImp" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaImp]"
+                      dataType="dbTimeStamp"
+                      name="FechaImp" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Horas]"
+                      dataType="r8"
+                      name="Horas" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[RemitidoDesde]"
+                      dataType="wstr"
+                      length="255"
+                      name="RemitidoDesde" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaRecepcion]"
+                      dataType="dbTimeStamp"
+                      name="FechaRecepcion" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaProceso]"
+                      dataType="dbTimeStamp"
+                      name="FechaProceso" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCliente]"
+                      dataType="wstr"
+                      length="12"
+                      name="IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DescCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="DescCliente" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndProyFestivo]"
+                      dataType="bool"
+                      name="IndProyFestivo" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndProyVacaciones]"
+                      dataType="bool"
+                      name="IndProyVacaciones" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_TipoProyecto]"
+                      dataType="wstr"
+                      length="2"
+                      name="s_TipoProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Ejercicio]"
+                      dataType="i2"
+                      name="Ejercicio" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ModoFacturacion]"
+                      dataType="wstr"
+                      length="2"
+                      name="s_ModoFacturacion" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaInicio]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaCierrePrev]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaCierrePrev" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodProyExtCL]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodProyExtCL" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodPedidoExtCL]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodPedidoExtCL" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaCierreVenta]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaCierreVenta" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[sCurrOrig]"
+                      dataType="wstr"
+                      length="3"
+                      name="sCurrOrig" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[sCurrBase]"
+                      dataType="wstr"
+                      length="3"
+                      name="sCurrBase" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaInforme]"
+                      dataType="dbTimeStamp"
+                      name="FechaInforme" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndAno]"
+                      dataType="i4"
+                      name="IndAno" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndMes]"
+                      dataType="i4"
+                      name="IndMes" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndSem]"
+                      dataType="i4"
+                      name="IndSem" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_EmitirFacturarCliente]"
+                      dataType="i2"
+                      name="b_EmitirFacturarCliente" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_FacturaCliente]"
+                      dataType="i4"
+                      name="Id_FacturaCliente" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndAnoProc]"
+                      dataType="i4"
+                      name="IndAnoProc" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndMesProc]"
+                      dataType="i4"
+                      name="IndMesProc" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndSemProc]"
+                      dataType="i4"
+                      name="IndSemProc" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateEurFIni]"
+                      dataType="r8"
+                      name="dFxRateEurFIni" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateBaseFIni]"
+                      dataType="r8"
+                      name="dFxRateBaseFIni" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateEurFImp]"
+                      dataType="r8"
+                      name="dFxRateEurFImp" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateBaseFImp]"
+                      dataType="r8"
+                      name="dFxRateBaseFImp" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteHoraSalario]"
+                      dataType="r8"
+                      name="d_CosteHoraSalario" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteHoraEstructura]"
+                      dataType="r8"
+                      name="d_CosteHoraEstructura" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteHoraAjCargable]"
+                      dataType="r8"
+                      name="d_CosteHoraAjCargable" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumDia]"
+                      dataType="r8"
+                      name="NumDia" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_PrecioHora]"
+                      dataType="r8"
+                      name="d_PrecioHora" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_IsClon]"
+                      dataType="bool"
+                      name="b_IsClon" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_IsOvertime]"
+                      dataType="bool"
+                      name="b_IsOvertime" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_TotalHorasImpDia]"
+                      dataType="r8"
+                      name="d_TotalHorasImpDia" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasJornada]"
+                      dataType="r8"
+                      name="d_HorasJornada" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasJornadaFacturar]"
+                      dataType="r8"
+                      name="d_HorasJornadaFacturar" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_HorasFacturables]"
+                      dataType="r8"
+                      name="d_HorasFacturables" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCategoria]"
+                      dataType="wstr"
+                      length="6"
+                      name="s_IdCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[i_Orden]"
+                      dataType="i4"
+                      name="i_Orden" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdGrpCategoria]"
+                      dataType="wstr"
+                      length="6"
+                      name="s_IdGrpCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_PrecioTransf]"
+                      dataType="r8"
+                      name="d_PrecioTransf" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\NFQ -&gt; ODS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\NFQ -&gt; ODS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\NFQ -&gt; ODS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\NFQ -&gt; ODS.Paths[Salida de origen de ADO NET]"
+              endId="Package\NFQ -&gt; ODS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de ADO NET"
+              startId="Package\NFQ -&gt; ODS\BDD NFQ.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate nfq_timesheets"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{0842C88A-FB1A-44F0-BDF1-787C6496ACF3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate nfq_timesheets"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}"
+          SQLTask:SqlStatementSource="Truncate table stg.nfq_timesheets" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{A99FD595-2C13-4E8D-B825-29A348E33D35}"
+      DTS:From="Package\Truncate nfq_timesheets"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\NFQ -&gt; ODS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\NFQ -&gt; ODS"
+          TopLeft="445,229" />
+        <NodeLayout
+          Size="196,41.6"
+          Id="Package\Truncate nfq_timesheets"
+          TopLeft="423,138" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="517.5,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\NFQ -&gt; ODS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\NFQ -&gt; ODS\Destino de OLE DB"
+          TopLeft="396.571435325,167.623531762621" />
+        <NodeLayout
+          Size="122.4,41.6"
+          Id="Package\NFQ -&gt; ODS\BDD NFQ"
+          TopLeft="400.285713915922,43.8823528553788" />
+        <EdgeLayout
+          Id="Package\NFQ -&gt; ODS.Paths[Salida de origen de ADO NET]"
+          TopLeft="461.485713915922,85.4823528553788">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.085721409078,82.1411789072422"
+              Start="0,0"
+              End="19.085721409078,74.6411789072422">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0705894536211" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.0705894536211"
+                    Point2="0,41.0705894536211"
+                    Point3="4,41.0705894536211" />
+                  <mssgle:LineSegment
+                    End="15.085721409078,41.0705894536211" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.085721409078,41.0705894536211"
+                    Point2="19.085721409078,41.0705894536211"
+                    Point3="19.085721409078,45.0705894536211" />
+                  <mssgle:LineSegment
+                    End="19.085721409078,74.6411789072422" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\NFQ -&gt; ODS\BDD NFQ">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\NFQ -&gt; ODS\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

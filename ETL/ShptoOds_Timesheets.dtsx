@@ -1,0 +1,1176 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/25/2019 10:05:15 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{A3F4F1A3-E9D8-4F1E-B62B-52597CE7C068}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="ShptoOds_Timesheets"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{63977F84-29D5-44E5-8729-3F3EE7D81C77}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Sharepoint-Timesheets]"
+      DTS:CreationName="ODATA"
+      DTS:DTSID="{C858DCD2-5BB8-4BB2-9B92-F4BCB955956D}"
+      DTS:ObjectName="Sharepoint-Timesheets">
+      <DTS:ObjectData>
+        <ODataConnectionManager
+          UserName="bosonit@bosonit.com"
+          Url="https://bosonit.sharepoint.com/timesheets/_vti_bin/listdata.svc"
+          ConnectionString="Service Document Url=https://bosonit.sharepoint.com/timesheets/_vti_bin/listdata.svc;Include Atom Elements=Auto;Include Expanded Entities=False;Integrated Security=False;Cookie=&quot;SPOIDCRL=77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48U1A+VjYsMGguZnxtZW1iZXJzaGlwfDEwMDMwMDAwYTkxNmRmOWZAbGl2ZS5jb20sMCMuZnxtZW1iZXJzaGlwfGJvc29uaXRAYm9zb25pdC5jb20sMTMyMTg1Mzk3NDkwMDAwMDAwLDEzMjAyNTUyNzE3MDAwMDAwMCwxMzIxODYyNjE0OTYzMzI3NzAsMC4wLjAuMCw0LGI1ZTdhYjhkLWRkNjctNGVjMi1iYWU1LWU2YTRmNjQ3NGE2NCwsLDQzZmQxODlmLTYwMDMtOTAwMC05NDFjLTIyZDU2MWM1YTE1MSw0M2ZkMTg5Zi02MDAzLTkwMDAtOTQxYy0yMmQ1NjFjNWExNTEsLDAsMCwwLCwsLG42WkorSVVRUnBWUXI2SjNmNCtsZFc0djFsMFFCTmFXdnB0T2tacVVmYmFQNUsyS1hJMHNPTGRpclp5Tmh2U1VWMHluNTRKTjZPT292SjJuOUVHNUtBUEwvSW1obWsyQlQwU3VhdWUxa1JYRGRLR2p6S3UrdFBKQzZQdk5FRmN4cFk3SDZicnZlRHUxQzhNcS8wallUdXZsSUc0ZmRNQTJZUWN6S0JIczZaRlFrK294UlNWQ3FEUWJaa1BaVFpjYldqRHJ3Yk9sbTdlVUsvTXUrbzI1a2U5TE56YlcxdUluTlZ1cDBkeGdYT2lWbGVIRmF3SWNNZm9RZGFrT1NGcDVpMmRhNmhhRHR3am10VC9VaDdvUFVzNkdmK00veDJJYjhsbzl6L291c1hKZ256Z2FFZzlzeTVOVHVOd0R6dEJMblQwY0tkeGNBV1dmNnNXWW1jb3ZIQT09PC9TUD4=&quot;;User ID=bosonit@bosonit.com;Persist Security Info=False;Time Out=600;Schema Sample Size=25;Retry Count=5;Retry Sleep=100;Keep Alive=False;Max Received Message Size=4398046511104"
+          MicrosoftOnlineServicesAuth="True"
+          AuthType="MicrosoftOnlineService">
+          <Password
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAyjs4BJK4Eezc2auH3pE0gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABidHiPNSyh3xfnefM9TwJOAAAAAASAAACgAAAAEAAAAFtpqUSg9XNHEXjfeH4UOlUoAAAANeFY1Rb5CjeC323pVXSlLd5DnSIzIhSPJO/1HMEKEAA4zf2We7b1KxQAAACtwVTJvWOpWvtKw0KwosHccF7I1Q</Password>
+        </ODataConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Ejecutar SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{1B462138-40F9-4DCD-8E97-388CBB4481AB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Ejecutar SQL"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}"
+          SQLTask:SqlStatementSource="Truncate table stg.timesheets" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{273C755E-A011-4F26-8B8E-4AC411BA95AA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[Timesheets]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IdDeTiposDeContenido]"
+                      cachedDataType="nText"
+                      cachedName="IdDeTiposDeContenido"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdDeTiposDeContenido]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[IdDeTiposDeContenido]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Notas]"
+                      cachedDataType="nText"
+                      cachedName="Notas"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Notas]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Notas]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IdDeActivoDeCumplimientoNormativo]"
+                      cachedDataType="nText"
+                      cachedName="IdDeActivoDeCumplimientoNormativo"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdDeActivoDeCumplimientoNormativo]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[IdDeActivoDeCumplimientoNormativo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Proyectos]"
+                      cachedDataType="nText"
+                      cachedName="Proyectos"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Proyectos]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Proyectos]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Lunes]"
+                      cachedDataType="r8"
+                      cachedName="Lunes"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lunes]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Lunes]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Martes]"
+                      cachedDataType="r8"
+                      cachedName="Martes"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Martes]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Martes]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Miercoles]"
+                      cachedDataType="r8"
+                      cachedName="Miercoles"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Miercoles]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Miercoles]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Jueves]"
+                      cachedDataType="r8"
+                      cachedName="Jueves"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Jueves]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Jueves]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Viernes]"
+                      cachedDataType="r8"
+                      cachedName="Viernes"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Viernes]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Viernes]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Total]"
+                      cachedDataType="r8"
+                      cachedName="Total"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Total]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Total]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Anotaciones]"
+                      cachedDataType="nText"
+                      cachedName="Anotaciones"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Anotaciones]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Anotaciones]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Facturable]"
+                      cachedDataType="bool"
+                      cachedName="Facturable"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Facturable]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Facturable]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FechaDeJornada]"
+                      cachedDataType="nText"
+                      cachedName="FechaDeJornada"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaDeJornada]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[FechaDeJornada]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Empleado]"
+                      cachedDataType="nText"
+                      cachedName="Empleado"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Empleado]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Empleado]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Email]"
+                      cachedDataType="nText"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Email]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Estados]"
+                      cachedDataType="nText"
+                      cachedName="Estados"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estados]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Estados]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Localizacion]"
+                      cachedDataType="nText"
+                      cachedName="Localizacion"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Localizacion]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Localizacion]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IND_FECH]"
+                      cachedDataType="r8"
+                      cachedName="IND_FECH"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IND_FECH]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[IND_FECH]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Creado]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Creado"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Creado]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Creado]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Modificado]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Modificado"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Modificado]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Modificado]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Anio]"
+                      cachedDataType="r8"
+                      cachedName="Anio"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Anio]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Anio]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Identificador]"
+                      cachedDataType="i4"
+                      cachedName="Identificador"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Identificador]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Identificador]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TipoDeContenido]"
+                      cachedDataType="nText"
+                      cachedName="TipoDeContenido"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoDeContenido]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[TipoDeContenido]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CreadoPorId]"
+                      cachedDataType="i4"
+                      cachedName="CreadoPorId"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CreadoPorId]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[CreadoPorId]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ModificadoPorId]"
+                      cachedDataType="i4"
+                      cachedName="ModificadoPorId"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ModificadoPorId]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[ModificadoPorId]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Owshiddenversion]"
+                      cachedDataType="i4"
+                      cachedName="Owshiddenversion"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Owshiddenversion]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Owshiddenversion]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Versión]"
+                      cachedDataType="nText"
+                      cachedName="Versión"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Versión]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Versión]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[RutaDeAcceso]"
+                      cachedDataType="nText"
+                      cachedName="RutaDeAcceso"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[RutaDeAcceso]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[RutaDeAcceso]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Empleado]"
+                      dataType="nText"
+                      name="Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Email]"
+                      dataType="nText"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estados]"
+                      dataType="nText"
+                      name="Estados" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Localizacion]"
+                      dataType="nText"
+                      name="Localizacion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Notas]"
+                      dataType="nText"
+                      name="Notas" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Proyectos]"
+                      dataType="nText"
+                      name="Proyectos" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdDeTiposDeContenido]"
+                      dataType="nText"
+                      name="IdDeTiposDeContenido" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdDeActivoDeCumplimientoNormativo]"
+                      dataType="nText"
+                      name="IdDeActivoDeCumplimientoNormativo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lunes]"
+                      dataType="r8"
+                      name="Lunes" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Martes]"
+                      dataType="r8"
+                      name="Martes" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Miercoles]"
+                      dataType="r8"
+                      name="Miercoles" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Jueves]"
+                      dataType="r8"
+                      name="Jueves" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Viernes]"
+                      dataType="r8"
+                      name="Viernes" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Total]"
+                      dataType="r8"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Anotaciones]"
+                      dataType="nText"
+                      name="Anotaciones" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Facturable]"
+                      dataType="bool"
+                      name="Facturable" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaDeJornada]"
+                      dataType="nText"
+                      name="FechaDeJornada" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IND_FECH]"
+                      dataType="r8"
+                      name="IND_FECH" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Creado]"
+                      dataType="dbTimeStamp"
+                      name="Creado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Modificado]"
+                      dataType="dbTimeStamp"
+                      name="Modificado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Anio]"
+                      dataType="r8"
+                      name="Anio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Identificador]"
+                      dataType="i4"
+                      name="Identificador" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoDeContenido]"
+                      dataType="nText"
+                      name="TipoDeContenido" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CreadoPorId]"
+                      dataType="i4"
+                      name="CreadoPorId" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ModificadoPorId]"
+                      dataType="i4"
+                      name="ModificadoPorId" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Owshiddenversion]"
+                      dataType="i4"
+                      name="Owshiddenversion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Versión]"
+                      dataType="nText"
+                      name="Versión" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[RutaDeAcceso]"
+                      dataType="nText"
+                      name="RutaDeAcceso" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Origen OData"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Componente de origen OData;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Leer datos de los servicios OData"
+              name="Origen OData"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la colección que se recuperará del servicio."
+                  expressionType="Notify"
+                  name="CollectionName">Timesheet</property>
+                <property
+                  dataType="System.Int32"
+                  description="La longitud máxima predeterminada de una cadena que no tiene maxlength especificada en el esquema."
+                  name="DefaultStringLength">4000</property>
+                <property
+                  dataType="System.String"
+                  description="Consulta en la dirección URL. "
+                  expressionType="Notify"
+                  name="Query"></property>
+                <property
+                  dataType="System.String"
+                  description="Ruta de acceso a recursos de la colección que se recuperará del servicio."
+                  expressionType="Notify"
+                  name="ResourcePath"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Cuando se establece en True, use la ruta de acceso a recursos como la colección solicitada; en caso contrario, use el nombre de la colección."
+                  expressionType="Notify"
+                  name="UseResourcePath">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.OData</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Origen OData.Connections[Connection]"
+                  connectionManagerID="Package.ConnectionManagers[Sharepoint-Timesheets]"
+                  connectionManagerRefId="Package.ConnectionManagers[Sharepoint-Timesheets]"
+                  description="Conexión al servicio OData"
+                  name="Connection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[IdDeTiposDeContenido]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[IdDeTiposDeContenido]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[IdDeTiposDeContenido]"
+                      name="IdDeTiposDeContenido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Notas]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Notas]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Notas]"
+                      name="Notas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[IdDeActivoDeCumplimientoNormativo]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[IdDeActivoDeCumplimientoNormativo]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[IdDeActivoDeCumplimientoNormativo]"
+                      name="IdDeActivoDeCumplimientoNormativo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Proyectos]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Proyectos]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Proyectos]"
+                      name="Proyectos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Lunes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Lunes]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Lunes]"
+                      name="Lunes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Martes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Martes]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Martes]"
+                      name="Martes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Miercoles]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Miercoles]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Miercoles]"
+                      name="Miercoles"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Jueves]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Jueves]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Jueves]"
+                      name="Jueves"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Viernes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Viernes]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Viernes]"
+                      name="Viernes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Total]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Total]"
+                      name="Total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Anotaciones]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Anotaciones]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Anotaciones]"
+                      name="Anotaciones"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Facturable]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Facturable]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Facturable]"
+                      name="Facturable"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[FechaDeJornada]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[FechaDeJornada]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[FechaDeJornada]"
+                      name="FechaDeJornada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Empleado]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Empleado]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Empleado]"
+                      name="Empleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Email]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Email]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Estados]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Estados]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Estados]"
+                      name="Estados"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Localizacion]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Localizacion]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Localizacion]"
+                      name="Localizacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[IND_FECH]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[IND_FECH]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[IND_FECH]"
+                      name="IND_FECH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Creado]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Creado]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Creado]"
+                      name="Creado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Modificado]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Modificado]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Modificado]"
+                      name="Modificado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Anio]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Anio]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Anio]"
+                      name="Anio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Identificador]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Identificador]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Identificador]"
+                      name="Identificador"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[TipoDeContenido]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[TipoDeContenido]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[TipoDeContenido]"
+                      name="TipoDeContenido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[CreadoPorId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[CreadoPorId]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[CreadoPorId]"
+                      name="CreadoPorId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[ModificadoPorId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[ModificadoPorId]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[ModificadoPorId]"
+                      name="ModificadoPorId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Owshiddenversion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Owshiddenversion]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Owshiddenversion]"
+                      name="Owshiddenversion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Versión]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Versión]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[Versión]"
+                      name="Versión"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[RutaDeAcceso]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[RutaDeAcceso]"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].Columns[RutaDeAcceso]"
+                      name="RutaDeAcceso"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[IdDeTiposDeContenido]"
+                      dataType="nText"
+                      name="IdDeTiposDeContenido" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Notas]"
+                      dataType="nText"
+                      name="Notas" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[IdDeActivoDeCumplimientoNormativo]"
+                      dataType="nText"
+                      name="IdDeActivoDeCumplimientoNormativo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Proyectos]"
+                      dataType="nText"
+                      name="Proyectos" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Lunes]"
+                      dataType="r8"
+                      name="Lunes" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Martes]"
+                      dataType="r8"
+                      name="Martes" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Miercoles]"
+                      dataType="r8"
+                      name="Miercoles" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Jueves]"
+                      dataType="r8"
+                      name="Jueves" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Viernes]"
+                      dataType="r8"
+                      name="Viernes" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Total]"
+                      dataType="r8"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Anotaciones]"
+                      dataType="nText"
+                      name="Anotaciones" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Facturable]"
+                      dataType="bool"
+                      name="Facturable" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[FechaDeJornada]"
+                      dataType="nText"
+                      name="FechaDeJornada" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Empleado]"
+                      dataType="nText"
+                      name="Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Email]"
+                      dataType="nText"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Estados]"
+                      dataType="nText"
+                      name="Estados" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Localizacion]"
+                      dataType="nText"
+                      name="Localizacion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[IND_FECH]"
+                      dataType="r8"
+                      name="IND_FECH" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Creado]"
+                      dataType="dbTimeStamp"
+                      name="Creado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Modificado]"
+                      dataType="dbTimeStamp"
+                      name="Modificado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Anio]"
+                      dataType="r8"
+                      name="Anio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Identificador]"
+                      dataType="i4"
+                      name="Identificador" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[TipoDeContenido]"
+                      dataType="nText"
+                      name="TipoDeContenido" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[CreadoPorId]"
+                      dataType="i4"
+                      name="CreadoPorId" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[ModificadoPorId]"
+                      dataType="i4"
+                      name="ModificadoPorId" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Owshiddenversion]"
+                      dataType="i4"
+                      name="Owshiddenversion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[Versión]"
+                      dataType="nText"
+                      name="Versión" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output].ExternalColumns[RutaDeAcceso]"
+                      dataType="nText"
+                      name="RutaDeAcceso" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output]"
+                  isErrorOut="true"
+                  name="Error output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[IdDeTiposDeContenido]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[IdDeTiposDeContenido]"
+                      name="IdDeTiposDeContenido" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Notas]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Notas]"
+                      name="Notas" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[IdDeActivoDeCumplimientoNormativo]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[IdDeActivoDeCumplimientoNormativo]"
+                      name="IdDeActivoDeCumplimientoNormativo" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Proyectos]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Proyectos]"
+                      name="Proyectos" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Lunes]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Lunes]"
+                      name="Lunes" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Martes]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Martes]"
+                      name="Martes" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Miercoles]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Miercoles]"
+                      name="Miercoles" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Jueves]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Jueves]"
+                      name="Jueves" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Viernes]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Viernes]"
+                      name="Viernes" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Total]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Total]"
+                      name="Total" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Anotaciones]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Anotaciones]"
+                      name="Anotaciones" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Facturable]"
+                      dataType="bool"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Facturable]"
+                      name="Facturable" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[FechaDeJornada]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[FechaDeJornada]"
+                      name="FechaDeJornada" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Empleado]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Empleado]"
+                      name="Empleado" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Email]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Estados]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Estados]"
+                      name="Estados" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Localizacion]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Localizacion]"
+                      name="Localizacion" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[IND_FECH]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[IND_FECH]"
+                      name="IND_FECH" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Creado]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Creado]"
+                      name="Creado" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Modificado]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Modificado]"
+                      name="Modificado" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Anio]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Anio]"
+                      name="Anio" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Identificador]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Identificador]"
+                      name="Identificador" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[TipoDeContenido]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[TipoDeContenido]"
+                      name="TipoDeContenido" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[CreadoPorId]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[CreadoPorId]"
+                      name="CreadoPorId" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[ModificadoPorId]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[ModificadoPorId]"
+                      name="ModificadoPorId" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Owshiddenversion]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Owshiddenversion]"
+                      name="Owshiddenversion" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Versión]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[Versión]"
+                      name="Versión" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[RutaDeAcceso]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Origen OData.Outputs[Error output].Columns[RutaDeAcceso]"
+                      name="RutaDeAcceso" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Output]"
+              endId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Output"
+              startId="Package\Tarea Flujo de datos\Origen OData.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{AC351740-7506-473A-9EEE-8FFF55A548CC}"
+      DTS:From="Package\Tarea Ejecutar SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Tarea Flujo de datos" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Ejecutar SQL"
+          TopLeft="449,148" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="452,205" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="449,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="3,57"
+              Start="0,0"
+              End="-4.5,57">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,53" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,53"
+                    Point2="-22.5,57"
+                    Point3="-18.5,57" />
+                  <mssgle:LineSegment
+                    End="-4.5,57" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Tarea Flujo de datos\Origen OData"
+          TopLeft="478,97" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Tarea Flujo de datos\Destino de OLE DB"
+          TopLeft="478,146" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Output]"
+          TopLeft="478,118">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="-7.5,49">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,45"
+                    Point2="-22.5,49"
+                    Point3="-18.5,49" />
+                  <mssgle:LineSegment
+                    End="-7.5,49" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

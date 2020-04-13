@@ -1,0 +1,2075 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/21/2019 9:09:22 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{45A8B635-0047-468C-B728-6D35A6761997}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{A84845B1-F0BF-468A-B738-B532F3BF45C0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Ejecutar SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{55d092c4-9637-4987-b28d-9829d5653aef}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Ejecutar SQL"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F925E963-088A-418E-A103-BCB260635F83}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE&#xA;[DWH_BOSONIT-NTER].[dbo].[Clientes]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{16e42944-c998-46b5-bd13-f86444de8b3a}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdCliente"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_IdCliente]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_AliasCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_AliasCliente"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_AliasCliente]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_CIF]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_CIF"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_CIF]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[b_ClOperativo]"
+                      cachedDataType="numeric"
+                      cachedName="b_ClOperativo"
+                      cachedPrecision="20"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_ClOperativo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_DenominacionSocial]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DenominacionSocial"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DenominacionSocial]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_EmpResp]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_EmpResp"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_EmpResp]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_DomicilioSocialDir]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DomicilioSocialDir"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DomicilioSocialDir]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_DomicilioSocialCp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DomicilioSocialCp"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DomicilioSocialCp]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_DireccionPostalDir]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionPostalDir"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionPostalDir]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_DireccionPostalCp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionPostalCp"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionPostalCp]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_DireccionFacturacionDir]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionFacturacionDir"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionFacturacionDir]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_DireccionFacturacionCp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DireccionFacturacionCp"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionFacturacionCp]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[b_RegistroCompleto]"
+                      cachedDataType="numeric"
+                      cachedName="b_RegistroCompleto"
+                      cachedPrecision="20"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_RegistroCompleto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[b_Interno]"
+                      cachedDataType="numeric"
+                      cachedName="b_Interno"
+                      cachedPrecision="20"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_Interno]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_FAX]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_FAX"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_FAX]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_Mail]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Mail"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Mail]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_Contacto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Contacto"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Contacto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_Telefono]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Telefono"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Telefono]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_Movilcontacto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Movilcontacto"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Movilcontacto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[TS_Alta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="TS_Alta"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[TS_Alta]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[b_IsSales]"
+                      cachedDataType="numeric"
+                      cachedName="b_IsSales"
+                      cachedPrecision="20"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_IsSales]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[b_AprobacionFacturas]"
+                      cachedDataType="numeric"
+                      cachedName="b_AprobacionFacturas"
+                      cachedPrecision="20"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_AprobacionFacturas]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_CodAssgnFact]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_CodAssgnFact"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_CodAssgnFact]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_GeografiaJrq]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="s_GeografiaJrq"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_GeografiaJrq]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[s_ClienteJrq]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="s_ClienteJrq"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_ClienteJrq]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[IDCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[IDCliente]"
+                      name="IDCliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_IdCliente]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[AliasCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[AliasCliente]"
+                      name="AliasCliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_AliasCliente]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[CIF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[CIF]"
+                      name="CIF"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_CIF]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ClienteOperativo]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ClienteOperativo]"
+                      name="ClienteOperativo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_ClOperativo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DenominacionSocial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DenominacionSocial]"
+                      name="DenominacionSocial"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DenominacionSocial]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[EmpresaResponsable]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[EmpresaResponsable]"
+                      name="EmpresaResponsable"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_EmpResp]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DomicilioSocialDireccion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DomicilioSocialDireccion]"
+                      name="DomicilioSocialDireccion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DomicilioSocialDir]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DomicilioSocialCP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DomicilioSocialCP]"
+                      name="DomicilioSocialCP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DomicilioSocialCp]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DireccionPostalDireccion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DireccionPostalDireccion]"
+                      name="DireccionPostalDireccion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionPostalDir]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DireccionPostalCP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DireccionPostalCP]"
+                      name="DireccionPostalCP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionPostalCp]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DireccionFacturacionDireccion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DireccionFacturacionDireccion]"
+                      name="DireccionFacturacionDireccion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionFacturacionDir]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DireccionFacturacionCP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DireccionFacturacionCP]"
+                      name="DireccionFacturacionCP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionFacturacionCp]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[RegistroCompleto]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[RegistroCompleto]"
+                      name="RegistroCompleto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_RegistroCompleto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Interno]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Interno]"
+                      name="Interno"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_Interno]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[FAX]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[FAX]"
+                      name="FAX"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_FAX]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Correo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Correo]"
+                      name="Correo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Mail]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Contacto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Contacto]"
+                      name="Contacto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Contacto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Telefono]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Telefono]"
+                      name="Telefono"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Telefono]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[MovilContacto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[MovilContacto]"
+                      name="MovilContacto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Movilcontacto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[TS_Alta]"
+                      name="TS_Alta"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[TS_Alta]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[IsVentas]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[IsVentas]"
+                      name="IsVentas"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_IsSales]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[AprobacionFacturas]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[AprobacionFacturas]"
+                      name="AprobacionFacturas"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_AprobacionFacturas]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[CodigoAsignacionFacturacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[CodigoAsignacionFacturacion]"
+                      name="CodigoAsignacionFacturacion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_CodAssgnFact]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[GeografiaJrq]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[GeografiaJrq]"
+                      name="GeografiaJrq"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_GeografiaJrq]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ClienteJrq]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ClienteJrq]"
+                      name="ClienteJrq"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_ClienteJrq]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Clientes]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  connectionManagerRefId="{F925E963-088A-418E-A103-BCB260635F83}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IDCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="IDCliente"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDCliente]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[IDCliente]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[AliasCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AliasCliente"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[AliasCliente]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[AliasCliente]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CIF]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CIF"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CIF]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[CIF]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DenominacionSocial]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DenominacionSocial"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DenominacionSocial]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DenominacionSocial]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[EmpresaResponsable]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="EmpresaResponsable"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[EmpresaResponsable]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[EmpresaResponsable]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DomicilioSocialDireccion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DomicilioSocialDireccion"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DomicilioSocialDireccion]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DomicilioSocialDireccion]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DomicilioSocialCP]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="DomicilioSocialCP"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DomicilioSocialCP]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DomicilioSocialCP]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DireccionPostalDireccion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DireccionPostalDireccion"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DireccionPostalDireccion]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DireccionPostalDireccion]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DireccionPostalCP]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DireccionPostalCP"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DireccionPostalCP]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DireccionPostalCP]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DireccionFacturacionDireccion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DireccionFacturacionDireccion"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DireccionFacturacionDireccion]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DireccionFacturacionDireccion]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DireccionFacturacionCP]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DireccionFacturacionCP"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DireccionFacturacionCP]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[DireccionFacturacionCP]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[RegistroCompleto]"
+                      cachedDataType="i1"
+                      cachedName="RegistroCompleto"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[RegistroCompleto]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[RegistroCompleto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Interno]"
+                      cachedDataType="i1"
+                      cachedName="Interno"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Interno]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Interno]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FAX]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="FAX"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FAX]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[FAX]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Correo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Correo"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Correo]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Correo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Contacto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Contacto"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Contacto]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Contacto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Telefono]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="Telefono"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telefono]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Telefono]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[MovilContacto]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="MovilContacto"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[MovilContacto]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[MovilContacto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IsVentas]"
+                      cachedDataType="i1"
+                      cachedName="IsVentas"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IsVentas]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[IsVentas]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[AprobacionFacturas]"
+                      cachedDataType="i1"
+                      cachedName="AprobacionFacturas"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[AprobacionFacturas]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[AprobacionFacturas]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CodigoAsignacionFacturacion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CodigoAsignacionFacturacion"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoAsignacionFacturacion]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[CodigoAsignacionFacturacion]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[GeografiaJrq]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="GeografiaJrq"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[GeografiaJrq]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[GeografiaJrq]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ClienteJrq]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ClienteJrq"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ClienteJrq]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ClienteJrq]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ClienteOperativo]"
+                      cachedDataType="i1"
+                      cachedName="ClienteOperativo"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CIienteOperativo]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ClienteOperativo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TS_Alta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="TS_Alta"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_Alta]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[TS_Alta]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDCliente]"
+                      dataType="wstr"
+                      length="25"
+                      name="IDCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[AliasCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="AliasCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CIF]"
+                      dataType="wstr"
+                      length="25"
+                      name="CIF" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DenominacionSocial]"
+                      dataType="wstr"
+                      length="255"
+                      name="DenominacionSocial" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[EmpresaResponsable]"
+                      dataType="wstr"
+                      length="25"
+                      name="EmpresaResponsable" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DomicilioSocialDireccion]"
+                      dataType="wstr"
+                      length="255"
+                      name="DomicilioSocialDireccion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DomicilioSocialCP]"
+                      dataType="wstr"
+                      length="25"
+                      name="DomicilioSocialCP" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DireccionPostalDireccion]"
+                      dataType="wstr"
+                      length="255"
+                      name="DireccionPostalDireccion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DireccionPostalCP]"
+                      dataType="wstr"
+                      length="255"
+                      name="DireccionPostalCP" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DireccionFacturacionDireccion]"
+                      dataType="wstr"
+                      length="255"
+                      name="DireccionFacturacionDireccion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DireccionFacturacionCP]"
+                      dataType="wstr"
+                      length="255"
+                      name="DireccionFacturacionCP" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[RegistroCompleto]"
+                      dataType="i4"
+                      name="RegistroCompleto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Interno]"
+                      dataType="i4"
+                      name="Interno" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FAX]"
+                      dataType="wstr"
+                      length="25"
+                      name="FAX" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Correo]"
+                      dataType="wstr"
+                      length="50"
+                      name="Correo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Contacto]"
+                      dataType="wstr"
+                      length="255"
+                      name="Contacto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telefono]"
+                      dataType="wstr"
+                      length="25"
+                      name="Telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[MovilContacto]"
+                      dataType="wstr"
+                      length="25"
+                      name="MovilContacto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      name="TS_Alta" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IsVentas]"
+                      dataType="i4"
+                      name="IsVentas" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[AprobacionFacturas]"
+                      dataType="i4"
+                      name="AprobacionFacturas" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoAsignacionFacturacion]"
+                      dataType="wstr"
+                      length="255"
+                      name="CodigoAsignacionFacturacion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[GeografiaJrq]"
+                      dataType="wstr"
+                      length="50"
+                      name="GeografiaJrq" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ClienteJrq]"
+                      dataType="wstr"
+                      length="255"
+                      name="ClienteJrq" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CIienteOperativo]"
+                      dataType="i4"
+                      name="CIienteOperativo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Ods"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Ods"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[Mstr_Clientes]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Ods.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_IdCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_IdCliente]"
+                      length="12"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_IdCliente]"
+                      name="s_IdCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_AliasCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_AliasCliente]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_AliasCliente]"
+                      name="s_AliasCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_CIF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_CIF]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_CIF]"
+                      name="s_CIF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_ClOperativo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_ClOperativo]"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_ClOperativo]"
+                      name="b_ClOperativo"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DenominacionSocial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DenominacionSocial]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DenominacionSocial]"
+                      name="s_DenominacionSocial"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_EmpResp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_EmpResp]"
+                      length="12"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_EmpResp]"
+                      name="s_EmpResp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DomicilioSocialDir]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DomicilioSocialDir]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DomicilioSocialDir]"
+                      name="s_DomicilioSocialDir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DomicilioSocialCp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DomicilioSocialCp]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DomicilioSocialCp]"
+                      name="s_DomicilioSocialCp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionPostalDir]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionPostalDir]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionPostalDir]"
+                      name="s_DireccionPostalDir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionPostalCp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionPostalCp]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionPostalCp]"
+                      name="s_DireccionPostalCp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionFacturacionDir]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionFacturacionDir]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionFacturacionDir]"
+                      name="s_DireccionFacturacionDir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionFacturacionCp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionFacturacionCp]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_DireccionFacturacionCp]"
+                      name="s_DireccionFacturacionCp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_RegistroCompleto]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_RegistroCompleto]"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_RegistroCompleto]"
+                      name="b_RegistroCompleto"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_Interno]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Interno]"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_Interno]"
+                      name="b_Interno"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_FAX]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_FAX]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_FAX]"
+                      name="s_FAX"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Mail]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_Mail]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Mail]"
+                      name="s_Mail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Contacto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_Contacto]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Contacto]"
+                      name="s_Contacto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Telefono]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_Telefono]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Telefono]"
+                      name="s_Telefono"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Movilcontacto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_Movilcontacto]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_Movilcontacto]"
+                      name="s_Movilcontacto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[TS_Alta]"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[TS_Alta]"
+                      name="TS_Alta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_IsSales]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_IsSales]"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_IsSales]"
+                      name="b_IsSales"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_AprobacionFacturas]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_AprobacionFacturas]"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[b_AprobacionFacturas]"
+                      name="b_AprobacionFacturas"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_CodAssgnFact]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_CodAssgnFact]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_CodAssgnFact]"
+                      name="s_CodAssgnFact"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_GeografiaJrq]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_GeografiaJrq]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_GeografiaJrq]"
+                      name="s_GeografiaJrq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_ClienteJrq]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_ClienteJrq]"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].Columns[s_ClienteJrq]"
+                      name="s_ClienteJrq"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_Mail]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Mail" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_PendTrat]"
+                      dataType="numeric"
+                      name="b_PendTrat"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_OnTrat]"
+                      dataType="numeric"
+                      name="b_OnTrat"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_PendRev]"
+                      dataType="numeric"
+                      name="b_PendRev"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      name="TS_UltMdf" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_UltUsuMdf" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_IdCliente]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_AliasCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_AliasCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_CIF]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CIF" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_ClOperativo]"
+                      dataType="numeric"
+                      name="b_ClOperativo"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DenominacionSocial]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DenominacionSocial" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_EmpResp]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EmpResp" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DomicilioSocialDir]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialDir" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DomicilioSocialPais]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialPais" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DomicilioSocialProv]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialProv" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DomicilioSocialMun]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialMun" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DomicilioSocialCp]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DomicilioSocialCp" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionPostalDir]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalDir" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionPostalPais]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalPais" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionPostalProv]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalProv" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionPostalMun]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalMun" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionPostalCp]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionPostalCp" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionFacturacionDir]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionDir" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionFacturacionPais]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionPais" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionFacturacionProv]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionProv" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionFacturacionMun]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionMun" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_DireccionFacturacionCp]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DireccionFacturacionCp" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_RegistroCompleto]"
+                      dataType="numeric"
+                      name="b_RegistroCompleto"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Interno]"
+                      dataType="numeric"
+                      name="b_Interno"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_Telefono]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_FAX]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_FAX" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_Contacto]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Contacto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_Movilcontacto]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Movilcontacto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      name="TS_Alta" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_IsSales]"
+                      dataType="numeric"
+                      name="b_IsSales"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[sNivel1]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel1" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[sNivel2]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel2" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[sNivel3]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel3" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[sNivel4]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel4" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[sNivel5]"
+                      dataType="wstr"
+                      length="255"
+                      name="sNivel5" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_AprobacionFacturas]"
+                      dataType="numeric"
+                      name="b_AprobacionFacturas"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_GrpCliID]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_GrpCliID" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_IsOport]"
+                      dataType="numeric"
+                      name="b_IsOport"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_IsFact]"
+                      dataType="numeric"
+                      name="b_IsFact"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_CodAssgnFact]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodAssgnFact" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_GeografiaJrq]"
+                      dataType="wstr"
+                      length="50"
+                      name="s_GeografiaJrq" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_ClienteJrq]"
+                      dataType="wstr"
+                      length="50"
+                      name="s_ClienteJrq" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[b_Intracomunitario]"
+                      dataType="numeric"
+                      name="b_Intracomunitario"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB].ExternalColumns[s_TipoIdentificacion]"
+                      dataType="wstr"
+                      length="2"
+                      name="s_TipoIdentificacion" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_IdCliente]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_IdCliente]"
+                      name="s_IdCliente" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_AliasCliente]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_AliasCliente]"
+                      name="s_AliasCliente" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_CIF]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_CIF]"
+                      name="s_CIF" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[b_ClOperativo]"
+                      dataType="numeric"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[b_ClOperativo]"
+                      name="b_ClOperativo"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DenominacionSocial]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DenominacionSocial]"
+                      name="s_DenominacionSocial" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_EmpResp]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_EmpResp]"
+                      name="s_EmpResp" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DomicilioSocialDir]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DomicilioSocialDir]"
+                      name="s_DomicilioSocialDir" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DomicilioSocialCp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DomicilioSocialCp]"
+                      name="s_DomicilioSocialCp" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DireccionPostalDir]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DireccionPostalDir]"
+                      name="s_DireccionPostalDir" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DireccionPostalCp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DireccionPostalCp]"
+                      name="s_DireccionPostalCp" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DireccionFacturacionDir]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DireccionFacturacionDir]"
+                      name="s_DireccionFacturacionDir" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DireccionFacturacionCp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_DireccionFacturacionCp]"
+                      name="s_DireccionFacturacionCp" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[b_RegistroCompleto]"
+                      dataType="numeric"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[b_RegistroCompleto]"
+                      name="b_RegistroCompleto"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[b_Interno]"
+                      dataType="numeric"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[b_Interno]"
+                      name="b_Interno"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_FAX]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_FAX]"
+                      name="s_FAX" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_Mail]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_Mail]"
+                      name="s_Mail" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_Contacto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_Contacto]"
+                      name="s_Contacto" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_Telefono]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_Telefono]"
+                      name="s_Telefono" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_Movilcontacto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_Movilcontacto]"
+                      name="s_Movilcontacto" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[TS_Alta]"
+                      name="TS_Alta" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[b_IsSales]"
+                      dataType="numeric"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[b_IsSales]"
+                      name="b_IsSales"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[b_AprobacionFacturas]"
+                      dataType="numeric"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[b_AprobacionFacturas]"
+                      name="b_AprobacionFacturas"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_CodAssgnFact]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_CodAssgnFact]"
+                      name="s_CodAssgnFact" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_GeografiaJrq]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_GeografiaJrq]"
+                      name="s_GeografiaJrq" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_ClienteJrq]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de error de origen de OLE DB].Columns[s_ClienteJrq]"
+                      name="s_ClienteJrq" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+              endId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
+              endId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Tarea Flujo de datos\Ods.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{290f76c1-a558-46a1-99f9-1df9abfc97b6}"
+      DTS:From="Package\Tarea Ejecutar SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Tarea Flujo de datos" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,44"
+          Id="Package\Tarea Ejecutar SQL"
+          TopLeft="101,79" />
+        <NodeLayout
+          Size="176,44"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="103.28571432464,152.364706294182" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="190.14285716232,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.3647062941819"
+              Start="0,0"
+              End="0,21.8647062941819">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.8647062941819" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Tarea Flujo de datos\Destino de OLE DB"
+          TopLeft="83.125,128.5" />
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Tarea Flujo de datos\Conversión de datos"
+          TopLeft="83.125,86.4999999999999" />
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Tarea Flujo de datos\Ods"
+          TopLeft="83.125,44.4999999999999" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
+          TopLeft="83.125,65.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.3333333333333"
+              Start="0,0"
+              End="-7.5,36.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,32.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,32.3333333333333"
+                    Point2="-22.5,36.3333333333333"
+                    Point3="-18.5,36.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-7.5,36.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+          TopLeft="83.125,113.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.3333333333334"
+              Start="0,0"
+              End="-7.5,36.3333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,32.3333333333334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,32.3333333333334"
+                    Point2="-22.5,36.3333333333334"
+                    Point3="-18.5,36.3333333333334" />
+                  <mssgle:LineSegment
+                    End="-7.5,36.3333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Ods">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

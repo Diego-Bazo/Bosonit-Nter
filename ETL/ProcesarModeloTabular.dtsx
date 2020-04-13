@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/18/2019 12:49:46 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{F5C3087B-8242-4DDA-B6AC-507819833BDA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="ProcesarModeloTabular"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{6C2EF867-250A-49CF-964C-E89612077FB9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.10.208.BI_BOSONIT-NTER]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{E6D74F13-B05E-4742-B078-4520E4681F89}"
+      DTS:ObjectName="192.168.10.208.BI_BOSONIT-NTER">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.10.208;User ID=Administrator@bosonit.local;Initial Catalog=BI_BOSONIT-NTER;Provider=MSOLAP.8;Impersonation Level=Impersonate;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAyjs4BJK4Eezc2auH3pE0gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABCiEh4rp5D682U5Ho2UQxgAAAAAASAAACgAAAAEAAAABmHzkL+d2dQdXALkcmKXfwYAAAAGpcNPvEr0JOPDMsG+fCJDNIb9JqXIZhbFAAAAPHljiq99196bY4fBTy27sJgTthh</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea de procesamiento de Analysis Services"
+      DTS:CreationName="Microsoft.DTSProcessingTask"
+      DTS:Description="Tarea de procesamiento de Analysis Services"
+      DTS:DTSID="{0EAECEED-1D02-4E18-90FB-22CA0E688267}"
+      DTS:ExecutableType="Microsoft.DTSProcessingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea de procesamiento de Analysis Services"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ASProcessingData
+          ConnectionName="192.168.10.208.BI_BOSONIT-NTER"
+          ProcessingCommands="{&#xA;  &quot;sequence&quot;: {&#xA;    &quot;operations&quot;: [&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;BI_BOSONIT-NTER&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      }&#xA;    ]&#xA;  }&#xA;}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="289.6,41.6"
+          Id="Package\Tarea de procesamiento de Analysis Services"
+          TopLeft="316,132" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[192.168.10.208.BI_BOSONIT-NTER]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

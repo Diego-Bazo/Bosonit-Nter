@@ -1,0 +1,2631 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2019 12:32:59 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{15EEBD9E-66ED-4589-8294-D9EB38C672CD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="NfqtoOds_Gastos_Vw"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{67D6C6B5-5126-4FCE-A21C-F9BA45FEB5C9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Gastos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{16A7FB4C-4107-4DC9-854E-77A4C7C465AF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Gastos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Gastos\NFQ BBDD"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="NFQ BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from o_inf_gastos_Vw</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Gastos\NFQ BBDD.Connections[IDbConnection]"
+                  connectionManagerID="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  connectionManagerRefId="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[AliasCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[AliasCliente]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[AliasCliente]"
+                      name="AliasCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Aprobado]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Aprobado]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Aprobado]"
+                      name="Aprobado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Anulado]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Anulado]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Anulado]"
+                      name="b_Anulado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_CalculaCont]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_CalculaCont]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_CalculaCont]"
+                      name="b_CalculaCont"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_EmitirFacturarCliente]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_EmitirFacturarCliente]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_EmitirFacturarCliente]"
+                      name="b_EmitirFacturarCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_TrtRpt]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_TrtRpt]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_TrtRpt]"
+                      name="b_TrtRpt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[c_Concepto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[c_Concepto]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[c_Concepto]"
+                      name="c_Concepto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DescProyecto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[DescProyecto]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DescProyecto]"
+                      name="DescProyecto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DescTipoGasto]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[DescTipoGasto]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DescTipoGasto]"
+                      name="DescTipoGasto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFImp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateBaseFImp]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFImp]"
+                      name="dFxRateBaseFImp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFIni]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateBaseFIni]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFIni]"
+                      name="dFxRateBaseFIni"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFImp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateEurFImp]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFImp]"
+                      name="dFxRateEurFImp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFIni]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateEurFIni]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFIni]"
+                      name="dFxRateEurFIni"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dImpCurrGasto]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dImpCurrGasto]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dImpCurrGasto]"
+                      name="dImpCurrGasto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dIVACurrGasto]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dIVACurrGasto]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dIVACurrGasto]"
+                      name="dIVACurrGasto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DocScan]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[DocScan]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DocScan]"
+                      name="DocScan"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dPercAjCons]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dPercAjCons]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dPercAjCons]"
+                      name="dPercAjCons"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CosteDirDtl]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteDirDtl]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CosteDirDtl]"
+                      name="d_CosteDirDtl"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CosteDirMed]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteDirMed]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CosteDirMed]"
+                      name="d_CosteDirMed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CosteDirVarDtl]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteDirVarDtl]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CosteDirVarDtl]"
+                      name="d_CosteDirVarDtl"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CosteInDir]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteInDir]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CosteInDir]"
+                      name="d_CosteInDir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Ejercicio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Ejercicio]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Ejercicio]"
+                      name="Ejercicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaImp]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaImp]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaImp]"
+                      name="FechaImp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaInforme]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaInforme]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaInforme]"
+                      name="FechaInforme"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaProceso]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaProceso]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaProceso]"
+                      name="FechaProceso"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaRecepcion]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaRecepcion]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaRecepcion]"
+                      name="FechaRecepcion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierrePrev]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaCierrePrev]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierrePrev]"
+                      name="f_FechaCierrePrev"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierreVenta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaCierreVenta]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierreVenta]"
+                      name="f_FechaCierreVenta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaInicio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaInicio]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaInicio]"
+                      name="f_FechaInicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaIniConta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaIniConta]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaIniConta]"
+                      name="f_FechaIniConta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiq]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaLiq]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiq]"
+                      name="f_FechaLiq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiqIRPF]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaLiqIRPF]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiqIRPF]"
+                      name="f_FechaLiqIRPF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiqIVA]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaLiqIVA]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiqIVA]"
+                      name="f_FechaLiqIVA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[h_LinkRecibos]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[h_LinkRecibos]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[h_LinkRecibos]"
+                      name="h_LinkRecibos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IdCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IdCliente]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IdCliente]"
+                      name="IdCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IdLiquidacion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IdLiquidacion]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IdLiquidacion]"
+                      name="IdLiquidacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IdProyecto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IdProyecto]"
+                      length="100"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IdProyecto]"
+                      name="IdProyecto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IdTipoGasto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IdTipoGasto]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IdTipoGasto]"
+                      name="IdTipoGasto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Empleado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Empleado]"
+                      length="100"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Empleado]"
+                      name="Id_Empleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Factura]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Factura]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Factura]"
+                      name="Id_Factura"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_FacturaCliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_FacturaCliente]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_FacturaCliente]"
+                      name="Id_FacturaCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCC]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC]"
+                      name="id_MvtCCC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCCIRPF]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCCIRPF]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCCIRPF]"
+                      name="id_MvtCCCIRPF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCCIVA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCCIVA]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCCIVA]"
+                      name="id_MvtCCCIVA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Num]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Num]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Num]"
+                      name="Id_Num"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Importe]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Importe]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Importe]"
+                      name="Importe"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndAno]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IndAno]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndAno]"
+                      name="IndAno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndAnoProc]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IndAnoProc]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndAnoProc]"
+                      name="IndAnoProc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndMes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IndMes]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndMes]"
+                      name="IndMes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndMesProc]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IndMesProc]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndMesProc]"
+                      name="IndMesProc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndSem]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IndSem]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndSem]"
+                      name="IndSem"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndSemProc]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IndSemProc]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndSemProc]"
+                      name="IndSemProc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IRPF]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IRPF]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IRPF]"
+                      name="IRPF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IVA]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IVA]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IVA]"
+                      name="IVA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[NombreEmpleado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreEmpleado]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[NombreEmpleado]"
+                      name="NombreEmpleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Observaciones]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Observaciones]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Observaciones]"
+                      name="Observaciones"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ObservacionesAnulacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ObservacionesAnulacion]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ObservacionesAnulacion]"
+                      name="ObservacionesAnulacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[PeriodoImp]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[PeriodoImp]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[PeriodoImp]"
+                      name="PeriodoImp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Procesado]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Procesado]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Procesado]"
+                      name="Procesado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[RemitidoDesde]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[RemitidoDesde]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[RemitidoDesde]"
+                      name="RemitidoDesde"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sCurrBase]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sCurrBase]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sCurrBase]"
+                      name="sCurrBase"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sCurrGasto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sCurrGasto]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sCurrGasto]"
+                      name="sCurrGasto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sOrg]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sOrg]"
+                      length="4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sOrg]"
+                      name="sOrg"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCompany]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_AliasCompany]"
+                      length="225"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCompany]"
+                      name="s_AliasCompany"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CodPedidoExtCL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CodPedidoExtCL]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CodPedidoExtCL]"
+                      name="s_CodPedidoExtCL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CodProyExtCL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CodProyExtCL]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CodProyExtCL]"
+                      name="s_CodProyExtCL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpBal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpBal]"
+                      length="12"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpBal]"
+                      name="s_EpBal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpIRPF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpIRPF]"
+                      length="12"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpIRPF]"
+                      name="s_EpIRPF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpIVA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpIVA]"
+                      length="12"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpIVA]"
+                      name="s_EpIVA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpPyG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpPyG]"
+                      length="12"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpPyG]"
+                      name="s_EpPyG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Id]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Id]"
+                      name="s_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompanyCont]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCompanyCont]"
+                      length="12"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompanyCont]"
+                      name="s_IdCompanyCont"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdPrvCont]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdPrvCont]"
+                      length="12"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdPrvCont]"
+                      name="s_IdPrvCont"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_ObservacionesAnulacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_ObservacionesAnulacion]"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_ObservacionesAnulacion]"
+                      name="s_ObservacionesAnulacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_PeriodoIVA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_PeriodoIVA]"
+                      length="6"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_PeriodoIVA]"
+                      name="s_PeriodoIVA"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[AliasCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="AliasCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Aprobado]"
+                      dataType="i2"
+                      name="Aprobado" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Anulado]"
+                      dataType="i2"
+                      name="b_Anulado" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_CalculaCont]"
+                      dataType="ui8"
+                      name="b_CalculaCont" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_EmitirFacturarCliente]"
+                      dataType="ui8"
+                      name="b_EmitirFacturarCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_TrtRpt]"
+                      dataType="ui8"
+                      name="b_TrtRpt" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[c_Concepto]"
+                      dataType="wstr"
+                      length="255"
+                      name="c_Concepto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[DescProyecto]"
+                      dataType="wstr"
+                      length="255"
+                      name="DescProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[DescTipoGasto]"
+                      dataType="nText"
+                      name="DescTipoGasto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateBaseFImp]"
+                      dataType="r8"
+                      name="dFxRateBaseFImp" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateBaseFIni]"
+                      dataType="r8"
+                      name="dFxRateBaseFIni" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateEurFImp]"
+                      dataType="r8"
+                      name="dFxRateEurFImp" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dFxRateEurFIni]"
+                      dataType="r8"
+                      name="dFxRateEurFIni" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dImpCurrGasto]"
+                      dataType="r8"
+                      name="dImpCurrGasto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dIVACurrGasto]"
+                      dataType="r8"
+                      name="dIVACurrGasto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[DocScan]"
+                      dataType="wstr"
+                      length="255"
+                      name="DocScan" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[dPercAjCons]"
+                      dataType="r8"
+                      name="dPercAjCons" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteDirDtl]"
+                      dataType="r8"
+                      name="d_CosteDirDtl" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteDirMed]"
+                      dataType="r8"
+                      name="d_CosteDirMed" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteDirVarDtl]"
+                      dataType="r8"
+                      name="d_CosteDirVarDtl" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CosteInDir]"
+                      dataType="r8"
+                      name="d_CosteInDir" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Ejercicio]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ejercicio" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaImp]"
+                      dataType="dbTimeStamp"
+                      name="FechaImp" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaInforme]"
+                      dataType="dbTimeStamp"
+                      name="FechaInforme" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaProceso]"
+                      dataType="wstr"
+                      length="255"
+                      name="FechaProceso" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaRecepcion]"
+                      dataType="dbTimeStamp"
+                      name="FechaRecepcion" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaCierrePrev]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaCierrePrev" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaCierreVenta]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaCierreVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaInicio]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaIniConta]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaIniConta" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaLiq]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaLiq" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaLiqIRPF]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaLiqIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_FechaLiqIVA]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaLiqIVA" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[h_LinkRecibos]"
+                      dataType="nText"
+                      name="h_LinkRecibos" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IdCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IdLiquidacion]"
+                      dataType="i4"
+                      name="IdLiquidacion" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IdProyecto]"
+                      dataType="wstr"
+                      length="100"
+                      name="IdProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IdTipoGasto]"
+                      dataType="wstr"
+                      length="255"
+                      name="IdTipoGasto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Empleado]"
+                      dataType="wstr"
+                      length="100"
+                      name="Id_Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Factura]"
+                      dataType="i4"
+                      name="Id_Factura" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_FacturaCliente]"
+                      dataType="i4"
+                      name="Id_FacturaCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCC]"
+                      dataType="i4"
+                      name="id_MvtCCC" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCCIRPF]"
+                      dataType="i4"
+                      name="id_MvtCCCIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCCIVA]"
+                      dataType="i4"
+                      name="id_MvtCCCIVA" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Num]"
+                      dataType="i4"
+                      name="Id_Num" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Importe]"
+                      dataType="r8"
+                      name="Importe" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IndAno]"
+                      dataType="i4"
+                      name="IndAno" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IndAnoProc]"
+                      dataType="i4"
+                      name="IndAnoProc" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IndMes]"
+                      dataType="i4"
+                      name="IndMes" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IndMesProc]"
+                      dataType="i4"
+                      name="IndMesProc" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IndSem]"
+                      dataType="i4"
+                      name="IndSem" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IndSemProc]"
+                      dataType="i4"
+                      name="IndSemProc" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IRPF]"
+                      dataType="r8"
+                      name="IRPF" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[IVA]"
+                      dataType="r8"
+                      name="IVA" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[NombreEmpleado]"
+                      dataType="wstr"
+                      length="255"
+                      name="NombreEmpleado" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Observaciones]"
+                      dataType="wstr"
+                      length="255"
+                      name="Observaciones" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[ObservacionesAnulacion]"
+                      dataType="wstr"
+                      length="255"
+                      name="ObservacionesAnulacion" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[PeriodoImp]"
+                      dataType="dbTimeStamp"
+                      name="PeriodoImp" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Procesado]"
+                      dataType="ui8"
+                      name="Procesado" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[RemitidoDesde]"
+                      dataType="wstr"
+                      length="255"
+                      name="RemitidoDesde" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sCurrBase]"
+                      dataType="wstr"
+                      length="255"
+                      name="sCurrBase" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sCurrGasto]"
+                      dataType="wstr"
+                      length="255"
+                      name="sCurrGasto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[sOrg]"
+                      dataType="wstr"
+                      length="4"
+                      name="sOrg" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_AliasCompany]"
+                      dataType="wstr"
+                      length="225"
+                      name="s_AliasCompany" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CodPedidoExtCL]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodPedidoExtCL" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CodProyExtCL]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodProyExtCL" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpBal]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpBal" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpIRPF]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpIVA]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpIVA" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpPyG]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpPyG" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Id]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCompanyCont]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompanyCont" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdPrvCont]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdPrvCont" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_ObservacionesAnulacion]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_ObservacionesAnulacion" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_PeriodoIVA]"
+                      dataType="wstr"
+                      length="6"
+                      name="s_PeriodoIVA" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[AliasCliente]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[AliasCliente]"
+                      name="AliasCliente" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Aprobado]"
+                      dataType="i2"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Aprobado]"
+                      name="Aprobado" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Anulado]"
+                      dataType="i2"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Anulado]"
+                      name="b_Anulado" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_CalculaCont]"
+                      dataType="ui8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_CalculaCont]"
+                      name="b_CalculaCont" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_EmitirFacturarCliente]"
+                      dataType="ui8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_EmitirFacturarCliente]"
+                      name="b_EmitirFacturarCliente" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_TrtRpt]"
+                      dataType="ui8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_TrtRpt]"
+                      name="b_TrtRpt" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[c_Concepto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[c_Concepto]"
+                      name="c_Concepto" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[DescProyecto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[DescProyecto]"
+                      name="DescProyecto" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[DescTipoGasto]"
+                      dataType="nText"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[DescTipoGasto]"
+                      name="DescTipoGasto" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateBaseFImp]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateBaseFImp]"
+                      name="dFxRateBaseFImp" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateBaseFIni]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateBaseFIni]"
+                      name="dFxRateBaseFIni" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateEurFImp]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateEurFImp]"
+                      name="dFxRateEurFImp" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateEurFIni]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dFxRateEurFIni]"
+                      name="dFxRateEurFIni" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dImpCurrGasto]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dImpCurrGasto]"
+                      name="dImpCurrGasto" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dIVACurrGasto]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dIVACurrGasto]"
+                      name="dIVACurrGasto" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[DocScan]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[DocScan]"
+                      name="DocScan" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dPercAjCons]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[dPercAjCons]"
+                      name="dPercAjCons" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteDirDtl]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteDirDtl]"
+                      name="d_CosteDirDtl" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteDirMed]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteDirMed]"
+                      name="d_CosteDirMed" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteDirVarDtl]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteDirVarDtl]"
+                      name="d_CosteDirVarDtl" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteInDir]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_CosteInDir]"
+                      name="d_CosteInDir" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Ejercicio]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Ejercicio]"
+                      name="Ejercicio" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaImp]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaImp]"
+                      name="FechaImp" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaInforme]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaInforme]"
+                      name="FechaInforme" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaProceso]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaProceso]"
+                      name="FechaProceso" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaRecepcion]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[FechaRecepcion]"
+                      name="FechaRecepcion" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaCierrePrev]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaCierrePrev]"
+                      name="f_FechaCierrePrev" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaCierreVenta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaCierreVenta]"
+                      name="f_FechaCierreVenta" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaInicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaInicio]"
+                      name="f_FechaInicio" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaIniConta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaIniConta]"
+                      name="f_FechaIniConta" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaLiq]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaLiq]"
+                      name="f_FechaLiq" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaLiqIRPF]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaLiqIRPF]"
+                      name="f_FechaLiqIRPF" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaLiqIVA]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_FechaLiqIVA]"
+                      name="f_FechaLiqIVA" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[h_LinkRecibos]"
+                      dataType="nText"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[h_LinkRecibos]"
+                      name="h_LinkRecibos" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IdCliente]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IdCliente]"
+                      name="IdCliente" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IdLiquidacion]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IdLiquidacion]"
+                      name="IdLiquidacion" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IdProyecto]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IdProyecto]"
+                      name="IdProyecto" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IdTipoGasto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IdTipoGasto]"
+                      name="IdTipoGasto" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_Empleado]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_Empleado]"
+                      name="Id_Empleado" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_Factura]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_Factura]"
+                      name="Id_Factura" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_FacturaCliente]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_FacturaCliente]"
+                      name="Id_FacturaCliente" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCC]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCC]"
+                      name="id_MvtCCC" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCCIRPF]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCCIRPF]"
+                      name="id_MvtCCCIRPF" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCCIVA]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCCIVA]"
+                      name="id_MvtCCCIVA" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_Num]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_Num]"
+                      name="Id_Num" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Importe]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Importe]"
+                      name="Importe" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IndAno]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IndAno]"
+                      name="IndAno" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IndAnoProc]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IndAnoProc]"
+                      name="IndAnoProc" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IndMes]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IndMes]"
+                      name="IndMes" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IndMesProc]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IndMesProc]"
+                      name="IndMesProc" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IndSem]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IndSem]"
+                      name="IndSem" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IndSemProc]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IndSemProc]"
+                      name="IndSemProc" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IRPF]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IRPF]"
+                      name="IRPF" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IVA]"
+                      dataType="r8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[IVA]"
+                      name="IVA" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[NombreEmpleado]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[NombreEmpleado]"
+                      name="NombreEmpleado" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Observaciones]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Observaciones]"
+                      name="Observaciones" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ObservacionesAnulacion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ObservacionesAnulacion]"
+                      name="ObservacionesAnulacion" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[PeriodoImp]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[PeriodoImp]"
+                      name="PeriodoImp" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Procesado]"
+                      dataType="ui8"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Procesado]"
+                      name="Procesado" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[RemitidoDesde]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[RemitidoDesde]"
+                      name="RemitidoDesde" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sCurrBase]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sCurrBase]"
+                      name="sCurrBase" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sCurrGasto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sCurrGasto]"
+                      name="sCurrGasto" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sOrg]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[sOrg]"
+                      name="sOrg" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_AliasCompany]"
+                      dataType="wstr"
+                      length="225"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_AliasCompany]"
+                      name="s_AliasCompany" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_CodPedidoExtCL]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_CodPedidoExtCL]"
+                      name="s_CodPedidoExtCL" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_CodProyExtCL]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_CodProyExtCL]"
+                      name="s_CodProyExtCL" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpBal]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpBal]"
+                      name="s_EpBal" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpIRPF]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpIRPF]"
+                      name="s_EpIRPF" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpIVA]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpIVA]"
+                      name="s_EpIVA" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpPyG]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpPyG]"
+                      name="s_EpPyG" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Id]"
+                      name="s_Id" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCompanyCont]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCompanyCont]"
+                      name="s_IdCompanyCont" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdPrvCont]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdPrvCont]"
+                      name="s_IdPrvCont" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_ObservacionesAnulacion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_ObservacionesAnulacion]"
+                      name="s_ObservacionesAnulacion" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_PeriodoIVA]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_PeriodoIVA]"
+                      name="s_PeriodoIVA" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Gastos\ODS BBDD"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ODS BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[Gastos]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Gastos\ODS BBDD.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Id_Empleado]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Id_Empleado"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Empleado]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Empleado]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[NombreEmpleado]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NombreEmpleado"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreEmpleado]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[NombreEmpleado]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[IdProyecto]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="IdProyecto"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProyecto]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IdProyecto]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[DescProyecto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DescProyecto"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[DescProyecto]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DescProyecto]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[PeriodoImp]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PeriodoImp"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[PeriodoImp]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[PeriodoImp]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[FechaImp]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaImp"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaImp]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaImp]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Importe]"
+                      cachedDataType="r8"
+                      cachedName="Importe"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Importe]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Importe]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[IdTipoGasto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IdTipoGasto"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoGasto]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IdTipoGasto]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[DescTipoGasto]"
+                      cachedDataType="nText"
+                      cachedName="DescTipoGasto"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[DescTipoGasto]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DescTipoGasto]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Observaciones]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Observaciones"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Observaciones]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Observaciones]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Aprobado]"
+                      cachedDataType="i2"
+                      cachedName="Aprobado"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Aprobado]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Aprobado]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Procesado]"
+                      cachedDataType="ui8"
+                      cachedName="Procesado"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Procesado]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Procesado]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[RemitidoDesde]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RemitidoDesde"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[RemitidoDesde]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[RemitidoDesde]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[FechaRecepcion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaRecepcion"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaRecepcion]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaRecepcion]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[FechaProceso]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FechaProceso"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaProceso]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaProceso]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[ObservacionesAnulacion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ObservacionesAnulacion"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ObservacionesAnulacion]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[ObservacionesAnulacion]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[IdLiquidacion]"
+                      cachedDataType="i4"
+                      cachedName="IdLiquidacion"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdLiquidacion]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IdLiquidacion]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[h_LinkRecibos]"
+                      cachedDataType="nText"
+                      cachedName="h_LinkRecibos"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[h_LinkRecibos]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[h_LinkRecibos]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Id_Factura]"
+                      cachedDataType="i4"
+                      cachedName="Id_Factura"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Factura]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Factura]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Ejercicio]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Ejercicio"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Ejercicio]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Ejercicio]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_Anulado]"
+                      cachedDataType="i2"
+                      cachedName="b_Anulado"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Anulado]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Anulado]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_ObservacionesAnulacion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_ObservacionesAnulacion"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ObservacionesAnulacion]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_ObservacionesAnulacion]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IdCliente"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCliente]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IdCliente]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[AliasCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AliasCliente"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[AliasCliente]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[AliasCliente]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FechaInicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaInicio"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaInicio]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaInicio]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FechaCierrePrev]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaCierrePrev"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaCierrePrev]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierrePrev]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_CodProyExtCL]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_CodProyExtCL"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodProyExtCL]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CodProyExtCL]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_CodPedidoExtCL]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_CodPedidoExtCL"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodPedidoExtCL]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CodPedidoExtCL]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[DocScan]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DocScan"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[DocScan]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[DocScan]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_EmitirFacturarCliente]"
+                      cachedDataType="ui8"
+                      cachedName="b_EmitirFacturarCliente"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_EmitirFacturarCliente]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_EmitirFacturarCliente]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Id_FacturaCliente]"
+                      cachedDataType="i4"
+                      cachedName="Id_FacturaCliente"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_FacturaCliente]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_FacturaCliente]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[IVA]"
+                      cachedDataType="r8"
+                      cachedName="IVA"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IVA]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IVA]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_Id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Id"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Id]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Id]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[c_Concepto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="c_Concepto"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[c_Concepto]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[c_Concepto]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_CosteDirDtl]"
+                      cachedDataType="r8"
+                      cachedName="d_CosteDirDtl"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteDirDtl]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CosteDirDtl]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_CosteDirMed]"
+                      cachedDataType="r8"
+                      cachedName="d_CosteDirMed"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteDirMed]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CosteDirMed]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_CosteDirVarDtl]"
+                      cachedDataType="r8"
+                      cachedName="d_CosteDirVarDtl"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteDirVarDtl]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CosteDirVarDtl]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_CosteInDir]"
+                      cachedDataType="r8"
+                      cachedName="d_CosteInDir"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteInDir]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CosteInDir]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[sCurrGasto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sCurrGasto"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sCurrGasto]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sCurrGasto]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dImpCurrGasto]"
+                      cachedDataType="r8"
+                      cachedName="dImpCurrGasto"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dImpCurrGasto]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dImpCurrGasto]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dIVACurrGasto]"
+                      cachedDataType="r8"
+                      cachedName="dIVACurrGasto"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dIVACurrGasto]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dIVACurrGasto]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FechaCierreVenta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaCierreVenta"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaCierreVenta]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaCierreVenta]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[sCurrBase]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sCurrBase"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sCurrBase]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sCurrBase]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dFxRateEurFIni]"
+                      cachedDataType="r8"
+                      cachedName="dFxRateEurFIni"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateEurFIni]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFIni]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dFxRateBaseFIni]"
+                      cachedDataType="r8"
+                      cachedName="dFxRateBaseFIni"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateBaseFIni]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFIni]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dFxRateEurFImp]"
+                      cachedDataType="r8"
+                      cachedName="dFxRateEurFImp"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateEurFImp]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateEurFImp]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dFxRateBaseFImp]"
+                      cachedDataType="r8"
+                      cachedName="dFxRateBaseFImp"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateBaseFImp]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dFxRateBaseFImp]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[FechaInforme]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaInforme"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaInforme]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[FechaInforme]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[IndAno]"
+                      cachedDataType="i4"
+                      cachedName="IndAno"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndAno]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndAno]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[IndMes]"
+                      cachedDataType="i4"
+                      cachedName="IndMes"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndMes]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndMes]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[IndSem]"
+                      cachedDataType="i4"
+                      cachedName="IndSem"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndSem]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndSem]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[IndAnoProc]"
+                      cachedDataType="i4"
+                      cachedName="IndAnoProc"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndAnoProc]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndAnoProc]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[IndMesProc]"
+                      cachedDataType="i4"
+                      cachedName="IndMesProc"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndMesProc]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndMesProc]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[IndSemProc]"
+                      cachedDataType="i4"
+                      cachedName="IndSemProc"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndSemProc]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IndSemProc]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_TrtRpt]"
+                      cachedDataType="ui8"
+                      cachedName="b_TrtRpt"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_TrtRpt]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_TrtRpt]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[dPercAjCons]"
+                      cachedDataType="r8"
+                      cachedName="dPercAjCons"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dPercAjCons]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[dPercAjCons]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[IRPF]"
+                      cachedDataType="r8"
+                      cachedName="IRPF"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IRPF]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[IRPF]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdCompanyCont]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdCompanyCont"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompanyCont]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompanyCont]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdPrvCont]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdPrvCont"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdPrvCont]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdPrvCont]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_EpBal]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_EpBal"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpBal]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpBal]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_EpPyG]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_EpPyG"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpPyG]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpPyG]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_EpIVA]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_EpIVA"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpIVA]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpIVA]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_EpIRPF]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_EpIRPF"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpIRPF]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpIRPF]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[id_MvtCCC]"
+                      cachedDataType="i4"
+                      cachedName="id_MvtCCC"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[id_MvtCCCIVA]"
+                      cachedDataType="i4"
+                      cachedName="id_MvtCCCIVA"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCCIVA]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCCIVA]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[id_MvtCCCIRPF]"
+                      cachedDataType="i4"
+                      cachedName="id_MvtCCCIRPF"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCCIRPF]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCCIRPF]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FechaLiq]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaLiq"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaLiq]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiq]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FechaLiqIVA]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaLiqIVA"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaLiqIVA]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiqIVA]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FechaLiqIRPF]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaLiqIRPF"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaLiqIRPF]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaLiqIRPF]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_PeriodoIVA]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="s_PeriodoIVA"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_PeriodoIVA]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_PeriodoIVA]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Id_Num]"
+                      cachedDataType="i4"
+                      cachedName="Id_Num"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Num]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Num]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[sOrg]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="sOrg"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sOrg]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[sOrg]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_CalculaCont]"
+                      cachedDataType="ui8"
+                      cachedName="b_CalculaCont"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_CalculaCont]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_CalculaCont]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_FechaIniConta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_FechaIniConta"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaIniConta]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_FechaIniConta]" />
+                    <inputColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_AliasCompany]"
+                      cachedDataType="wstr"
+                      cachedLength="225"
+                      cachedName="s_AliasCompany"
+                      externalMetadataColumnId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_AliasCompany]"
+                      lineageId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_AliasCompany]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Empleado]"
+                      dataType="wstr"
+                      length="255"
+                      name="Id_Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreEmpleado]"
+                      dataType="wstr"
+                      length="255"
+                      name="NombreEmpleado" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdProyecto]"
+                      dataType="wstr"
+                      length="255"
+                      name="IdProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[DescProyecto]"
+                      dataType="wstr"
+                      length="255"
+                      name="DescProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[PeriodoImp]"
+                      dataType="dbTimeStamp"
+                      name="PeriodoImp" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaImp]"
+                      dataType="dbTimeStamp"
+                      name="FechaImp" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Importe]"
+                      dataType="r8"
+                      name="Importe" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTipoGasto]"
+                      dataType="wstr"
+                      length="255"
+                      name="IdTipoGasto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[DescTipoGasto]"
+                      dataType="nText"
+                      name="DescTipoGasto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Observaciones]"
+                      dataType="wstr"
+                      length="255"
+                      name="Observaciones" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Aprobado]"
+                      dataType="i2"
+                      name="Aprobado" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Procesado]"
+                      dataType="numeric"
+                      name="Procesado"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[RemitidoDesde]"
+                      dataType="wstr"
+                      length="255"
+                      name="RemitidoDesde" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaRecepcion]"
+                      dataType="dbTimeStamp"
+                      name="FechaRecepcion" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaProceso]"
+                      dataType="wstr"
+                      length="255"
+                      name="FechaProceso" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[ObservacionesAnulacion]"
+                      dataType="wstr"
+                      length="255"
+                      name="ObservacionesAnulacion" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdLiquidacion]"
+                      dataType="i4"
+                      name="IdLiquidacion" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[h_LinkRecibos]"
+                      dataType="nText"
+                      name="h_LinkRecibos" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Factura]"
+                      dataType="i4"
+                      name="Id_Factura" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Ejercicio]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ejercicio" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Anulado]"
+                      dataType="i2"
+                      name="b_Anulado" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ObservacionesAnulacion]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_ObservacionesAnulacion" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[AliasCliente]"
+                      dataType="wstr"
+                      length="255"
+                      name="AliasCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaInicio]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaCierrePrev]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaCierrePrev" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodProyExtCL]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodProyExtCL" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodPedidoExtCL]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodPedidoExtCL" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[DocScan]"
+                      dataType="wstr"
+                      length="255"
+                      name="DocScan" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_EmitirFacturarCliente]"
+                      dataType="numeric"
+                      name="b_EmitirFacturarCliente"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_FacturaCliente]"
+                      dataType="i4"
+                      name="Id_FacturaCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IVA]"
+                      dataType="r8"
+                      name="IVA" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Id]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[c_Concepto]"
+                      dataType="wstr"
+                      length="255"
+                      name="c_Concepto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteDirDtl]"
+                      dataType="r8"
+                      name="d_CosteDirDtl" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteDirMed]"
+                      dataType="r8"
+                      name="d_CosteDirMed" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteDirVarDtl]"
+                      dataType="r8"
+                      name="d_CosteDirVarDtl" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CosteInDir]"
+                      dataType="r8"
+                      name="d_CosteInDir" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sCurrGasto]"
+                      dataType="wstr"
+                      length="255"
+                      name="sCurrGasto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dImpCurrGasto]"
+                      dataType="r8"
+                      name="dImpCurrGasto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dIVACurrGasto]"
+                      dataType="r8"
+                      name="dIVACurrGasto" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaCierreVenta]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaCierreVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sCurrBase]"
+                      dataType="wstr"
+                      length="255"
+                      name="sCurrBase" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateEurFIni]"
+                      dataType="r8"
+                      name="dFxRateEurFIni" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateBaseFIni]"
+                      dataType="r8"
+                      name="dFxRateBaseFIni" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateEurFImp]"
+                      dataType="r8"
+                      name="dFxRateEurFImp" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dFxRateBaseFImp]"
+                      dataType="r8"
+                      name="dFxRateBaseFImp" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaInforme]"
+                      dataType="dbTimeStamp"
+                      name="FechaInforme" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndAno]"
+                      dataType="i4"
+                      name="IndAno" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndMes]"
+                      dataType="i4"
+                      name="IndMes" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndSem]"
+                      dataType="i4"
+                      name="IndSem" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndAnoProc]"
+                      dataType="i4"
+                      name="IndAnoProc" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndMesProc]"
+                      dataType="i4"
+                      name="IndMesProc" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IndSemProc]"
+                      dataType="i4"
+                      name="IndSemProc" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_TrtRpt]"
+                      dataType="numeric"
+                      name="b_TrtRpt"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[dPercAjCons]"
+                      dataType="r8"
+                      name="dPercAjCons" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[IRPF]"
+                      dataType="r8"
+                      name="IRPF" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompanyCont]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompanyCont" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdPrvCont]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdPrvCont" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpBal]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpBal" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpPyG]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpPyG" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpIVA]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpIVA" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpIRPF]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC]"
+                      dataType="i4"
+                      name="id_MvtCCC" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCCIVA]"
+                      dataType="i4"
+                      name="id_MvtCCCIVA" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCCIRPF]"
+                      dataType="i4"
+                      name="id_MvtCCCIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaLiq]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaLiq" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaLiqIVA]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaLiqIVA" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaLiqIRPF]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaLiqIRPF" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_PeriodoIVA]"
+                      dataType="wstr"
+                      length="6"
+                      name="s_PeriodoIVA" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Num]"
+                      dataType="i4"
+                      name="Id_Num" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[sOrg]"
+                      dataType="wstr"
+                      length="4"
+                      name="sOrg" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_CalculaCont]"
+                      dataType="numeric"
+                      name="b_CalculaCont"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_FechaIniConta]"
+                      dataType="dbTimeStamp"
+                      name="f_FechaIniConta" />
+                    <externalMetadataColumn
+                      refId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_AliasCompany]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_AliasCompany" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Gastos\ODS BBDD.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Gastos\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Gastos\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Gastos\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Gastos.Paths[Salida de origen de ADO NET]"
+              endId="Package\Gastos\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Gastos\NFQ BBDD.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{B3AE32C1-7DA3-4B0F-89C4-5CEBC5ED6178}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}"
+          SQLTask:SqlStatementSource="truncate table stg.Gastos" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{4237F9F6-A986-4C04-995F-31A53A20B0C9}"
+      DTS:From="Package\Truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Gastos" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Gastos"
+          TopLeft="82,90" />
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Truncate"
+          TopLeft="82,48" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="82,69">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="-7.5,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,38"
+                    Point2="-22.5,42"
+                    Point3="-18.5,42" />
+                  <mssgle:LineSegment
+                    End="-7.5,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Gastos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Gastos\NFQ BBDD"
+          TopLeft="570,108" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Gastos\ODS BBDD"
+          TopLeft="579,374" />
+        <EdgeLayout
+          Id="Package\Gastos.Paths[Salida de origen de ADO NET]"
+          TopLeft="635,150">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,224"
+              Start="0,0"
+              End="9,216.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,108" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,108"
+                    Point2="0,112"
+                    Point3="4,112" />
+                  <mssgle:LineSegment
+                    End="5,112" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,112"
+                    Point2="9,112"
+                    Point3="9,116" />
+                  <mssgle:LineSegment
+                    End="9,216.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Gastos\NFQ BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Gastos\ODS BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

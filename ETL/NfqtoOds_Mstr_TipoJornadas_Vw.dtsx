@@ -1,0 +1,509 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2019 2:16:50 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{45379390-2094-4105-807C-6CE78AFAB781}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="NfqtoOds_Mstr_TipoJornadas_Vw"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{AECE9AB3-7B83-4721-92C1-46E2EE327B5E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\TipoJornadas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{4BAEF1AC-9C4B-4BFE-957A-4E1752102A96}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TipoJornadas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\TipoJornadas\NFQ BBDD"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="NFQ BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+I_HorasEfectivasAnual 
+,I_NumJornadasVacaciones 
+,s_Descripción 
+,s_IDJornada
+,d_FTE
+ from o_mstr_tipojornadas_Vw</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TipoJornadas\NFQ BBDD.Connections[IDbConnection]"
+                  connectionManagerID="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  connectionManagerRefId="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[I_HorasEfectivasAnual]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[I_HorasEfectivasAnual]"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[I_HorasEfectivasAnual]"
+                      name="I_HorasEfectivasAnual"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[I_NumJornadasVacaciones]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[I_NumJornadasVacaciones]"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[I_NumJornadasVacaciones]"
+                      name="I_NumJornadasVacaciones"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DescripciÃ³n]"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DescripciÃ³n]"
+                      name="s_DescripciÃ³n"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IDJornada]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IDJornada]"
+                      length="3"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IDJornada]"
+                      name="s_IDJornada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_FTE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_FTE]"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_FTE]"
+                      name="d_FTE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[I_HorasEfectivasAnual]"
+                      dataType="i4"
+                      name="I_HorasEfectivasAnual" />
+                    <externalMetadataColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[I_NumJornadasVacaciones]"
+                      dataType="i4"
+                      name="I_NumJornadasVacaciones" />
+                    <externalMetadataColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      name="s_DescripciÃ³n" />
+                    <externalMetadataColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IDJornada]"
+                      dataType="wstr"
+                      length="3"
+                      name="s_IDJornada" />
+                    <externalMetadataColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_FTE]"
+                      dataType="r8"
+                      name="d_FTE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[I_HorasEfectivasAnual]"
+                      dataType="i4"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[I_HorasEfectivasAnual]"
+                      name="I_HorasEfectivasAnual" />
+                    <outputColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[I_NumJornadasVacaciones]"
+                      dataType="i4"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[I_NumJornadasVacaciones]"
+                      name="I_NumJornadasVacaciones" />
+                    <outputColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DescripciÃ³n]"
+                      name="s_DescripciÃ³n" />
+                    <outputColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IDJornada]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IDJornada]"
+                      name="s_IDJornada" />
+                    <outputColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_FTE]"
+                      dataType="r8"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_FTE]"
+                      name="d_FTE" />
+                    <outputColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TipoJornadas\ODS BBDD"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ODS BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[Mstr_TipoJornadas]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TipoJornadas\ODS BBDD.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IDJornada]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="s_IDJornada"
+                      externalMetadataColumnId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IDJornada]"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IDJornada]" />
+                    <inputColumn
+                      refId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DescripciÃ³n]"
+                      cachedDataType="nText"
+                      cachedName="s_DescripciÃ³n"
+                      externalMetadataColumnId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DescripciÃ³n]"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DescripciÃ³n]" />
+                    <inputColumn
+                      refId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[I_NumJornadasVacaciones]"
+                      cachedDataType="i4"
+                      cachedName="I_NumJornadasVacaciones"
+                      externalMetadataColumnId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[I_NumJornadasVacaciones]"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[I_NumJornadasVacaciones]" />
+                    <inputColumn
+                      refId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[I_HorasEfectivasAnual]"
+                      cachedDataType="i4"
+                      cachedName="I_HorasEfectivasAnual"
+                      externalMetadataColumnId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[I_HorasEfectivasAnual]"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[I_HorasEfectivasAnual]" />
+                    <inputColumn
+                      refId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_FTE]"
+                      cachedDataType="r8"
+                      cachedName="d_FTE"
+                      externalMetadataColumnId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_FTE]"
+                      lineageId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_FTE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IDJornada]"
+                      dataType="wstr"
+                      length="3"
+                      name="s_IDJornada" />
+                    <externalMetadataColumn
+                      refId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DescripciÃ³n]"
+                      dataType="nText"
+                      name="s_DescripciÃ³n" />
+                    <externalMetadataColumn
+                      refId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[I_NumJornadasVacaciones]"
+                      dataType="i4"
+                      name="I_NumJornadasVacaciones" />
+                    <externalMetadataColumn
+                      refId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[I_HorasEfectivasAnual]"
+                      dataType="i4"
+                      name="I_HorasEfectivasAnual" />
+                    <externalMetadataColumn
+                      refId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_FTE]"
+                      dataType="r4"
+                      name="d_FTE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TipoJornadas\ODS BBDD.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TipoJornadas\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TipoJornadas\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TipoJornadas\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TipoJornadas\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\TipoJornadas.Paths[Salida de origen de ADO NET]"
+              endId="Package\TipoJornadas\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de ADO NET"
+              startId="Package\TipoJornadas\NFQ BBDD.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{15DEB09C-9987-48E7-9470-52AB395EC578}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}"
+          SQLTask:SqlStatementSource="truncate table stg.mstr_tipojornadas" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{881A0C0D-610B-455A-81A2-DA569EB98D41}"
+      DTS:From="Package\Truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\TipoJornadas" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\TipoJornadas"
+          TopLeft="245.142851848991,198.611763985182" />
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Truncate"
+          TopLeft="257.142851848991,96.6117639851817" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="316.642851848991,138.611763985182">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\TipoJornadas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\TipoJornadas\ODS BBDD"
+          TopLeft="544,386" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\TipoJornadas\NFQ BBDD"
+          TopLeft="538,126" />
+        <EdgeLayout
+          Id="Package\TipoJornadas.Paths[Salida de origen de ADO NET]"
+          TopLeft="606,168">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,218"
+              Start="0,0"
+              End="0,210.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,210.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TipoJornadas\NFQ BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TipoJornadas\ODS BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

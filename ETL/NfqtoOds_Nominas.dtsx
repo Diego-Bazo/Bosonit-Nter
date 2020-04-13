@@ -1,0 +1,1734 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2019 1:42:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W10-PT-BI"
+  DTS:CreatorName="BOSONIT\Administrator"
+  DTS:DTSID="{81CF6B8B-CDB8-4B9E-BAF1-01687208B965}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{17B0E865-A999-45AD-9D2C-4AA02B460A3D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Nominas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{3B484958-F021-404B-8E4F-136F919D3EA0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Nominas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Nominas\NFQ BBDD"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="NFQ BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from o_lst_nominas</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Nominas\NFQ BBDD.Connections[IDbConnection]"
+                  connectionManagerID="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  connectionManagerRefId="{16470789-E4D3-4624-99C4-FEE69550D380}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_LiqNomina]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_LiqNomina]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_LiqNomina]"
+                      name="Id_LiqNomina"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_EnvNmn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_EnvNmn]"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_EnvNmn]"
+                      name="Id_EnvNmn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_Cierre]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_Cierre]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_Cierre]"
+                      name="f_Cierre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Cncpt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Cncpt]"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Cncpt]"
+                      name="s_Cncpt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdPersonal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdPersonal]"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdPersonal]"
+                      name="s_IdPersonal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CodEmpExt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CodEmpExt]"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CodEmpExt]"
+                      name="s_CodEmpExt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DscEmp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DscEmp]"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DscEmp]"
+                      name="s_DscEmp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_Brt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_Brt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_Brt]"
+                      name="d_Brt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_Liq]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_Liq]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_Liq]"
+                      name="d_Liq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_SS_TC1]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_SS_TC1]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_SS_TC1]"
+                      name="d_SS_TC1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_IRPF]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_IRPF]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_IRPF]"
+                      name="d_IRPF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CstEmp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CstEmp]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CstEmp]"
+                      name="d_CstEmp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_Dif_SSEMPyRetribVar]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_Dif_SSEMPyRetribVar]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_Dif_SSEMPyRetribVar]"
+                      name="d_Dif_SSEMPyRetribVar"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_RetribFlxbl]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_RetribFlxbl]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_RetribFlxbl]"
+                      name="d_RetribFlxbl"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Dpl]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Dpl]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Dpl]"
+                      name="b_Dpl"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[TS_Alta]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[TS_Alta]"
+                      name="TS_Alta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_ExclLiq]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_ExclLiq]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_ExclLiq]"
+                      name="b_ExclLiq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Pago]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Pago]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Pago]"
+                      name="Id_Pago"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Procesar]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Procesar]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Procesar]"
+                      name="b_Procesar"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompany]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCompany]"
+                      length="12"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompany]"
+                      name="s_IdCompany"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[h_LinkFichero]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[h_LinkFichero]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[h_LinkFichero]"
+                      name="h_LinkFichero"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_BrtAnt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_BrtAnt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_BrtAnt]"
+                      name="d_BrtAnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_LiqAnt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_LiqAnt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_LiqAnt]"
+                      name="d_LiqAnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_SS_TC1Ant]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_SS_TC1Ant]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_SS_TC1Ant]"
+                      name="d_SS_TC1Ant"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_IRPFAnt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_IRPFAnt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_IRPFAnt]"
+                      name="d_IRPFAnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CstEmpAnt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CstEmpAnt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CstEmpAnt]"
+                      name="d_CstEmpAnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_Dif_SSEMPyRetribVarAnt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_Dif_SSEMPyRetribVarAnt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_Dif_SSEMPyRetribVarAnt]"
+                      name="d_Dif_SSEMPyRetribVarAnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_RetribFlxblAnt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_RetribFlxblAnt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_RetribFlxblAnt]"
+                      name="d_RetribFlxblAnt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_ComBruto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_ComBruto]"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_ComBruto]"
+                      name="s_ComBruto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_ComLiq]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_ComLiq]"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_ComLiq]"
+                      name="s_ComLiq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Ok]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Ok]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Ok]"
+                      name="b_Ok"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCC]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC]"
+                      name="id_MvtCCC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_PendTrat]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_PendTrat]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_PendTrat]"
+                      name="b_PendTrat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_OnTrat]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_OnTrat]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_OnTrat]"
+                      name="b_OnTrat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC_SS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCC_SS]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC_SS]"
+                      name="id_MvtCCC_SS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC_IRPF]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCC_IRPF]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC_IRPF]"
+                      name="id_MvtCCC_IRPF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_ModifManual]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_ModifManual]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_ModifManual]"
+                      name="b_ModifManual"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[TS_UltMdf]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[TS_UltMdf]"
+                      name="TS_UltMdf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_UltUsuMdf]"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_UltUsuMdf]"
+                      name="s_UltUsuMdf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_OtherImp1]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_OtherImp1]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_OtherImp1]"
+                      name="d_OtherImp1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_OtherMov]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_OtherMov]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_OtherMov]"
+                      name="d_OtherMov"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_SS_Emp]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_SS_Emp]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_SS_Emp]"
+                      name="d_SS_Emp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Finiquito]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Finiquito]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Finiquito]"
+                      name="b_Finiquito"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Indemnizacion]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Indemnizacion]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Indemnizacion]"
+                      name="b_Indemnizacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_Mvt_Rtf]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_Mvt_Rtf]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_Mvt_Rtf]"
+                      name="id_Mvt_Rtf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Bono]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Bono]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Bono]"
+                      name="b_Bono"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpPyG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpPyG]"
+                      length="12"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpPyG]"
+                      name="s_EpPyG"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_LiqNomina]"
+                      dataType="i4"
+                      name="Id_LiqNomina" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_EnvNmn]"
+                      dataType="wstr"
+                      length="255"
+                      name="Id_EnvNmn" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[f_Cierre]"
+                      dataType="dbTimeStamp"
+                      name="f_Cierre" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_Cncpt]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Cncpt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdPersonal]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_IdPersonal" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_CodEmpExt]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodEmpExt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_DscEmp]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DscEmp" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_Brt]"
+                      dataType="r8"
+                      name="d_Brt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_Liq]"
+                      dataType="r8"
+                      name="d_Liq" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_SS_TC1]"
+                      dataType="r8"
+                      name="d_SS_TC1" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_IRPF]"
+                      dataType="r8"
+                      name="d_IRPF" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CstEmp]"
+                      dataType="r8"
+                      name="d_CstEmp" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_Dif_SSEMPyRetribVar]"
+                      dataType="r8"
+                      name="d_Dif_SSEMPyRetribVar" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_RetribFlxbl]"
+                      dataType="r8"
+                      name="d_RetribFlxbl" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Dpl]"
+                      dataType="ui8"
+                      name="b_Dpl" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      name="TS_Alta" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_ExclLiq]"
+                      dataType="ui8"
+                      name="b_ExclLiq" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Pago]"
+                      dataType="i4"
+                      name="Id_Pago" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Procesar]"
+                      dataType="ui8"
+                      name="b_Procesar" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_IdCompany]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompany" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[h_LinkFichero]"
+                      dataType="nText"
+                      name="h_LinkFichero" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_BrtAnt]"
+                      dataType="r8"
+                      name="d_BrtAnt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_LiqAnt]"
+                      dataType="r8"
+                      name="d_LiqAnt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_SS_TC1Ant]"
+                      dataType="r8"
+                      name="d_SS_TC1Ant" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_IRPFAnt]"
+                      dataType="r8"
+                      name="d_IRPFAnt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_CstEmpAnt]"
+                      dataType="r8"
+                      name="d_CstEmpAnt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_Dif_SSEMPyRetribVarAnt]"
+                      dataType="r8"
+                      name="d_Dif_SSEMPyRetribVarAnt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_RetribFlxblAnt]"
+                      dataType="r8"
+                      name="d_RetribFlxblAnt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_ComBruto]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_ComBruto" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_ComLiq]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_ComLiq" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Ok]"
+                      dataType="ui8"
+                      name="b_Ok" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCC]"
+                      dataType="i4"
+                      name="id_MvtCCC" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_PendTrat]"
+                      dataType="ui8"
+                      name="b_PendTrat" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_OnTrat]"
+                      dataType="ui8"
+                      name="b_OnTrat" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCC_SS]"
+                      dataType="i4"
+                      name="id_MvtCCC_SS" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_MvtCCC_IRPF]"
+                      dataType="i4"
+                      name="id_MvtCCC_IRPF" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_ModifManual]"
+                      dataType="ui8"
+                      name="b_ModifManual" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      name="TS_UltMdf" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_UltUsuMdf" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_OtherImp1]"
+                      dataType="r8"
+                      name="d_OtherImp1" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_OtherMov]"
+                      dataType="i4"
+                      name="d_OtherMov" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[d_SS_Emp]"
+                      dataType="r8"
+                      name="d_SS_Emp" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Finiquito]"
+                      dataType="ui8"
+                      name="b_Finiquito" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Indemnizacion]"
+                      dataType="ui8"
+                      name="b_Indemnizacion" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[id_Mvt_Rtf]"
+                      dataType="i4"
+                      name="id_Mvt_Rtf" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[b_Bono]"
+                      dataType="ui8"
+                      name="b_Bono" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].ExternalColumns[s_EpPyG]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpPyG" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_LiqNomina]"
+                      dataType="i4"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_LiqNomina]"
+                      name="Id_LiqNomina" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_EnvNmn]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_EnvNmn]"
+                      name="Id_EnvNmn" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_Cierre]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[f_Cierre]"
+                      name="f_Cierre" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Cncpt]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_Cncpt]"
+                      name="s_Cncpt" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdPersonal]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdPersonal]"
+                      name="s_IdPersonal" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_CodEmpExt]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_CodEmpExt]"
+                      name="s_CodEmpExt" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DscEmp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_DscEmp]"
+                      name="s_DscEmp" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_Brt]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_Brt]"
+                      name="d_Brt" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_Liq]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_Liq]"
+                      name="d_Liq" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_SS_TC1]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_SS_TC1]"
+                      name="d_SS_TC1" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_IRPF]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_IRPF]"
+                      name="d_IRPF" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_CstEmp]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_CstEmp]"
+                      name="d_CstEmp" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_Dif_SSEMPyRetribVar]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_Dif_SSEMPyRetribVar]"
+                      name="d_Dif_SSEMPyRetribVar" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_RetribFlxbl]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_RetribFlxbl]"
+                      name="d_RetribFlxbl" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Dpl]"
+                      dataType="ui8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Dpl]"
+                      name="b_Dpl" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[TS_Alta]"
+                      name="TS_Alta" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_ExclLiq]"
+                      dataType="ui8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_ExclLiq]"
+                      name="b_ExclLiq" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_Pago]"
+                      dataType="i4"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[Id_Pago]"
+                      name="Id_Pago" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Procesar]"
+                      dataType="ui8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Procesar]"
+                      name="b_Procesar" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCompany]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_IdCompany]"
+                      name="s_IdCompany" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[h_LinkFichero]"
+                      dataType="nText"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[h_LinkFichero]"
+                      name="h_LinkFichero" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_BrtAnt]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_BrtAnt]"
+                      name="d_BrtAnt" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_LiqAnt]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_LiqAnt]"
+                      name="d_LiqAnt" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_SS_TC1Ant]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_SS_TC1Ant]"
+                      name="d_SS_TC1Ant" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_IRPFAnt]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_IRPFAnt]"
+                      name="d_IRPFAnt" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_CstEmpAnt]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_CstEmpAnt]"
+                      name="d_CstEmpAnt" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_Dif_SSEMPyRetribVarAnt]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_Dif_SSEMPyRetribVarAnt]"
+                      name="d_Dif_SSEMPyRetribVarAnt" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_RetribFlxblAnt]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_RetribFlxblAnt]"
+                      name="d_RetribFlxblAnt" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_ComBruto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_ComBruto]"
+                      name="s_ComBruto" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_ComLiq]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_ComLiq]"
+                      name="s_ComLiq" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Ok]"
+                      dataType="ui8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Ok]"
+                      name="b_Ok" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCC]"
+                      dataType="i4"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCC]"
+                      name="id_MvtCCC" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_PendTrat]"
+                      dataType="ui8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_PendTrat]"
+                      name="b_PendTrat" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_OnTrat]"
+                      dataType="ui8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_OnTrat]"
+                      name="b_OnTrat" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCC_SS]"
+                      dataType="i4"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCC_SS]"
+                      name="id_MvtCCC_SS" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCC_IRPF]"
+                      dataType="i4"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_MvtCCC_IRPF]"
+                      name="id_MvtCCC_IRPF" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_ModifManual]"
+                      dataType="ui8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_ModifManual]"
+                      name="b_ModifManual" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[TS_UltMdf]"
+                      name="TS_UltMdf" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_UltUsuMdf]"
+                      name="s_UltUsuMdf" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_OtherImp1]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_OtherImp1]"
+                      name="d_OtherImp1" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_OtherMov]"
+                      dataType="i4"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_OtherMov]"
+                      name="d_OtherMov" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_SS_Emp]"
+                      dataType="r8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[d_SS_Emp]"
+                      name="d_SS_Emp" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Finiquito]"
+                      dataType="ui8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Finiquito]"
+                      name="b_Finiquito" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Indemnizacion]"
+                      dataType="ui8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Indemnizacion]"
+                      name="b_Indemnizacion" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_Mvt_Rtf]"
+                      dataType="i4"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[id_Mvt_Rtf]"
+                      name="id_Mvt_Rtf" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Bono]"
+                      dataType="ui8"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[b_Bono]"
+                      name="b_Bono" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpPyG]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[s_EpPyG]"
+                      name="s_EpPyG" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Nominas\ODS BBDD"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ODS BBDD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[Nominas]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Nominas\ODS BBDD.Connections[OleDbConnection]"
+                  connectionManagerID="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  connectionManagerRefId="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}:invalid"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Id_LiqNomina]"
+                      cachedDataType="i4"
+                      cachedName="Id_LiqNomina"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_LiqNomina]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_LiqNomina]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Id_EnvNmn]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Id_EnvNmn"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_EnvNmn]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_EnvNmn]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[f_Cierre]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="f_Cierre"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_Cierre]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[f_Cierre]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_Cncpt]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_Cncpt"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Cncpt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_Cncpt]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdPersonal]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_IdPersonal"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdPersonal]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdPersonal]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_CodEmpExt]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_CodEmpExt"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodEmpExt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_CodEmpExt]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_DscEmp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_DscEmp"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DscEmp]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_DscEmp]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_Brt]"
+                      cachedDataType="r8"
+                      cachedName="d_Brt"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Brt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_Brt]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_Liq]"
+                      cachedDataType="r8"
+                      cachedName="d_Liq"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Liq]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_Liq]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_SS_TC1]"
+                      cachedDataType="r8"
+                      cachedName="d_SS_TC1"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_SS_TC1]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_SS_TC1]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_IRPF]"
+                      cachedDataType="r8"
+                      cachedName="d_IRPF"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_IRPF]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_IRPF]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_CstEmp]"
+                      cachedDataType="r8"
+                      cachedName="d_CstEmp"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CstEmp]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CstEmp]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_Dif_SSEMPyRetribVar]"
+                      cachedDataType="r8"
+                      cachedName="d_Dif_SSEMPyRetribVar"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Dif_SSEMPyRetribVar]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_Dif_SSEMPyRetribVar]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_RetribFlxbl]"
+                      cachedDataType="r8"
+                      cachedName="d_RetribFlxbl"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_RetribFlxbl]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_RetribFlxbl]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_Dpl]"
+                      cachedDataType="ui8"
+                      cachedName="b_Dpl"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Dpl]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Dpl]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[TS_Alta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="TS_Alta"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_Alta]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[TS_Alta]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_ExclLiq]"
+                      cachedDataType="ui8"
+                      cachedName="b_ExclLiq"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_ExclLiq]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_ExclLiq]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[Id_Pago]"
+                      cachedDataType="i4"
+                      cachedName="Id_Pago"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Pago]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[Id_Pago]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_Procesar]"
+                      cachedDataType="ui8"
+                      cachedName="b_Procesar"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Procesar]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Procesar]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_IdCompany]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_IdCompany"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompany]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_IdCompany]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[h_LinkFichero]"
+                      cachedDataType="nText"
+                      cachedName="h_LinkFichero"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[h_LinkFichero]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[h_LinkFichero]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_BrtAnt]"
+                      cachedDataType="r8"
+                      cachedName="d_BrtAnt"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_BrtAnt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_BrtAnt]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_LiqAnt]"
+                      cachedDataType="r8"
+                      cachedName="d_LiqAnt"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_LiqAnt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_LiqAnt]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_SS_TC1Ant]"
+                      cachedDataType="r8"
+                      cachedName="d_SS_TC1Ant"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_SS_TC1Ant]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_SS_TC1Ant]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_IRPFAnt]"
+                      cachedDataType="r8"
+                      cachedName="d_IRPFAnt"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_IRPFAnt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_IRPFAnt]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_CstEmpAnt]"
+                      cachedDataType="r8"
+                      cachedName="d_CstEmpAnt"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CstEmpAnt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_CstEmpAnt]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_Dif_SSEMPyRetribVarAnt]"
+                      cachedDataType="r8"
+                      cachedName="d_Dif_SSEMPyRetribVarAnt"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Dif_SSEMPyRetribVarAnt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_Dif_SSEMPyRetribVarAnt]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_RetribFlxblAnt]"
+                      cachedDataType="r8"
+                      cachedName="d_RetribFlxblAnt"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_RetribFlxblAnt]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_RetribFlxblAnt]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_ComBruto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_ComBruto"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ComBruto]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_ComBruto]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_ComLiq]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_ComLiq"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ComLiq]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_ComLiq]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_Ok]"
+                      cachedDataType="ui8"
+                      cachedName="b_Ok"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Ok]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Ok]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[id_MvtCCC]"
+                      cachedDataType="i4"
+                      cachedName="id_MvtCCC"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_PendTrat]"
+                      cachedDataType="ui8"
+                      cachedName="b_PendTrat"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_PendTrat]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_PendTrat]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_OnTrat]"
+                      cachedDataType="ui8"
+                      cachedName="b_OnTrat"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_OnTrat]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_OnTrat]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[id_MvtCCC_SS]"
+                      cachedDataType="i4"
+                      cachedName="id_MvtCCC_SS"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC_SS]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC_SS]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[id_MvtCCC_IRPF]"
+                      cachedDataType="i4"
+                      cachedName="id_MvtCCC_IRPF"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC_IRPF]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_MvtCCC_IRPF]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_ModifManual]"
+                      cachedDataType="ui8"
+                      cachedName="b_ModifManual"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_ModifManual]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_ModifManual]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[TS_UltMdf]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="TS_UltMdf"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_UltMdf]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[TS_UltMdf]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_UltUsuMdf]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="s_UltUsuMdf"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_UltUsuMdf]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_UltUsuMdf]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_OtherImp1]"
+                      cachedDataType="r8"
+                      cachedName="d_OtherImp1"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_OtherImp1]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_OtherImp1]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_OtherMov]"
+                      cachedDataType="i4"
+                      cachedName="d_OtherMov"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_OtherMov]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_OtherMov]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[d_SS_Emp]"
+                      cachedDataType="r8"
+                      cachedName="d_SS_Emp"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_SS_Emp]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[d_SS_Emp]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_Finiquito]"
+                      cachedDataType="ui8"
+                      cachedName="b_Finiquito"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Finiquito]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Finiquito]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_Indemnizacion]"
+                      cachedDataType="ui8"
+                      cachedName="b_Indemnizacion"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Indemnizacion]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Indemnizacion]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[id_Mvt_Rtf]"
+                      cachedDataType="i4"
+                      cachedName="id_Mvt_Rtf"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_Mvt_Rtf]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[id_Mvt_Rtf]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[b_Bono]"
+                      cachedDataType="ui8"
+                      cachedName="b_Bono"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Bono]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[b_Bono]" />
+                    <inputColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].Columns[s_EpPyG]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="s_EpPyG"
+                      externalMetadataColumnId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpPyG]"
+                      lineageId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET].Columns[s_EpPyG]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_LiqNomina]"
+                      dataType="i4"
+                      name="Id_LiqNomina" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_EnvNmn]"
+                      dataType="wstr"
+                      length="255"
+                      name="Id_EnvNmn" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[f_Cierre]"
+                      dataType="dbTimeStamp"
+                      name="f_Cierre" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_Cncpt]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_Cncpt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdPersonal]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_IdPersonal" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_CodEmpExt]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_CodEmpExt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_DscEmp]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_DscEmp" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Brt]"
+                      dataType="r8"
+                      name="d_Brt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Liq]"
+                      dataType="r8"
+                      name="d_Liq" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_SS_TC1]"
+                      dataType="r8"
+                      name="d_SS_TC1" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_IRPF]"
+                      dataType="r8"
+                      name="d_IRPF" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CstEmp]"
+                      dataType="r8"
+                      name="d_CstEmp" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Dif_SSEMPyRetribVar]"
+                      dataType="r8"
+                      name="d_Dif_SSEMPyRetribVar" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_RetribFlxbl]"
+                      dataType="r8"
+                      name="d_RetribFlxbl" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Dpl]"
+                      dataType="numeric"
+                      name="b_Dpl"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_Alta]"
+                      dataType="dbTimeStamp"
+                      name="TS_Alta" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_ExclLiq]"
+                      dataType="numeric"
+                      name="b_ExclLiq"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id_Pago]"
+                      dataType="i4"
+                      name="Id_Pago" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Procesar]"
+                      dataType="numeric"
+                      name="b_Procesar"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_IdCompany]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_IdCompany" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[h_LinkFichero]"
+                      dataType="nText"
+                      name="h_LinkFichero" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_BrtAnt]"
+                      dataType="r8"
+                      name="d_BrtAnt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_LiqAnt]"
+                      dataType="r8"
+                      name="d_LiqAnt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_SS_TC1Ant]"
+                      dataType="r8"
+                      name="d_SS_TC1Ant" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_IRPFAnt]"
+                      dataType="r8"
+                      name="d_IRPFAnt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_CstEmpAnt]"
+                      dataType="r8"
+                      name="d_CstEmpAnt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_Dif_SSEMPyRetribVarAnt]"
+                      dataType="r8"
+                      name="d_Dif_SSEMPyRetribVarAnt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_RetribFlxblAnt]"
+                      dataType="r8"
+                      name="d_RetribFlxblAnt" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ComBruto]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_ComBruto" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_ComLiq]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_ComLiq" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Ok]"
+                      dataType="numeric"
+                      name="b_Ok"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC]"
+                      dataType="i4"
+                      name="id_MvtCCC" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_PendTrat]"
+                      dataType="numeric"
+                      name="b_PendTrat"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_OnTrat]"
+                      dataType="numeric"
+                      name="b_OnTrat"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC_SS]"
+                      dataType="i4"
+                      name="id_MvtCCC_SS" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_MvtCCC_IRPF]"
+                      dataType="i4"
+                      name="id_MvtCCC_IRPF" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_ModifManual]"
+                      dataType="numeric"
+                      name="b_ModifManual"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[TS_UltMdf]"
+                      dataType="dbTimeStamp"
+                      name="TS_UltMdf" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_UltUsuMdf]"
+                      dataType="wstr"
+                      length="255"
+                      name="s_UltUsuMdf" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_OtherImp1]"
+                      dataType="r8"
+                      name="d_OtherImp1" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_OtherMov]"
+                      dataType="i4"
+                      name="d_OtherMov" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[d_SS_Emp]"
+                      dataType="r8"
+                      name="d_SS_Emp" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Finiquito]"
+                      dataType="numeric"
+                      name="b_Finiquito"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Indemnizacion]"
+                      dataType="numeric"
+                      name="b_Indemnizacion"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_Mvt_Rtf]"
+                      dataType="i4"
+                      name="id_Mvt_Rtf" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[b_Bono]"
+                      dataType="numeric"
+                      name="b_Bono"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB].ExternalColumns[s_EpPyG]"
+                      dataType="wstr"
+                      length="12"
+                      name="s_EpPyG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Nominas\ODS BBDD.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nominas\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Nominas\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Nominas\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Nominas\ODS BBDD.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Nominas.Paths[Salida de origen de ADO NET]"
+              endId="Package\Nominas\ODS BBDD.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Nominas\NFQ BBDD.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{1251b55e-16e0-4ed1-be7b-30b1a4a521b9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B131D13-2B23-4CF8-9054-B44BA6FF6D66}"
+          SQLTask:SqlStatementSource="truncate table stg.Nominas" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{0A58F5D0-F1AA-4DD9-85A9-80C6F43B14DC}"
+      DTS:From="Package\Truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Nominas" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Nominas"
+          TopLeft="334.428567467904,222.588234993826" />
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Truncate"
+          TopLeft="331.428567467904,119.588234993826" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="393.178567467904,161.588234993826">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Nominas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Nominas\NFQ BBDD"
+          TopLeft="542,124" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Nominas\ODS BBDD"
+          TopLeft="539,333" />
+        <EdgeLayout
+          Id="Package\Nominas.Paths[Salida de origen de ADO NET]"
+          TopLeft="605.5,166">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,167"
+              Start="0,0"
+              End="0,159.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,159.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nominas\NFQ BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nominas\ODS BBDD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
